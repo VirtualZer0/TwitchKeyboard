@@ -121,4 +121,58 @@
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="t_caseSensitive" xml:space="preserve">
+    <value>Case-sensitive</value>
+  </data>
+  <data name="t_contains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="t_duplicateTrigger" xml:space="preserve">
+    <value>Duplicate trigger</value>
+  </data>
+  <data name="t_equals" xml:space="preserve">
+    <value>Equals</value>
+  </data>
+  <data name="t_ifRepeated" xml:space="preserve">
+    <value>If repeated</value>
+  </data>
+  <data name="t_ifRepeatedToolTip" xml:space="preserve">
+    <value>If enabled, this trigger is fired if several messages within the specified time match the condition of this trigger</value>
+  </data>
+  <data name="t_message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="t_removeTrigger" xml:space="preserve">
+    <value>Remove trigger</value>
+  </data>
+  <data name="t_resetTimerOnRepeat" xml:space="preserve">
+    <value>Reset timer on repeat</value>
+  </data>
+  <data name="t_resetTimerOnRepeatToolTip" xml:space="preserve">
+    <value>If enabled, with each new message that matches the trigger, the wait timer will be reset to the previously specified value, which will increase the time available to activate the required number of repeats</value>
+  </data>
+  <data name="t_reward" xml:space="preserve">
+    <value>Reward</value>
+  </data>
+  <data name="t_seconds" xml:space="preserve">
+    <value>seconds</value>
+  </data>
+  <data name="t_selectAction" xml:space="preserve">
+    <value>[Select]</value>
+  </data>
+  <data name="t_text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="t_timesInTheLast" xml:space="preserve">
+    <value>times in the last</value>
+  </data>
+  <data name="t_triggerOn" xml:space="preserve">
+    <value>Trigger on</value>
+  </data>
+  <data name="t_uniqueUsers" xml:space="preserve">
+    <value>Unique users</value>
+  </data>
+  <data name="t_uniqueUsersToolTip" xml:space="preserve">
+    <value>If enabled, the trigger will only count messages from new users. If a person with the same nickname spam the trigger activation several times, this will not be counted</value>
+  </data>
 </root>

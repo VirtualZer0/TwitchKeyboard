@@ -1,0 +1,57 @@
+﻿<Window x:Name="keyRuleEditorWindow" x:Class="TwitchKeyboard.Windows.Editors.KeyRuleEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TwitchKeyboard.Windows.Editors"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:tk="clr-namespace:TwitchKeyboard.Components"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Key rule editor" Height="650" Width="720" WindowStyle="ToolWindow" MinWidth="600" PreviewKeyDown="keyRuleEditorWindow_PreviewKeyDown">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="12,12,12,12">
+            <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" >Add new key rule</TextBlock>
+            <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold">Events</TextBlock>
+            <StackPanel x:Name="eventsContainer">
+
+            </StackPanel>
+            <Border BorderBrush="#FF673AB7" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
+            <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,16" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click">+ Add new event</Button>
+            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12">Keys</TextBlock>
+            <tk:KeysContainer x:Name="keysContainer" Margin="0,0,0,8" OnAddKeyPressed="keysContainer_OnAddKeyPressed" OnKeyRemove="keysContainer_OnKeyRemove"/>
+            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12">Settings</TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Cooldown:</TextBlock>
+                <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0">s</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Delay:</TextBlock>
+                <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0">s</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Mode:</TextBlock>
+                <RadioButton x:Name="keyModePressRadio" GroupName="keyMode" Content="Press" Margin="0,0,12,0" IsChecked="True" Click="keyModePressRadio_Click" />
+                <RadioButton x:Name="keyModeSpamRadio" GroupName="keyMode" Content="Spam" Margin="0,0,12,0" Click="keyModeSpamRadio_Click" />
+                <RadioButton x:Name="keyModeHoldRadio" GroupName="keyMode" Content="Hold" Margin="0,0,24,0" Click="keyModeHoldRadio_Click" />
+            </StackPanel>
+            <StackPanel x:Name="keyDuration" Orientation="Horizontal" Margin="0,0,0,32" Visibility="Collapsed">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Duration:</TextBlock>
+                <TextBox x:Name="durationValue" MinWidth="40" Text="3" HorizontalContentAlignment="Center"/>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0">s</TextBlock>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click">Save</Button>
+                <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click">Cacnel</Button>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

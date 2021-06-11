@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="TwitchKeyboard.Components.TwitchConnect"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:local="clr-namespace:TwitchKeyboard.Components"
+            mc:Ignorable="d"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            xmlns:res="clr-namespace:TwitchKeyboard.Properties"
+            TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+            TextElement.FontWeight="Regular"
+            TextElement.FontSize="16"
+            TextOptions.TextFormattingMode="Ideal" 
+            TextOptions.TextRenderingMode="Auto"
+            FontFamily="{DynamicResource MaterialDesignFont}">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
+            <TextBox x:Name="channelName" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Your channel name" MinWidth="160" Margin="0,0,16,0"></TextBox>
+            <Button x:Name="connectButton" VerticalAlignment="Center" Click="connectButton_Click" Cursor="Hand" materialDesign:ButtonProgressAssist.IsIndeterminate="True" >Connect</Button>
+        </StackPanel>
+        <materialDesign:Chip x:Name="connectionStatus"
+                            Content="Disconnected"
+                            IconBackground="#FF9E9E9E"
+                            IconForeground="{DynamicResource MaterialDesignDarkForeground}" HorizontalAlignment="Center" Background="#3F9E9E9E">
+            <materialDesign:Chip.Icon>
+                <materialDesign:PackIcon Kind="MessageBulletedOff"/>
+            </materialDesign:Chip.Icon>
+        </materialDesign:Chip>
+    </StackPanel>
+</UserControl>

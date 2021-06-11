@@ -69,5 +69,167 @@ namespace TwitchKeyboard.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Case-sensitive.
+        /// </summary>
+        public static string t_caseSensitive {
+            get {
+                return ResourceManager.GetString("t_caseSensitive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Contains.
+        /// </summary>
+        public static string t_contains {
+            get {
+                return ResourceManager.GetString("t_contains", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Duplicate trigger.
+        /// </summary>
+        public static string t_duplicateTrigger {
+            get {
+                return ResourceManager.GetString("t_duplicateTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Equals.
+        /// </summary>
+        public static string t_equals {
+            get {
+                return ResourceManager.GetString("t_equals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на If repeated.
+        /// </summary>
+        public static string t_ifRepeated {
+            get {
+                return ResourceManager.GetString("t_ifRepeated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на If enabled, this trigger is fired if several messages within the specified time match the condition of this trigger.
+        /// </summary>
+        public static string t_ifRepeatedToolTip {
+            get {
+                return ResourceManager.GetString("t_ifRepeatedToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Message.
+        /// </summary>
+        public static string t_message {
+            get {
+                return ResourceManager.GetString("t_message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Remove trigger.
+        /// </summary>
+        public static string t_removeTrigger {
+            get {
+                return ResourceManager.GetString("t_removeTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reset timer on repeat.
+        /// </summary>
+        public static string t_resetTimerOnRepeat {
+            get {
+                return ResourceManager.GetString("t_resetTimerOnRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на If enabled, with each new message that matches the trigger, the wait timer will be reset to the previously specified value, which will increase the time available to activate the required number of repeats.
+        /// </summary>
+        public static string t_resetTimerOnRepeatToolTip {
+            get {
+                return ResourceManager.GetString("t_resetTimerOnRepeatToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reward.
+        /// </summary>
+        public static string t_reward {
+            get {
+                return ResourceManager.GetString("t_reward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на seconds.
+        /// </summary>
+        public static string t_seconds {
+            get {
+                return ResourceManager.GetString("t_seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на [Select].
+        /// </summary>
+        public static string t_selectAction {
+            get {
+                return ResourceManager.GetString("t_selectAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Text.
+        /// </summary>
+        public static string t_text {
+            get {
+                return ResourceManager.GetString("t_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на times in the last.
+        /// </summary>
+        public static string t_timesInTheLast {
+            get {
+                return ResourceManager.GetString("t_timesInTheLast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Trigger on.
+        /// </summary>
+        public static string t_triggerOn {
+            get {
+                return ResourceManager.GetString("t_triggerOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unique users.
+        /// </summary>
+        public static string t_uniqueUsers {
+            get {
+                return ResourceManager.GetString("t_uniqueUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на If enabled, the trigger will only count messages from new users. If a person with the same nickname spam the trigger activation several times, this will not be counted.
+        /// </summary>
+        public static string t_uniqueUsersToolTip {
+            get {
+                return ResourceManager.GetString("t_uniqueUsersToolTip", resourceCulture);
+            }
+        }
     }
 }
