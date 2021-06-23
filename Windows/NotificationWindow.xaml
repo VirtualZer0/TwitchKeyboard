@@ -1,0 +1,29 @@
+﻿<Window x:Class="TwitchKeyboard.Windows.NotificationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TwitchKeyboard.Windows"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:TwitchKeyboard.Components" xmlns:rulelists="clr-namespace:TwitchKeyboard.Components.RuleLists"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Notification window" Height="300" Width="500" AllowsTransparency="True" 
+        WindowStyle="None" 
+        Background="Transparent">
+    <WindowChrome.WindowChrome>
+        <WindowChrome     
+        CaptionHeight="1"  
+        CornerRadius ="0"
+        ResizeBorderThickness="4"         
+        GlassFrameThickness="0">
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
+    <Border BorderThickness="2,12,2,2" BorderBrush="#CC808080" MouseLeftButtonDown="Border_MouseLeftButtonDown" Background="#00000000">
+        <WrapPanel x:Name="indicatorsContainer" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,0,0"/>
+    </Border>
+</Window>

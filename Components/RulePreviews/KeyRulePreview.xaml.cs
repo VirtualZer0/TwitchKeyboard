@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using TwitchKeyboard.Classes;
 using TwitchKeyboard.Classes.Rules;
 
-namespace TwitchKeyboard.Components
+namespace TwitchKeyboard.Components.RulePreviews
 {
     /// <summary>
     /// Логика взаимодействия для KeyRulePreview.xaml
@@ -46,17 +46,11 @@ namespace TwitchKeyboard.Components
         {
             if (rule.keys.Count > 0)
             {
-                string keysDesc = "";
-                for (int i = 0; i < rule.keys.Count; i++)
-                {
-                    keysDesc += $"{KeyInterop.KeyFromVirtualKey((int)rule.keys[i])}+";
-                }
-
-                keysText.Text = keysDesc[0..^1];
+                keysText.Text = rule.GetName();
             }
 
-            modeText.Text = $"{rule.mode} mode";
-            eventsText.Text = $"{rule.events.Count} events";
+            modeText.Text = $"{rule.mode}";
+            eventsText.Text = $"{rule.events.Count} {Properties.Resources.t_events}";
         }
 
         private void removeRuleButton_Click(object sender, RoutedEventArgs e)

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitchKeyboard.Windows"
+        xmlns:res="clr-namespace:TwitchKeyboard.Properties"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:TwitchKeyboard.Components" xmlns:rulelists="clr-namespace:TwitchKeyboard.Components.RuleLists"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -13,7 +14,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Twitch Keyboard" Height="680" Width="900" StateChanged="mainWindow_StateChanged">
+        Title="Twitch Keyboard" Height="680" Width="900" StateChanged="mainWindow_StateChanged" Closing="mainWindow_Closing">
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="34" />
@@ -60,6 +61,7 @@
             </Grid>
 
             <Grid Margin="12,12,12,12"  Grid.Row="1" x:Name="AppArea">
+
                 <TabControl x:Name="tabControl" Style="{StaticResource MaterialDesignNavigatilRailTabControl}" Padding="8,0,0,0">
                     <TabItem x:Name="mainTab"
                         Header="{materialDesign:PackIcon Kind=Home, Size=24}"
@@ -69,22 +71,22 @@
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
-                                    <RowDefinition/>
+                                    <RowDefinition Height="2*"/>
                                 </Grid.RowDefinitions>
                                 <StackPanel>
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,26">
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,24">
                                         <Image Source="pack://application:,,,/Resources/logo.png" VerticalAlignment="Top" HorizontalAlignment="Center" Width="45" Height="45" Margin="0,0,16,0" Stretch="Uniform"/>
                                         <TextBlock VerticalAlignment="Center" FontSize="24">Twitch Keyboard</TextBlock>
                                     </StackPanel>
-                                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12">Channel</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_channel}"/>
                                     <components:TwitchConnect x:Name="twitchConnect" Margin="0,0,0,32" OnActionClick="twitchConnect_OnActionClick"/>
-                                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12">Control panel</TextBlock>
+                                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_controlPanel}"/>
                                 </StackPanel>
                                 <Grid Grid.Row="1" Height="363" VerticalAlignment="Top">
                                     <Grid.RowDefinitions>
                                         <RowDefinition/>
-                                        <RowDefinition Height="3*"/>
-                                        <RowDefinition Height="3*"/>
+                                        <RowDefinition Height="4*"/>
+                                        <RowDefinition Height="4*"/>
                                     </Grid.RowDefinitions>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="1*"/>
@@ -95,125 +97,110 @@
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-                                        <ToggleButton VerticalAlignment="Center" Margin="0,0,8,0"/>
-                                        <TextBlock VerticalAlignment="Center">Notifications window</TextBlock>
+                                        <ToggleButton x:Name="notificationWindowSwitcher" VerticalAlignment="Center" Margin="0,0,8,0" Click="notificationWindowSwitcher_Click"/>
+                                        <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.t_notificationsWindow}"/>
                                     </StackPanel>
-                                    <materialDesign:Card Margin="8,8,8,0" Grid.Row="1" Height="150" Grid.ColumnSpan="2">
+                                    <materialDesign:Card Margin="8,0,8,0" Grid.Row="1" Height="150" Grid.ColumnSpan="2">
                                         <StackPanel Margin="8,8,8,8">
                                             <StackPanel Margin="0,0,0,12" HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <materialDesign:PackIcon Kind="Keyboard" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0"/>
-                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0">Keyboard</TextBlock>
-                                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Width="24" Height="24" HorizontalAlignment="Stretch">
-                                                    <materialDesign:PackIcon Kind="Settings" Width="18" Height="18"/>
-                                                </Button>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0" Text="{x:Static res:Resources.t_keyboard}"/>
                                             </StackPanel>
-                                            <ListBox Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16">
+                                            <ListBox x:Name="keyRuleSwitch" Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16" Tag="KEYBOARD" SelectionChanged="toggleManager">
                                                 <ListBoxItem Content="On" />
                                                 <ListBoxItem Content="Off" />
                                             </ListBox>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Show notifications</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,8">
+                                                <ToggleButton x:Name="indicatorKeyRuleSwitch" Margin="0,0,8,0" Tag="KEYBOARD" Click="indicatorRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_showNotifications}"/>
                                             </StackPanel>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Play sound</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,24">
+                                                <ToggleButton x:Name="soundKeyRuleSwitch" Margin="0,0,8,0" Tag="KEYBOARD" Click="soundRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_playSound}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
 
-                                    <materialDesign:Card Margin="8,8,8,0" Grid.Column="2" Grid.Row="1"  Height="150" Grid.ColumnSpan="2">
+                                    <materialDesign:Card Margin="8,0,8,0" Grid.Column="2" Grid.Row="1"  Height="150" Grid.ColumnSpan="2">
                                         <StackPanel Margin="8,8,8,8">
                                             <StackPanel Margin="0,0,0,12" HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <materialDesign:PackIcon Kind="Mouse" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0"/>
-                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0">Mouse</TextBlock>
-                                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Width="24" Height="24" HorizontalAlignment="Stretch">
-                                                    <materialDesign:PackIcon Kind="Settings" Width="18" Height="18"/>
-                                                </Button>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0" Text="{x:Static res:Resources.t_mouse}"/>
                                             </StackPanel>
-                                            <ListBox Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16">
+                                            <ListBox x:Name="mouseRuleSwitch" Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16" Tag="MOUSE" SelectionChanged="toggleManager">
                                                 <ListBoxItem Content="On" />
                                                 <ListBoxItem Content="Off" />
                                             </ListBox>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Show notifications</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,8">
+                                                <ToggleButton x:Name="indicatorMouseRuleSwitch" Margin="0,0,8,0" Tag="MOUSE" Click="indicatorRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_showNotifications}"/>
                                             </StackPanel>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Play sound</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,24">
+                                                <ToggleButton x:Name="soundMouseRuleSwitch" Margin="0,0,8,0" Tag="MOUSE" Click="soundRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_playSound}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
 
-                                    <materialDesign:Card Margin="8,8,8,0" Grid.Column="4" Grid.Row="1"  Height="150" Grid.ColumnSpan="2">
+                                    <materialDesign:Card Margin="8,0,8,0" Grid.Column="4" Grid.Row="1"  Height="150" Grid.ColumnSpan="2">
                                         <StackPanel Margin="8,8,8,8">
                                             <StackPanel Margin="0,0,0,12" HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <materialDesign:PackIcon Kind="VolumeHigh" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0"/>
-                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0">SFX</TextBlock>
-                                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Width="24" Height="24" HorizontalAlignment="Stretch">
-                                                    <materialDesign:PackIcon Kind="Settings" Width="18" Height="18"/>
-                                                </Button>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0" Text="{x:Static res:Resources.t_sfx}"/>
                                             </StackPanel>
-                                            <ListBox Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="0" HorizontalAlignment="Center" Margin="0,0,0,16">
+                                            <ListBox x:Name="sfxRuleSwitch" Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16" Tag="SFX" SelectionChanged="toggleManager">
                                                 <ListBoxItem Content="On" />
-                                                <ListBoxItem Content="Off" />
+                                                <ListBoxItem Content="Off"/>
                                             </ListBox>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Show notifications</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,8">
+                                                <ToggleButton x:Name="indicatorSfxRuleSwitch" Margin="0,0,8,0" Tag="SFX" Click="indicatorRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_showNotifications}"/>
                                             </StackPanel>
-                                            <DockPanel Margin="0,0,0,22">
-                                                <TextBlock VerticalAlignment="Center" Margin="0,0,10,0">Volume</TextBlock>
-                                                <Slider Minimum="0" Maximum="50" Value="100" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" SmallChange="1" TickPlacement="None" />
+                                            <DockPanel Margin="0,0,2,22">
+                                                <TextBlock VerticalAlignment="Center" Margin="0,0,10,0" Text="{x:Static res:Resources.t_volume}"/>
+                                                <Slider x:Name="volumeSfxRuleSlider" Minimum="0" Maximum="100" Value="100" HorizontalContentAlignment="Stretch" VerticalAlignment="Center" SmallChange="1" TickPlacement="None" PreviewMouseLeftButtonUp="volumeSfxRuleSlider_PreviewMouseLeftButtonUp" AutoToolTipPlacement="TopLeft" />
                                             </DockPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
 
-                                    <materialDesign:Card Margin="8,8,8,0" Grid.Column="1" Grid.Row="2"  Height="150" Grid.ColumnSpan="2">
+                                    <materialDesign:Card Margin="8,0,8,0" Grid.Column="1" Grid.Row="2"  Height="150" Grid.ColumnSpan="2">
                                         <StackPanel Margin="8,8,8,8">
                                             <StackPanel Margin="0,0,0,12" HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <materialDesign:PackIcon Kind="Web" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0"/>
                                                 <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0">HTTP</TextBlock>
-                                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Width="24" Height="24" HorizontalAlignment="Stretch">
-                                                    <materialDesign:PackIcon Kind="Settings" Width="18" Height="18"/>
-                                                </Button>
                                             </StackPanel>
-                                            <ListBox Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16">
+                                            <ListBox x:Name="webRuleSwitch" Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16" Tag="WEB" SelectionChanged="toggleManager">
                                                 <ListBoxItem Content="On" />
                                                 <ListBoxItem Content="Off" />
                                             </ListBox>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Show notifications</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,8">
+                                                <ToggleButton x:Name="indicatorWebRuleSwitch" Margin="0,0,8,0" Tag="WEB" Click="indicatorRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_showNotifications}"/>
                                             </StackPanel>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Play sound</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,24">
+                                                <ToggleButton x:Name="soundWebRuleSwitch" Margin="0,0,8,0" Tag="WEB" Click="soundRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_playSound}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
 
-                                    <materialDesign:Card Margin="8,8,8,0" Grid.Column="3" Grid.Row="2"  Height="150" Grid.ColumnSpan="2">
+                                    <materialDesign:Card Margin="8,0,8,0" Grid.Column="3" Grid.Row="2"  Height="150" Grid.ColumnSpan="2">
                                         <StackPanel Margin="8,8,8,8">
                                             <StackPanel Margin="0,0,0,12" HorizontalAlignment="Center" Orientation="Horizontal">
                                                 <materialDesign:PackIcon Kind="Console" VerticalAlignment="Center" Width="24" Height="24" Margin="0,0,10,0"/>
-                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0">Console</TextBlock>
-                                                <Button Style="{StaticResource MaterialDesignIconForegroundButton}" Width="24" Height="24" HorizontalAlignment="Stretch">
-                                                    <materialDesign:PackIcon Kind="Settings" Width="18" Height="18"/>
-                                                </Button>
+                                                <TextBlock HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,12,0" Text="{x:Static res:Resources.t_console}"/>
                                             </StackPanel>
-                                            <ListBox Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16">
+                                            <ListBox x:Name="cmdRuleSwitch" Style="{StaticResource MaterialDesignToolToggleListBox}" SelectedIndex="1" HorizontalAlignment="Center" Margin="0,0,0,16" Tag="CMD" SelectionChanged="toggleManager">
                                                 <ListBoxItem Content="On" />
                                                 <ListBoxItem Content="Off" />
                                             </ListBox>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Show notifications</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,8">
+                                                <ToggleButton x:Name="indicatorCmdRuleSwitch" Margin="0,0,8,0" Tag="CMD" Click="indicatorRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_showNotifications}"/>
                                             </StackPanel>
-                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,24">
-                                                <ToggleButton Margin="0,0,8,0"/>
-                                                <TextBlock>Play sound</TextBlock>
+                                            <StackPanel Orientation="Horizontal" Margin="2,0,0,24">
+                                                <ToggleButton x:Name="soundCmdRuleSwitch" Margin="0,0,8,0" Tag="CMD" Click="soundRuleSwitch_Click"/>
+                                                <TextBlock Text="{x:Static res:Resources.t_playSound}"/>
                                             </StackPanel>
                                         </StackPanel>
                                     </materialDesign:Card>
@@ -223,7 +210,7 @@
                     </TabItem>
 
                     <TabItem x:Name="keyboardTab"
-                        ToolTip="Keyboard rules"
+                        ToolTip="{x:Static res:Resources.t_keyboardRules}"
                         Header="{materialDesign:PackIcon Kind=Keyboard, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
@@ -232,59 +219,81 @@
                     </TabItem>
 
                     <TabItem x:Name="mouseTab"
-                        ToolTip="Mouse rules"
+                        ToolTip="{x:Static res:Resources.t_mouseRules}"
                         Header="{materialDesign:PackIcon Kind=Mouse, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
-                            <rulelists:MouseRuleList/>
+                            <rulelists:MouseRuleList x:Name="mouseRuleList" OnRulesChanged="mouseRuleList_OnRulesChanged"/>
                         </ScrollViewer>
                     </TabItem>
 
                     <TabItem x:Name="sfxTab"
-                        ToolTip="SFX rules"
+                        ToolTip="{x:Static res:Resources.t_sfxRules}"
                         Header="{materialDesign:PackIcon Kind=VolumeHigh, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
-                            <rulelists:SfxRuleList/>
+                            <rulelists:SfxRuleList x:Name="sfxRuleList" OnRulesChanged="sfxRuleList_OnRulesChanged"/>
                         </ScrollViewer>
                     </TabItem>
 
                     <TabItem x:Name="webTab"
-                        ToolTip="HTTP rules"
+                        ToolTip="{x:Static res:Resources.t_httpRules}"
                         Header="{materialDesign:PackIcon Kind=Web, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
-                            <rulelists:WebRuleList/>
+                            <rulelists:WebRuleList x:Name="webRuleList" OnRulesChanged="webRuleList_OnRulesChanged"/>
                         </ScrollViewer>
                     </TabItem>
 
                     <TabItem x:Name="cmdTab"
-                        ToolTip="Console rules"
+                        ToolTip="{x:Static res:Resources.t_consoleRules}"
                         Header="{materialDesign:PackIcon Kind=Console, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
-                            <rulelists:CmdRuleList/>
+                            <rulelists:CmdRuleList x:Name="cmdRuleList" OnRulesChanged="cmdRuleList_OnRulesChanged"/>
                         </ScrollViewer>
                     </TabItem>
 
                     <TabItem x:Name="logTab"
-                        ToolTip="Logs"
+                        ToolTip="{x:Static res:Resources.t_logs}"
                         Header="{materialDesign:PackIcon Kind=FileDocument, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
                             <StackPanel>
-                                <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12">Logs</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_logs}"/>
+                                <ListView x:Name="logList">
+                                    
+                                </ListView>
                             </StackPanel>
                         </ScrollViewer>
                     </TabItem>
 
                     <TabItem x:Name="settingsTab"
-                        ToolTip="Settings"
+                        ToolTip="{x:Static res:Resources.t_settings}"
                         Header="{materialDesign:PackIcon Kind=Settings, Size=24}"
                         Style="{StaticResource MaterialDesignNavigationRailTabItem}">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" MaxWidth="{Binding ActualWidth, ElementName=tabControl, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=tabControl, Mode=OneWay}">
                             <StackPanel>
-                                <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12">Settings</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{Binding Source={x:Static res:Resources.t_theme}, StringFormat='{}{0}:'}"/>
+                                    <ComboBox x:Name="themeList" VerticalAlignment="Center" MinWidth="120" Margin="0,0,24,0" SelectionChanged="themeList_SelectionChanged"/>
+                                    <ToggleButton x:Name="themeDarkMode" Click="themeDarkMode_Click" Margin="0,0,8,0"></ToggleButton>
+                                    <TextBlock VerticalAlignment="Center" Text="{x:Static res:Resources.t_darkMode}"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{Binding Source={x:Static res:Resources.t_notificationSound}, StringFormat='{}{0}:'}"/>
+                                    <Button x:Name="notificationFileButton" MaxWidth="200" Margin="0,0,16,0" Click="notificationFileButton_Click">notify.wav</Button>
+                                    <Slider x:Name="notificationVolumeSlider" VerticalAlignment="Center" MinWidth="150" SmallChange="1" Maximum="100" Value="100" AutoToolTipPlacement="BottomRight" PreviewMouseLeftButtonUp="notificationVolumeSlider_PreviewMouseLeftButtonUp"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                                    <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{Binding Source={x:Static res:Resources.t_language}, StringFormat='{}{0}:'}"/>
+                                    <ComboBox x:Name="languageList" VerticalAlignment="Center" MinWidth="120" Margin="0,0,24,0" SelectedIndex="0" SelectionChanged="languageList_SelectionChanged">
+                                        <ComboBoxItem Content="English"/>
+                                        <ComboBoxItem Content="Русский"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <TextBlock x:Name="restartRequiredText" Text="{x:Static res:Resources.t_restartRequired}" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Visibility="Collapsed"/>
                             </StackPanel>
                         </ScrollViewer>
                     </TabItem>

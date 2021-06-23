@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TwitchKeyboard.Classes.Rules;
+using TwitchKeyboard.Enums;
 
 namespace TwitchKeyboard.Classes.Controllers
 {
@@ -12,6 +13,8 @@ namespace TwitchKeyboard.Classes.Controllers
     /// </summary>
     public class KeyRuleController : BaseRuleController
     {
+        public override ManagerType cType { get => ManagerType.KEYBOARD; }
+
         public int curTime = 0;
     }
 }

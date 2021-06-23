@@ -11,8 +11,8 @@ namespace TwitchKeyboard.Classes
     {
         public TwitchEvent type { get; set; } = TwitchEvent.MESSAGE;
         public string rewardId { get; set; } = null;
-        public int bitsFrom { get; set; } = 10;
-        public int bitsTo { get; set; } = 10;
+        public int amountFrom { get; set; } = 10;
+        public int amountTo { get; set; } = 10;
 
         public bool repeated { get; set; } = false;
         public int repeatTimes { get; set; } = 3;

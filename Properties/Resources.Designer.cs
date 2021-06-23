@@ -71,11 +71,191 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add.
+        /// </summary>
+        public static string t_add {
+            get {
+                return ResourceManager.GetString("t_add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add key.
+        /// </summary>
+        public static string t_addKey {
+            get {
+                return ResourceManager.GetString("t_addKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add new Cmd rule.
+        /// </summary>
+        public static string t_addNewCmdRule {
+            get {
+                return ResourceManager.GetString("t_addNewCmdRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add new HTTP rule.
+        /// </summary>
+        public static string t_addNewHttpRule {
+            get {
+                return ResourceManager.GetString("t_addNewHttpRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add new key rule.
+        /// </summary>
+        public static string t_addNewKeyRule {
+            get {
+                return ResourceManager.GetString("t_addNewKeyRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add new mouse rule.
+        /// </summary>
+        public static string t_addNewMouseRule {
+            get {
+                return ResourceManager.GetString("t_addNewMouseRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add new SFX rule.
+        /// </summary>
+        public static string t_addNewSfxRule {
+            get {
+                return ResourceManager.GetString("t_addNewSfxRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на amount from.
+        /// </summary>
+        public static string t_amountFrom {
+            get {
+                return ResourceManager.GetString("t_amountFrom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Balance.
+        /// </summary>
+        public static string t_balance {
+            get {
+                return ResourceManager.GetString("t_balance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Bits.
+        /// </summary>
+        public static string t_bits {
+            get {
+                return ResourceManager.GetString("t_bits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Body.
+        /// </summary>
+        public static string t_body {
+            get {
+                return ResourceManager.GetString("t_body", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cancel.
+        /// </summary>
+        public static string t_cancel {
+            get {
+                return ResourceManager.GetString("t_cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Case-sensitive.
         /// </summary>
         public static string t_caseSensitive {
             get {
                 return ResourceManager.GetString("t_caseSensitive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Channel.
+        /// </summary>
+        public static string t_channel {
+            get {
+                return ResourceManager.GetString("t_channel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click.
+        /// </summary>
+        public static string t_click {
+            get {
+                return ResourceManager.GetString("t_click", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Command.
+        /// </summary>
+        public static string t_command {
+            get {
+                return ResourceManager.GetString("t_command", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect.
+        /// </summary>
+        public static string t_connect {
+            get {
+                return ResourceManager.GetString("t_connect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connected.
+        /// </summary>
+        public static string t_connected {
+            get {
+                return ResourceManager.GetString("t_connected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connecting....
+        /// </summary>
+        public static string t_connecting {
+            get {
+                return ResourceManager.GetString("t_connecting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Console.
+        /// </summary>
+        public static string t_console {
+            get {
+                return ResourceManager.GetString("t_console", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Console rules.
+        /// </summary>
+        public static string t_consoleRules {
+            get {
+                return ResourceManager.GetString("t_consoleRules", resourceCulture);
             }
         }
         
@@ -89,6 +269,105 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Control panel.
+        /// </summary>
+        public static string t_controlPanel {
+            get {
+                return ResourceManager.GetString("t_controlPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cooldown.
+        /// </summary>
+        public static string t_cooldown {
+            get {
+                return ResourceManager.GetString("t_cooldown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Create preset.
+        /// </summary>
+        public static string t_createPreset {
+            get {
+                return ResourceManager.GetString("t_createPreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Current preset.
+        /// </summary>
+        public static string t_currentPreset {
+            get {
+                return ResourceManager.GetString("t_currentPreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Dark mode.
+        /// </summary>
+        public static string t_darkMode {
+            get {
+                return ResourceManager.GetString("t_darkMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delay.
+        /// </summary>
+        public static string t_delay {
+            get {
+                return ResourceManager.GetString("t_delay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete preset.
+        /// </summary>
+        public static string t_deletePreset {
+            get {
+                return ResourceManager.GetString("t_deletePreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Disconnect.
+        /// </summary>
+        public static string t_disconnect {
+            get {
+                return ResourceManager.GetString("t_disconnect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Disconnected.
+        /// </summary>
+        public static string t_disconnected {
+            get {
+                return ResourceManager.GetString("t_disconnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click.
+        /// </summary>
+        public static string t_doubleClick {
+            get {
+                return ResourceManager.GetString("t_doubleClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Down.
+        /// </summary>
+        public static string t_down {
+            get {
+                return ResourceManager.GetString("t_down", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Duplicate trigger.
         /// </summary>
         public static string t_duplicateTrigger {
@@ -98,11 +377,173 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Duration.
+        /// </summary>
+        public static string t_duration {
+            get {
+                return ResourceManager.GetString("t_duration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit Cmd rule.
+        /// </summary>
+        public static string t_editCmdRule {
+            get {
+                return ResourceManager.GetString("t_editCmdRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit HTTP rule.
+        /// </summary>
+        public static string t_editHttpRule {
+            get {
+                return ResourceManager.GetString("t_editHttpRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit key rule.
+        /// </summary>
+        public static string t_editKeyRule {
+            get {
+                return ResourceManager.GetString("t_editKeyRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit mouse rule.
+        /// </summary>
+        public static string t_editMouseRule {
+            get {
+                return ResourceManager.GetString("t_editMouseRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit rule.
+        /// </summary>
+        public static string t_editRule {
+            get {
+                return ResourceManager.GetString("t_editRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Edit SFX rule.
+        /// </summary>
+        public static string t_editSfxRule {
+            get {
+                return ResourceManager.GetString("t_editSfxRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Empty.
+        /// </summary>
+        public static string t_empty {
+            get {
+                return ResourceManager.GetString("t_empty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Equals.
         /// </summary>
         public static string t_equals {
             get {
                 return ResourceManager.GetString("t_equals", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Error.
+        /// </summary>
+        public static string t_error {
+            get {
+                return ResourceManager.GetString("t_error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на events.
+        /// </summary>
+        public static string t_events {
+            get {
+                return ResourceManager.GetString("t_events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на File.
+        /// </summary>
+        public static string t_file {
+            get {
+                return ResourceManager.GetString("t_file", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Gifted sub.
+        /// </summary>
+        public static string t_giftedSub {
+            get {
+                return ResourceManager.GetString("t_giftedSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Header name.
+        /// </summary>
+        public static string t_headerName {
+            get {
+                return ResourceManager.GetString("t_headerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Headers.
+        /// </summary>
+        public static string t_headers {
+            get {
+                return ResourceManager.GetString("t_headers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Header value.
+        /// </summary>
+        public static string t_headerValue {
+            get {
+                return ResourceManager.GetString("t_headerValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold.
+        /// </summary>
+        public static string t_hold {
+            get {
+                return ResourceManager.GetString("t_hold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на HTTP.
+        /// </summary>
+        public static string t_http {
+            get {
+                return ResourceManager.GetString("t_http", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на HTTP rules.
+        /// </summary>
+        public static string t_httpRules {
+            get {
+                return ResourceManager.GetString("t_httpRules", resourceCulture);
             }
         }
         
@@ -125,6 +566,96 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Joining....
+        /// </summary>
+        public static string t_joining {
+            get {
+                return ResourceManager.GetString("t_joining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Keyboard.
+        /// </summary>
+        public static string t_keyboard {
+            get {
+                return ResourceManager.GetString("t_keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Keyboard rules.
+        /// </summary>
+        public static string t_keyboardRules {
+            get {
+                return ResourceManager.GetString("t_keyboardRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Keys.
+        /// </summary>
+        public static string t_keys {
+            get {
+                return ResourceManager.GetString("t_keys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Language.
+        /// </summary>
+        public static string t_language {
+            get {
+                return ResourceManager.GetString("t_language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на launch.
+        /// </summary>
+        public static string t_launch {
+            get {
+                return ResourceManager.GetString("t_launch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Left.
+        /// </summary>
+        public static string t_left {
+            get {
+                return ResourceManager.GetString("t_left", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Left button.
+        /// </summary>
+        public static string t_leftButton {
+            get {
+                return ResourceManager.GetString("t_leftButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Logs.
+        /// </summary>
+        public static string t_logs {
+            get {
+                return ResourceManager.GetString("t_logs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Loops.
+        /// </summary>
+        public static string t_loops {
+            get {
+                return ResourceManager.GetString("t_loops", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Message.
         /// </summary>
         public static string t_message {
@@ -134,11 +665,227 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Method.
+        /// </summary>
+        public static string t_method {
+            get {
+                return ResourceManager.GetString("t_method", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Middle button.
+        /// </summary>
+        public static string t_middleButton {
+            get {
+                return ResourceManager.GetString("t_middleButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Mode.
+        /// </summary>
+        public static string t_mode {
+            get {
+                return ResourceManager.GetString("t_mode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Mouse.
+        /// </summary>
+        public static string t_mouse {
+            get {
+                return ResourceManager.GetString("t_mouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Mouse rules.
+        /// </summary>
+        public static string t_mouseRules {
+            get {
+                return ResourceManager.GetString("t_mouseRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Move cursor.
+        /// </summary>
+        public static string t_moveCursor {
+            get {
+                return ResourceManager.GetString("t_moveCursor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Name.
+        /// </summary>
+        public static string t_name {
+            get {
+                return ResourceManager.GetString("t_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на New sub.
+        /// </summary>
+        public static string t_newSub {
+            get {
+                return ResourceManager.GetString("t_newSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на No keys.
+        /// </summary>
+        public static string t_noKeys {
+            get {
+                return ResourceManager.GetString("t_noKeys", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на No name.
+        /// </summary>
+        public static string t_noName {
+            get {
+                return ResourceManager.GetString("t_noName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на No SFX.
+        /// </summary>
+        public static string t_noSfx {
+            get {
+                return ResourceManager.GetString("t_noSfx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Notification sound.
+        /// </summary>
+        public static string t_notificationSound {
+            get {
+                return ResourceManager.GetString("t_notificationSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Notifications window.
+        /// </summary>
+        public static string t_notificationsWindow {
+            get {
+                return ResourceManager.GetString("t_notificationsWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pixels per second.
+        /// </summary>
+        public static string t_pixelsPerSecond {
+            get {
+                return ResourceManager.GetString("t_pixelsPerSecond", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Play sound.
+        /// </summary>
+        public static string t_playSound {
+            get {
+                return ResourceManager.GetString("t_playSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на + Add new event.
+        /// </summary>
+        public static string t_plusAddNewEvent {
+            get {
+                return ResourceManager.GetString("t_plusAddNewEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на + Add rule.
+        /// </summary>
+        public static string t_plusAddRule {
+            get {
+                return ResourceManager.GetString("t_plusAddRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Preset.
+        /// </summary>
+        public static string t_preset {
+            get {
+                return ResourceManager.GetString("t_preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press.
+        /// </summary>
+        public static string t_press {
+            get {
+                return ResourceManager.GetString("t_press", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press key.
+        /// </summary>
+        public static string t_pressKey {
+            get {
+                return ResourceManager.GetString("t_pressKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Raid.
+        /// </summary>
+        public static string t_raid {
+            get {
+                return ResourceManager.GetString("t_raid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Remove rule.
+        /// </summary>
+        public static string t_removeRule {
+            get {
+                return ResourceManager.GetString("t_removeRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Remove trigger.
         /// </summary>
         public static string t_removeTrigger {
             get {
                 return ResourceManager.GetString("t_removeTrigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Rename preset.
+        /// </summary>
+        public static string t_renamePreset {
+            get {
+                return ResourceManager.GetString("t_renamePreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Request.
+        /// </summary>
+        public static string t_request {
+            get {
+                return ResourceManager.GetString("t_request", resourceCulture);
             }
         }
         
@@ -161,11 +908,119 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на This setting requires a restart of the application.
+        /// </summary>
+        public static string t_restartRequired {
+            get {
+                return ResourceManager.GetString("t_restartRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ReSub.
+        /// </summary>
+        public static string t_reSub {
+            get {
+                return ResourceManager.GetString("t_reSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Reward.
         /// </summary>
         public static string t_reward {
             get {
                 return ResourceManager.GetString("t_reward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Right.
+        /// </summary>
+        public static string t_right {
+            get {
+                return ResourceManager.GetString("t_right", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Right button.
+        /// </summary>
+        public static string t_rightButton {
+            get {
+                return ResourceManager.GetString("t_rightButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Run command.
+        /// </summary>
+        public static string t_runCommand {
+            get {
+                return ResourceManager.GetString("t_runCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Run file.
+        /// </summary>
+        public static string t_runFile {
+            get {
+                return ResourceManager.GetString("t_runFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Running....
+        /// </summary>
+        public static string t_running {
+            get {
+                return ResourceManager.GetString("t_running", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Run test command.
+        /// </summary>
+        public static string t_runTestCommand {
+            get {
+                return ResourceManager.GetString("t_runTestCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Run test request.
+        /// </summary>
+        public static string t_runTestRequest {
+            get {
+                return ResourceManager.GetString("t_runTestRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на s.
+        /// </summary>
+        public static string t_s {
+            get {
+                return ResourceManager.GetString("t_s", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Save.
+        /// </summary>
+        public static string t_save {
+            get {
+                return ResourceManager.GetString("t_save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Scroll.
+        /// </summary>
+        public static string t_scroll {
+            get {
+                return ResourceManager.GetString("t_scroll", resourceCulture);
             }
         }
         
@@ -179,11 +1034,110 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на [Select].
+        ///   Ищет локализованную строку, похожую на Select.
         /// </summary>
         public static string t_selectAction {
             get {
                 return ResourceManager.GetString("t_selectAction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select audiofile.
+        /// </summary>
+        public static string t_selectAudiofile {
+            get {
+                return ResourceManager.GetString("t_selectAudiofile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select file.
+        /// </summary>
+        public static string t_selectFile {
+            get {
+                return ResourceManager.GetString("t_selectFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select reward.
+        /// </summary>
+        public static string t_selectReward {
+            get {
+                return ResourceManager.GetString("t_selectReward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Set cursor position.
+        /// </summary>
+        public static string t_setCursorPosition {
+            get {
+                return ResourceManager.GetString("t_setCursorPosition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Settings.
+        /// </summary>
+        public static string t_settings {
+            get {
+                return ResourceManager.GetString("t_settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SFX.
+        /// </summary>
+        public static string t_sfx {
+            get {
+                return ResourceManager.GetString("t_sfx", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на SFX rules.
+        /// </summary>
+        public static string t_sfxRules {
+            get {
+                return ResourceManager.GetString("t_sfxRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Show notifications.
+        /// </summary>
+        public static string t_showNotifications {
+            get {
+                return ResourceManager.GetString("t_showNotifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Sound.
+        /// </summary>
+        public static string t_sound {
+            get {
+                return ResourceManager.GetString("t_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Spam.
+        /// </summary>
+        public static string t_spam {
+            get {
+                return ResourceManager.GetString("t_spam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Speed.
+        /// </summary>
+        public static string t_speed {
+            get {
+                return ResourceManager.GetString("t_speed", resourceCulture);
             }
         }
         
@@ -197,6 +1151,15 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Theme.
+        /// </summary>
+        public static string t_theme {
+            get {
+                return ResourceManager.GetString("t_theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на times in the last.
         /// </summary>
         public static string t_timesInTheLast {
@@ -206,11 +1169,29 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на to.
+        /// </summary>
+        public static string t_to {
+            get {
+                return ResourceManager.GetString("t_to", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Trigger on.
         /// </summary>
         public static string t_triggerOn {
             get {
                 return ResourceManager.GetString("t_triggerOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Type.
+        /// </summary>
+        public static string t_type {
+            get {
+                return ResourceManager.GetString("t_type", resourceCulture);
             }
         }
         
@@ -229,6 +1210,78 @@ namespace TwitchKeyboard.Properties {
         public static string t_uniqueUsersToolTip {
             get {
                 return ResourceManager.GetString("t_uniqueUsersToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Up.
+        /// </summary>
+        public static string t_up {
+            get {
+                return ResourceManager.GetString("t_up", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Command.
+        /// </summary>
+        public static string t_upCommand {
+            get {
+                return ResourceManager.GetString("t_upCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Events.
+        /// </summary>
+        public static string t_upEvents {
+            get {
+                return ResourceManager.GetString("t_upEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Volume.
+        /// </summary>
+        public static string t_volume {
+            get {
+                return ResourceManager.GetString("t_volume", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Wait....
+        /// </summary>
+        public static string t_wait {
+            get {
+                return ResourceManager.GetString("t_wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на X speed.
+        /// </summary>
+        public static string t_xSpeed {
+            get {
+                return ResourceManager.GetString("t_xSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Your channel name.
+        /// </summary>
+        public static string t_yourChannelName {
+            get {
+                return ResourceManager.GetString("t_yourChannelName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Y speed.
+        /// </summary>
+        public static string t_ySpeed {
+            get {
+                return ResourceManager.GetString("t_ySpeed", resourceCulture);
             }
         }
     }

@@ -15,9 +15,9 @@
             mc:Ignorable="d">
     <WrapPanel>
         <WrapPanel x:Name="keysPanel" VerticalAlignment="Center"/>
-        <Button x:Name="addKeyButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="Add key" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Margin="0,0,8,8" Click="addKeyButton_Click" Width="40" Height="40" Cursor="Hand">
+        <Button x:Name="addKeyButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_addKey}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Margin="0,0,8,8" Click="addKeyButton_Click" Width="40" Height="40" Cursor="Hand">
             <materialDesign:PackIcon Kind="Plus" Foreground="#FF4CAF50" />
         </Button>
-        <TextBlock x:Name="pressKeyText" VerticalAlignment="Center" FontWeight="Bold" Visibility="Collapsed" Margin="0,0,0,8">Press key</TextBlock>
+        <TextBlock x:Name="pressKeyText" VerticalAlignment="Center" FontWeight="Bold" Visibility="Collapsed" Margin="0,0,0,8" Text="{x:Static res:Resources.t_pressKey}"/>
     </WrapPanel>
 </UserControl>

@@ -18,7 +18,9 @@ namespace TwitchKeyboard.Classes.Controllers
 
         public BaseRule model;
 
-        public void bind()
+        public virtual ManagerType cType { get => ManagerType.MANAGERS_COUNT; } 
+
+        public void Bind()
         {
             triggers = new TwitchTriggerController[model.events.Count];
             for (int i = 0; i < model.events.Count; i++)
@@ -27,5 +29,8 @@ namespace TwitchKeyboard.Classes.Controllers
             }
             this.curDelay = model.delay;
         }
+
+        public virtual void Init() { }
+        public virtual void Destroy() { }
     }
 }

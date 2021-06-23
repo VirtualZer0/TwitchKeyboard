@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TwitchLib.Client;
 using TwitchLib.Client.Models;
@@ -74,15 +75,28 @@ namespace TwitchKeyboard.Classes.Services
         public delegate void OnBitsHandler(object sender, ChatMessage e);
         public event OnBitsHandler OnBits;
 
+        public delegate void OnNewSubscribeHandler(object sender, Subscriber e);
+        public event OnNewSubscribeHandler OnNewSubscribe;
+
+        public delegate void OnReSubscribeHandler(object sender, ReSubscriber e);
+        public event OnReSubscribeHandler OnReSubscribe;
+
+        public delegate void OnGiftSubscribeHandler(object sender, GiftedSubscription e);
+        public event OnGiftSubscribeHandler OnGiftSubscribe;
+
+        public delegate void OnRaidHandler(object sender, RaidNotification e);
+        public event OnRaidHandler OnRaid;
+
         /// <summary>
         /// If true, client won't reconnect after disconnecting
         /// </summary>
         private bool manualDisconnect = false;
+        readonly Random rnd = new();
 
         public TwitchService()
         {
-            Random rnd = new();
-            client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(100, 9999)}", ""));
+            
+            client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
 
             client.OnConnected += Client_OnConnected;
             client.OnJoinedChannel += Client_OnJoinedChannel;
@@ -90,6 +104,30 @@ namespace TwitchKeyboard.Classes.Services
             client.OnDisconnected += Client_OnDisconnected;
 
             client.OnMessageReceived += Client_OnMessageReceived;
+            client.OnNewSubscriber += Client_OnNewSubscriber;
+            client.OnReSubscriber += Client_OnReSubscriber;
+            client.OnGiftedSubscription += Client_OnGiftedSubscription;
+            client.OnRaidNotification += Client_OnRaidNotification;
+        }
+
+        private void Client_OnRaidNotification(object sender, TwitchLib.Client.Events.OnRaidNotificationArgs e)
+        {
+            OnRaid?.Invoke(this, e.RaidNotification);
+        }
+
+        private void Client_OnGiftedSubscription(object sender, TwitchLib.Client.Events.OnGiftedSubscriptionArgs e)
+        {
+            OnGiftSubscribe?.Invoke(this, e.GiftedSubscription);
+        }
+
+        private void Client_OnReSubscriber(object sender, TwitchLib.Client.Events.OnReSubscriberArgs e)
+        {
+            OnReSubscribe?.Invoke(this, e.ReSubscriber);
+        }
+
+        private void Client_OnNewSubscriber(object sender, TwitchLib.Client.Events.OnNewSubscriberArgs e)
+        {
+            OnNewSubscribe?.Invoke(this, e.Subscriber);
         }
 
         private void Client_OnMessageReceived(object sender, TwitchLib.Client.Events.OnMessageReceivedArgs e)
@@ -125,7 +163,16 @@ namespace TwitchKeyboard.Classes.Services
                 return;
             }
 
-            client.Reconnect();
+            Task.Run(() =>
+            {
+                connectionState = TwitchConnectionState.ERROR;
+                OnConnectionStateChanged(this, connectionState);
+
+                Thread.Sleep(2500);
+
+                client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
+                client.Reconnect();
+            });
         }
 
         private void Client_OnConnectionError(object sender, TwitchLib.Client.Events.OnConnectionErrorArgs e)
@@ -163,17 +210,18 @@ namespace TwitchKeyboard.Classes.Services
         /// <returns></returns>
         public async Task JoinChannel(string channel)
         {
-            HttpClient http = new();
-            string request = gqlRewards.Replace("CHANNEL", channel).Replace("\r\n", "").Replace(" ", "");
-            var content = new StringContent(request, Encoding.UTF8, "application/json");
-            http.Timeout = new TimeSpan(0, 0, 5);
-            content.Headers.Add("Client-id", clientId);
-            var response = await http.PostAsync("https://gql.twitch.tv/gql", content);
-            string res = await response.Content.ReadAsStringAsync();
-            customRewards = JsonConvert.DeserializeObject<RewardsRoot[]>(res)[0].data.community.channel.communityPointsSettings.customRewards;
-
             try
             {
+                HttpClient http = new();
+                string request = gqlRewards.Replace("CHANNEL", channel).Replace("\r\n", "").Replace(" ", "");
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+                http.Timeout = new TimeSpan(0, 0, 5);
+                content.Headers.Add("Client-id", clientId);
+                var response = await http.PostAsync("https://gql.twitch.tv/gql", content);
+                string res = await response.Content.ReadAsStringAsync();
+                customRewards = JsonConvert.DeserializeObject<RewardsRoot[]>(res)[0].data.community.channel.communityPointsSettings.customRewards;
+
+            
                 this.channel = channel;
                 client.Connect();
             }

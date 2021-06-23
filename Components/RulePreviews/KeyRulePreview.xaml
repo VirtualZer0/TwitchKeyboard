@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="TwitchKeyboard.Components.KeyRulePreview"
+﻿<UserControl x:Class="TwitchKeyboard.Components.RulePreviews.KeyRulePreview"
             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-            xmlns:local="clr-namespace:TwitchKeyboard.Components"
+            xmlns:local="clr-namespace:TwitchKeyboard.Components.RulePreviews"
             mc:Ignorable="d"
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
             xmlns:res="clr-namespace:TwitchKeyboard.Properties"
@@ -17,20 +17,20 @@
     <Grid>
         <materialDesign:Card>
             <StackPanel x:Name="stackPanel" Margin="0,10,0,0">
-                <TextBlock x:Name="keysText" Text="No keys" HorizontalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,12" MinHeight="35"/>
+                <TextBlock x:Name="keysText" Text="{x:Static res:Resources.t_noKeys}" HorizontalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,12" MinHeight="35"/>
                 <StackPanel Orientation="Horizontal" Margin="6,0,0,4">
                     <materialDesign:PackIcon Margin="0,0,6,0" Kind="GestureTapButton"/>
-                    <TextBlock x:Name="modeText" Text="Press mode" FontSize="12" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="modeText" Text="{x:Static res:Resources.t_press}" FontSize="12" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="6,0,0,16">
                     <materialDesign:PackIcon Margin="0,0,6,0" Kind="Flash"/>
-                    <TextBlock x:Name="eventsText" Text="0 events" FontSize="12" HorizontalAlignment="Left"/>
+                    <TextBlock x:Name="eventsText" Text="{Binding Source={x:Static res:Resources.t_events}, StringFormat='{}0 {0}'}" FontSize="12" HorizontalAlignment="Left"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="removeRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="Remove rule" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Margin="0,0,6,0" Click="removeRuleButton_Click">
+                    <Button x:Name="removeRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_removeRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Margin="0,0,6,0" Click="removeRuleButton_Click">
                         <materialDesign:PackIcon Kind="Close" Width="16" Height="16" Foreground="#FFF44336" />
                     </Button>
-                    <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="Edit rule" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Click="editRuleButton_Click">
+                    <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_editRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Click="editRuleButton_Click">
                         <materialDesign:PackIcon Kind="Edit" Width="16" Height="16"/>
                     </Button>
                 </StackPanel>

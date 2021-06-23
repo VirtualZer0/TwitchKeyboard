@@ -112,26 +112,173 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="t_add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="t_addKey" xml:space="preserve">
+    <value>Add key</value>
+  </data>
+  <data name="t_addNewCmdRule" xml:space="preserve">
+    <value>Add new Cmd rule</value>
+  </data>
+  <data name="t_addNewHttpRule" xml:space="preserve">
+    <value>Add new HTTP rule</value>
+  </data>
+  <data name="t_addNewKeyRule" xml:space="preserve">
+    <value>Add new key rule</value>
+  </data>
+  <data name="t_addNewMouseRule" xml:space="preserve">
+    <value>Add new mouse rule</value>
+  </data>
+  <data name="t_addNewSfxRule" xml:space="preserve">
+    <value>Add new SFX rule</value>
+  </data>
+  <data name="t_amountFrom" xml:space="preserve">
+    <value>amount from</value>
+  </data>
+  <data name="t_balance" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="t_bits" xml:space="preserve">
+    <value>Bits</value>
+  </data>
+  <data name="t_body" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="t_cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="t_caseSensitive" xml:space="preserve">
     <value>Case-sensitive</value>
   </data>
+  <data name="t_channel" xml:space="preserve">
+    <value>Channel</value>
+  </data>
+  <data name="t_click" xml:space="preserve">
+    <value>Click</value>
+  </data>
+  <data name="t_command" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="t_connect" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="t_connected" xml:space="preserve">
+    <value>Connected</value>
+  </data>
+  <data name="t_connecting" xml:space="preserve">
+    <value>Connecting...</value>
+  </data>
+  <data name="t_console" xml:space="preserve">
+    <value>Console</value>
+  </data>
+  <data name="t_consoleRules" xml:space="preserve">
+    <value>Console rules</value>
+  </data>
   <data name="t_contains" xml:space="preserve">
     <value>Contains</value>
+  </data>
+  <data name="t_controlPanel" xml:space="preserve">
+    <value>Control panel</value>
+  </data>
+  <data name="t_cooldown" xml:space="preserve">
+    <value>Cooldown</value>
+  </data>
+  <data name="t_createPreset" xml:space="preserve">
+    <value>Create preset</value>
+  </data>
+  <data name="t_currentPreset" xml:space="preserve">
+    <value>Current preset</value>
+  </data>
+  <data name="t_darkMode" xml:space="preserve">
+    <value>Dark mode</value>
+  </data>
+  <data name="t_delay" xml:space="preserve">
+    <value>Delay</value>
+  </data>
+  <data name="t_deletePreset" xml:space="preserve">
+    <value>Delete preset</value>
+  </data>
+  <data name="t_disconnect" xml:space="preserve">
+    <value>Disconnect</value>
+  </data>
+  <data name="t_disconnected" xml:space="preserve">
+    <value>Disconnected</value>
+  </data>
+  <data name="t_doubleClick" xml:space="preserve">
+    <value>Double click</value>
+  </data>
+  <data name="t_down" xml:space="preserve">
+    <value>Down</value>
   </data>
   <data name="t_duplicateTrigger" xml:space="preserve">
     <value>Duplicate trigger</value>
   </data>
+  <data name="t_duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="t_editCmdRule" xml:space="preserve">
+    <value>Edit Cmd rule</value>
+  </data>
+  <data name="t_editHttpRule" xml:space="preserve">
+    <value>Edit HTTP rule</value>
+  </data>
+  <data name="t_editKeyRule" xml:space="preserve">
+    <value>Edit key rule</value>
+  </data>
+  <data name="t_editMouseRule" xml:space="preserve">
+    <value>Edit mouse rule</value>
+  </data>
+  <data name="t_editRule" xml:space="preserve">
+    <value>Edit rule</value>
+  </data>
+  <data name="t_editSfxRule" xml:space="preserve">
+    <value>Edit SFX rule</value>
+  </data>
+  <data name="t_empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
   <data name="t_equals" xml:space="preserve">
     <value>Equals</value>
+  </data>
+  <data name="t_error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="t_events" xml:space="preserve">
+    <value>events</value>
+  </data>
+  <data name="t_file" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="t_giftedSub" xml:space="preserve">
+    <value>Gifted sub</value>
+  </data>
+  <data name="t_headerName" xml:space="preserve">
+    <value>Header name</value>
+  </data>
+  <data name="t_headers" xml:space="preserve">
+    <value>Headers</value>
+  </data>
+  <data name="t_headerValue" xml:space="preserve">
+    <value>Header value</value>
+  </data>
+  <data name="t_hold" xml:space="preserve">
+    <value>Hold</value>
+  </data>
+  <data name="t_http" xml:space="preserve">
+    <value>HTTP</value>
+  </data>
+  <data name="t_httpRules" xml:space="preserve">
+    <value>HTTP rules</value>
   </data>
   <data name="t_ifRepeated" xml:space="preserve">
     <value>If repeated</value>
@@ -139,11 +286,113 @@
   <data name="t_ifRepeatedToolTip" xml:space="preserve">
     <value>If enabled, this trigger is fired if several messages within the specified time match the condition of this trigger</value>
   </data>
+  <data name="t_joining" xml:space="preserve">
+    <value>Joining...</value>
+  </data>
+  <data name="t_keyboard" xml:space="preserve">
+    <value>Keyboard</value>
+  </data>
+  <data name="t_keyboardRules" xml:space="preserve">
+    <value>Keyboard rules</value>
+  </data>
+  <data name="t_keys" xml:space="preserve">
+    <value>Keys</value>
+  </data>
+  <data name="t_language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="t_launch" xml:space="preserve">
+    <value>launch</value>
+  </data>
+  <data name="t_left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="t_leftButton" xml:space="preserve">
+    <value>Left button</value>
+  </data>
+  <data name="t_logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="t_loops" xml:space="preserve">
+    <value>Loops</value>
+  </data>
   <data name="t_message" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="t_method" xml:space="preserve">
+    <value>Method</value>
+  </data>
+  <data name="t_middleButton" xml:space="preserve">
+    <value>Middle button</value>
+  </data>
+  <data name="t_mode" xml:space="preserve">
+    <value>Mode</value>
+  </data>
+  <data name="t_mouse" xml:space="preserve">
+    <value>Mouse</value>
+  </data>
+  <data name="t_mouseRules" xml:space="preserve">
+    <value>Mouse rules</value>
+  </data>
+  <data name="t_moveCursor" xml:space="preserve">
+    <value>Move cursor</value>
+  </data>
+  <data name="t_name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="t_newSub" xml:space="preserve">
+    <value>New sub</value>
+  </data>
+  <data name="t_noKeys" xml:space="preserve">
+    <value>No keys</value>
+  </data>
+  <data name="t_noName" xml:space="preserve">
+    <value>No name</value>
+  </data>
+  <data name="t_noSfx" xml:space="preserve">
+    <value>No SFX</value>
+  </data>
+  <data name="t_notificationSound" xml:space="preserve">
+    <value>Notification sound</value>
+  </data>
+  <data name="t_notificationsWindow" xml:space="preserve">
+    <value>Notifications window</value>
+  </data>
+  <data name="t_pixelsPerSecond" xml:space="preserve">
+    <value>Pixels per second</value>
+  </data>
+  <data name="t_playSound" xml:space="preserve">
+    <value>Play sound</value>
+  </data>
+  <data name="t_plusAddNewEvent" xml:space="preserve">
+    <value>+ Add new event</value>
+  </data>
+  <data name="t_plusAddRule" xml:space="preserve">
+    <value>+ Add rule</value>
+  </data>
+  <data name="t_preset" xml:space="preserve">
+    <value>Preset</value>
+  </data>
+  <data name="t_press" xml:space="preserve">
+    <value>Press</value>
+  </data>
+  <data name="t_pressKey" xml:space="preserve">
+    <value>Press key</value>
+  </data>
+  <data name="t_raid" xml:space="preserve">
+    <value>Raid</value>
+  </data>
+  <data name="t_removeRule" xml:space="preserve">
+    <value>Remove rule</value>
+  </data>
   <data name="t_removeTrigger" xml:space="preserve">
     <value>Remove trigger</value>
+  </data>
+  <data name="t_renamePreset" xml:space="preserve">
+    <value>Rename preset</value>
+  </data>
+  <data name="t_request" xml:space="preserve">
+    <value>Request</value>
   </data>
   <data name="t_resetTimerOnRepeat" xml:space="preserve">
     <value>Reset timer on repeat</value>
@@ -151,28 +400,130 @@
   <data name="t_resetTimerOnRepeatToolTip" xml:space="preserve">
     <value>If enabled, with each new message that matches the trigger, the wait timer will be reset to the previously specified value, which will increase the time available to activate the required number of repeats</value>
   </data>
+  <data name="t_restartRequired" xml:space="preserve">
+    <value>This setting requires a restart of the application</value>
+  </data>
+  <data name="t_reSub" xml:space="preserve">
+    <value>ReSub</value>
+  </data>
   <data name="t_reward" xml:space="preserve">
     <value>Reward</value>
+  </data>
+  <data name="t_right" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="t_rightButton" xml:space="preserve">
+    <value>Right button</value>
+  </data>
+  <data name="t_runCommand" xml:space="preserve">
+    <value>Run command</value>
+  </data>
+  <data name="t_runFile" xml:space="preserve">
+    <value>Run file</value>
+  </data>
+  <data name="t_running" xml:space="preserve">
+    <value>Running...</value>
+  </data>
+  <data name="t_runTestCommand" xml:space="preserve">
+    <value>Run test command</value>
+  </data>
+  <data name="t_runTestRequest" xml:space="preserve">
+    <value>Run test request</value>
+  </data>
+  <data name="t_s" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="t_save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="t_scroll" xml:space="preserve">
+    <value>Scroll</value>
   </data>
   <data name="t_seconds" xml:space="preserve">
     <value>seconds</value>
   </data>
   <data name="t_selectAction" xml:space="preserve">
-    <value>[Select]</value>
+    <value>Select</value>
+  </data>
+  <data name="t_selectAudiofile" xml:space="preserve">
+    <value>Select audiofile</value>
+  </data>
+  <data name="t_selectFile" xml:space="preserve">
+    <value>Select file</value>
+  </data>
+  <data name="t_selectReward" xml:space="preserve">
+    <value>Select reward</value>
+  </data>
+  <data name="t_setCursorPosition" xml:space="preserve">
+    <value>Set cursor position</value>
+  </data>
+  <data name="t_settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="t_sfx" xml:space="preserve">
+    <value>SFX</value>
+  </data>
+  <data name="t_sfxRules" xml:space="preserve">
+    <value>SFX rules</value>
+  </data>
+  <data name="t_showNotifications" xml:space="preserve">
+    <value>Show notifications</value>
+  </data>
+  <data name="t_sound" xml:space="preserve">
+    <value>Sound</value>
+  </data>
+  <data name="t_spam" xml:space="preserve">
+    <value>Spam</value>
+  </data>
+  <data name="t_speed" xml:space="preserve">
+    <value>Speed</value>
   </data>
   <data name="t_text" xml:space="preserve">
     <value>Text</value>
   </data>
+  <data name="t_theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
   <data name="t_timesInTheLast" xml:space="preserve">
     <value>times in the last</value>
   </data>
+  <data name="t_to" xml:space="preserve">
+    <value>to</value>
+  </data>
   <data name="t_triggerOn" xml:space="preserve">
     <value>Trigger on</value>
+  </data>
+  <data name="t_type" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="t_uniqueUsers" xml:space="preserve">
     <value>Unique users</value>
   </data>
   <data name="t_uniqueUsersToolTip" xml:space="preserve">
     <value>If enabled, the trigger will only count messages from new users. If a person with the same nickname spam the trigger activation several times, this will not be counted</value>
+  </data>
+  <data name="t_up" xml:space="preserve">
+    <value>Up</value>
+  </data>
+  <data name="t_upCommand" xml:space="preserve">
+    <value>Command</value>
+  </data>
+  <data name="t_upEvents" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="t_volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="t_wait" xml:space="preserve">
+    <value>Wait...</value>
+  </data>
+  <data name="t_xSpeed" xml:space="preserve">
+    <value>X speed</value>
+  </data>
+  <data name="t_yourChannelName" xml:space="preserve">
+    <value>Your channel name</value>
+  </data>
+  <data name="t_ySpeed" xml:space="preserve">
+    <value>Y speed</value>
   </data>
 </root>

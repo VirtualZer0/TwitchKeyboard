@@ -15,5 +15,12 @@ namespace TwitchKeyboard.Classes.Rules
         public int duration = 0;
         public int X = 0;
         public int Y = 0;
+        public double speedX = 100;
+        public double speedY = 100;
+
+        public override string GetName()
+        {
+            return ruleType.ToString();
+        }
     }
 }

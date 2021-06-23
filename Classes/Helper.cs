@@ -39,14 +39,19 @@ namespace TwitchKeyboard.Classes
             public static readonly SolidColorBrush bPurpleO = new(Color.FromArgb(63, 103, 58, 183));
         }
 
-        public static string timerIntToString(int i)
+        public static string TimerIntToString(int i)
         {
             return (i / 1000.0).ToString("F1", new CultureInfo("en-US").NumberFormat);
         }
 
-        public static int stringToTimerInt (string s)
+        public static int StringToTimerInt (string s)
         {
             return (int)(float.Parse(s.Replace(',', '.'), CultureInfo.InvariantCulture.NumberFormat) * 1000);
+        }
+
+        public static double Interpolate (double minVal, double maxVal, double minPos, double maxPos, double curPos)
+        {
+            return minVal + (curPos - minPos) * ((maxVal - minVal) / (maxPos - minPos));
         }
     }
 }

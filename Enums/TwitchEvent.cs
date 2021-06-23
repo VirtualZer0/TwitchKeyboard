@@ -13,6 +13,10 @@ namespace TwitchKeyboard.Enums
     {
         MESSAGE = 0,
         REWARD,
-        BITS
+        BITS,
+        RESUB,
+        NEWSUB,
+        GIFTSUB,
+        RAID
     }
 }

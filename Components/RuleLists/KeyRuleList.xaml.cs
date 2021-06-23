@@ -12,7 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TwitchKeyboard.Classes;
+using TwitchKeyboard.Classes.Controllers;
 using TwitchKeyboard.Classes.Rules;
+using TwitchKeyboard.Components.RulePreviews;
+using TwitchKeyboard.Enums;
+using TwitchKeyboard.Windows;
 using TwitchKeyboard.Windows.Editors;
 
 namespace TwitchKeyboard.Components.RuleLists
@@ -20,9 +25,12 @@ namespace TwitchKeyboard.Components.RuleLists
     /// <summary>
     /// Логика взаимодействия для KeyRuleList.xaml
     /// </summary>
-    public partial class KeyRuleList : UserControl
+    public partial class KeyRuleList : UserControl, IRuleList
     {
+        MainWindow mainWindow;
         List<KeyRule> rules;
+
+        public bool isEditMode = false;
 
         public delegate void OnRulesChangedHandler(object sender, List<KeyRule> rules);
         public event OnRulesChangedHandler OnRulesChanged;
@@ -32,16 +40,37 @@ namespace TwitchKeyboard.Components.RuleLists
             InitializeComponent();
         }
 
-        public void SetRules(List<KeyRule> rules)
+        public void Init(MainWindow window)
         {
-            this.rules = rules;
+            mainWindow = window;
+            ReloadPresets();
+            ReloadRules();
+        }
+
+        public void ReloadPresets ()
+        {
+            var keys = Helper.settings.keyRulesPreset.Keys.ToArray();
+            presetList.Items.Clear();
+            for (int i = 0; i < keys.Length; i++)
+            {
+                presetList.Items.Add(keys[i]);
+            }
+
+            presetList.SelectedItem = Helper.settings.activePresets[Enums.ManagerType.KEYBOARD];
+        }
+
+        public void ReloadRules()
+        {
+            this.rules = Helper.settings.keyRulesPreset[Helper.settings.activePresets[Enums.ManagerType.KEYBOARD]];
 
             var addButton = ruleList.Children[^1];
             ruleList.Children.Remove(addButton);
 
+            ruleList.Children.Clear();
+
             for (int i = 0; i < rules.Count; i++)
             {
-                KeyRulePreview keyRule = new(rules[i]);
+                KeyRulePreview keyRule = new(this.rules[i]);
                 keyRule.OnRuleChangeClick += KeyRule_OnRuleChangeClick;
                 keyRule.OnRuleRemoveClick += KeyRule_OnRuleRemoveClick;
 
@@ -114,6 +143,67 @@ namespace TwitchKeyboard.Components.RuleLists
                 AddRule(newRule);
             };
             ruleEditor.ShowDialog();
+        }
+
+        private void presetList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (mainWindow == null || presetList.Items.Count == 0) return;
+
+            mainWindow.SwitchPreset<KeyRule, KeyRuleController>(
+                presetList.SelectedItem.ToString(), Enums.ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
+            );
+
+            ReloadRules();
+        }
+
+        private void keyRulesRenamePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.isEditMode = true;
+            this.presetEditName.Text = Helper.settings.activePresets[Enums.ManagerType.KEYBOARD];
+            this.presetEditTitle.Text = Properties.Resources.t_renamePreset;
+            this.presetEditCard.Visibility = Visibility.Visible;
+        }
+
+        private void keyRulesDeletePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.RemovePreset<KeyRule, KeyRuleController>(
+                    Helper.settings.activePresets[ManagerType.KEYBOARD], ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
+                );
+            this.ReloadPresets();
+        }
+
+        private void keyRulesAddPresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.isEditMode = false;
+            this.presetEditName.Text = $"{Properties.Resources.t_preset} {Helper.settings.keyRulesPreset.Count}";
+            this.presetEditTitle.Text = Properties.Resources.t_createPreset;
+            this.presetEditCard.Visibility = Visibility.Visible;
+        }
+
+        private void presetEditSave_Click(object sender, RoutedEventArgs e)
+        {
+            this.presetEditCard.Visibility = Visibility.Collapsed;
+
+            if (isEditMode)
+            {
+                mainWindow.RenamePreset<KeyRule, KeyRuleController>(
+                    presetEditName.Text, ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
+                );
+                
+            }
+            else
+            {
+                mainWindow.CreatePreset<KeyRule, KeyRuleController>(
+                    presetEditName.Text, ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
+                );
+            }
+
+            this.ReloadPresets();
+        }
+
+        private void presetEditCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.presetEditCard.Visibility = Visibility.Collapsed;
         }
     }
 }

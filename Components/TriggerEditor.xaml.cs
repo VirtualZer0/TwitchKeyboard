@@ -47,12 +47,12 @@ namespace TwitchKeyboard.Components
             // Load trigger parameters
             triggerType.SelectedIndex = (int)trigger.type;
             triggerSelectReward.Visibility = trigger.type != Enums.TwitchEvent.REWARD ? Visibility.Collapsed : Visibility.Visible;
-            triggerBitsAmount.Visibility = trigger.type != Enums.TwitchEvent.BITS ? Visibility.Collapsed : Visibility.Visible;
+            triggerAmount.Visibility = trigger.type != Enums.TwitchEvent.BITS ? Visibility.Collapsed : Visibility.Visible;
 
             triggerRepeated.IsChecked = trigger.repeated;
             triggerRepeatedBlock.IsEnabled = trigger.repeated;
             triggerRepeatedTimes.Text = trigger.repeatTimes.ToString();
-            triggerRepeatedDuration.Text = Helper.timerIntToString(trigger.repeatDuration);
+            triggerRepeatedDuration.Text = Helper.TimerIntToString(trigger.repeatDuration);
             triggerRepeatedUnqiue.IsChecked = trigger.repeatUniqueUsers;
             triggerRepeatedReset.IsChecked = trigger.repeatResetTime;
 
@@ -60,8 +60,8 @@ namespace TwitchKeyboard.Components
             triggerText.Text = trigger.text;
             triggerCaseSensitive.IsChecked = trigger.caseSensitive;
 
-            triggerMinBitsAmount.Text = trigger.bitsFrom.ToString();
-            triggerMaxBitsAmount.Text = trigger.bitsTo.ToString();
+            triggerMinAmount.Text = trigger.amountFrom.ToString();
+            triggerMaxAmount.Text = trigger.amountTo.ToString();
 
             var reward = Helper.settings.rewardsCache.FirstOrDefault(reward =>
             {
@@ -87,7 +87,10 @@ namespace TwitchKeyboard.Components
         {
             if (triggerSelectReward == null) return;
             triggerSelectReward.Visibility = triggerType.SelectedIndex != (int)Enums.TwitchEvent.REWARD ? Visibility.Collapsed : Visibility.Visible;
-            triggerBitsAmount.Visibility = triggerType.SelectedIndex != (int)Enums.TwitchEvent.BITS ? Visibility.Collapsed : Visibility.Visible;
+            triggerAmount.Visibility = 
+                triggerType.SelectedIndex != (int)Enums.TwitchEvent.BITS && triggerType.SelectedIndex != (int)Enums.TwitchEvent.RAID ?
+                Visibility.Collapsed : Visibility.Visible;
+            triggerTextPanel.IsEnabled = triggerType.SelectedIndex <= (int)TwitchEvent.RESUB;
         }
 
         private void triggerSelectReward_Click(object sender, RoutedEventArgs e)
@@ -111,14 +114,14 @@ namespace TwitchKeyboard.Components
             trigger.type = (TwitchEvent)triggerType.SelectedIndex;
             trigger.repeated = (bool)triggerRepeated.IsChecked;
             trigger.repeatTimes = int.Parse(triggerRepeatedTimes.Text);
-            trigger.repeatDuration = Helper.stringToTimerInt(triggerRepeatedDuration.Text);
+            trigger.repeatDuration = Helper.StringToTimerInt(triggerRepeatedDuration.Text);
             trigger.repeatUniqueUsers = (bool)triggerRepeatedUnqiue.IsChecked;
             trigger.repeatResetTime = (bool)triggerRepeatedReset.IsChecked;
             trigger.comparisonMode = (TextCompareMode)triggerTextCompMode.SelectedIndex;
             trigger.text = triggerText.Text;
             trigger.caseSensitive = (bool)triggerCaseSensitive.IsChecked;
-            trigger.bitsFrom = int.Parse(triggerMinBitsAmount.Text);
-            trigger.bitsTo = int.Parse(triggerMaxBitsAmount.Text);
+            trigger.amountFrom = int.Parse(triggerMinAmount.Text);
+            trigger.amountTo = int.Parse(triggerMaxAmount.Text);
         }
     }
 }

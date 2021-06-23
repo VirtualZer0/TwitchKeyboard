@@ -37,14 +37,18 @@
                 <ComboBox x:Name="triggerType" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75" SelectionChanged="triggerType_SelectionChanged">
                     <ComboBoxItem Content="{x:Static res:Resources.t_message}"/>
                     <ComboBoxItem Content="{x:Static res:Resources.t_reward}"/>
-                    <ComboBoxItem Content="Bits"/>
+                    <ComboBoxItem Content="{x:Static res:Resources.t_bits}"/>
+                    <ComboBoxItem Content="{x:Static res:Resources.t_reSub}"/>
+                    <ComboBoxItem Content="{x:Static res:Resources.t_newSub}"/>
+                    <ComboBoxItem Content="{x:Static res:Resources.t_giftedSub}"/>
+                    <ComboBoxItem Content="{x:Static res:Resources.t_raid}"/>
                 </ComboBox>
-                <Button x:Name="triggerSelectReward" Margin="0,0,8,0" Content="{x:Static res:Resources.t_selectAction}" Visibility="Collapsed" Click="triggerSelectReward_Click"></Button>
-                <StackPanel x:Name="triggerBitsAmount" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
-                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="amount from"></TextBlock>
-                    <TextBox x:Name="triggerMinBitsAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
-                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="to"></TextBlock>
-                    <TextBox x:Name="triggerMaxBitsAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
+                <Button x:Name="triggerSelectReward" Margin="0,0,8,0" Content="{x:Static res:Resources.t_selectAction}" Visibility="Collapsed" Click="triggerSelectReward_Click" Cursor="Hand"></Button>
+                <StackPanel x:Name="triggerAmount" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_amountFrom}"></TextBlock>
+                    <TextBox x:Name="triggerMinAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
+                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_to}"></TextBlock>
+                    <TextBox x:Name="triggerMaxAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel Margin="8,0,8,0" Orientation="Horizontal" VerticalAlignment="Stretch" Grid.Row="1">
@@ -58,7 +62,7 @@
                     <CheckBox x:Name="triggerRepeatedReset" ToolTip="{x:Static res:Resources.t_resetTimerOnRepeatToolTip}" Content="{x:Static res:Resources.t_resetTimerOnRepeat}" VerticalAlignment="Center"/>
                 </StackPanel>
             </StackPanel>
-            <WrapPanel Grid.Row="2" VerticalAlignment="Center" Margin="8,0,8,0" Orientation="Horizontal">
+            <WrapPanel x:Name="triggerTextPanel" Grid.Row="2" VerticalAlignment="Center" Margin="8,0,8,0" Orientation="Horizontal">
                 <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_text}"/>
                 <ComboBox x:Name="triggerTextCompMode" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75">
                     <ComboBoxItem Content="{x:Static res:Resources.t_equals}"/>

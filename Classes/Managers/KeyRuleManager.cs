@@ -26,8 +26,6 @@ namespace TwitchKeyboard.Classes.Managers
         public override void LaunchRule(BaseRuleController baseRule, string user)
         {
             base.LaunchRule(baseRule, user);
-            if (baseRule.state == RuleState.Inactive) return;
-
 
             var rule = (KeyRuleController)baseRule;
             var keyRule = (KeyRule)rule.model;

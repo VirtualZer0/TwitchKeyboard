@@ -11,8 +11,7 @@ namespace TwitchKeyboard.Enums
         LeftButton = 0,
         RightButton,
         MiddleButton,
-        ScrollX,
-        ScrollY,
+        Scroll,
         MoveTo,
         MoveBy
     }

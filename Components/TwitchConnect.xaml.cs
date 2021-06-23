@@ -26,9 +26,15 @@ namespace TwitchKeyboard.Components
         public delegate void OnActionClickHandler(object sender, string channelName);
         public event OnActionClickHandler OnActionClick;
 
+        string channel = "";
+
         public TwitchConnect()
         {
             InitializeComponent();
+            if (Helper.settings == null) return;
+
+            this.channel = Helper.settings.channel;
+            this.channelName.Text = this.channel;
         }
 
         public void ChangeConnectionState(TwitchConnectionState state)
@@ -36,51 +42,51 @@ namespace TwitchKeyboard.Components
             switch (state)
             {
                 case TwitchConnectionState.DISCONNECTED:
-                    connectionStatus.Content = "Disconnected";
+                    connectionStatus.Content = Properties.Resources.t_disconnected;
                     connectionStatus.Background = Helper.Brushes.bGrayO;
                     connectionStatus.IconBackground = Helper.Brushes.bGray;
                     ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.MessageBulletedOff;
-                    connectButton.Content = "Connect";
+                    connectButton.Content = Properties.Resources.t_connect;
                     connectButton.IsEnabled = true;
                     ButtonProgressAssist.SetIsIndicatorVisible(connectButton, false);
                     break;
 
                 case TwitchConnectionState.IN_PROGRESS:
-                    connectionStatus.Content = "Connecting...";
+                    connectionStatus.Content = Properties.Resources.t_connecting;
                     connectionStatus.Background = Helper.Brushes.bYellowO;
                     connectionStatus.IconBackground = Helper.Brushes.bYellow;
                     ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.ContactlessPayment;
-                    connectButton.Content = "Wait...";
+                    connectButton.Content = Properties.Resources.t_wait;
                     ButtonProgressAssist.SetIsIndicatorVisible(connectButton, true);
                     connectButton.IsEnabled = false;
                     break;
 
                 case TwitchConnectionState.CONNECTED:
-                    connectionStatus.Content = "Joining...";
+                    connectionStatus.Content = Properties.Resources.t_joining;
                     connectionStatus.Background = Helper.Brushes.bBlueO;
                     connectionStatus.IconBackground = Helper.Brushes.bBlue;
                     ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.AccountArrowRight;
-                    connectButton.Content = "Wait...";
+                    connectButton.Content = Properties.Resources.t_wait;
                     ButtonProgressAssist.SetIsIndicatorVisible(connectButton, true);
                     connectButton.IsEnabled = false;
                     break;
 
                 case TwitchConnectionState.JOINED:
-                    connectionStatus.Content = "Connected";
+                    connectionStatus.Content = Properties.Resources.t_connected;
                     connectionStatus.Background = Helper.Brushes.bGreenO;
                     connectionStatus.IconBackground = Helper.Brushes.bGreen;
                     ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.MessageBulleted;
-                    connectButton.Content = "Disconnect";
+                    connectButton.Content = Properties.Resources.t_disconnect;
                     connectButton.IsEnabled = true;
                     ButtonProgressAssist.SetIsIndicatorVisible(connectButton, false);
                     break;
 
                 case TwitchConnectionState.ERROR:
-                    connectionStatus.Content = "Error";
+                    connectionStatus.Content = Properties.Resources.t_error;
                     connectionStatus.Background = Helper.Brushes.bRedO;
                     connectionStatus.IconBackground = Helper.Brushes.bRed;
                     ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.AlertCircle;
-                    connectButton.Content = "Connect";
+                    connectButton.Content = Properties.Resources.t_connect;
                     connectButton.IsEnabled = true;
                     ButtonProgressAssist.SetIsIndicatorVisible(connectButton, false);
                     break;
@@ -89,12 +95,27 @@ namespace TwitchKeyboard.Components
 
         public void SetChannel(string channel)
         {
-            channelName.Text = channel;
+            channelName?.Dispatcher.Invoke(() => channelName.Text = channel);
+            this.channel = channel;
+        }
+
+        public string GetChannel()
+        {
+            channelName?.Dispatcher.Invoke(() =>
+            {
+                if (channel == "")
+                {
+                    this.channel = channelName.Text;
+                }
+            });
+            
+            return channel;
         }
 
         private void connectButton_Click(object sender, RoutedEventArgs e)
         {
-            OnActionClick?.Invoke(this, channelName.Text);
+            this.channel = channelName.Text;
+            OnActionClick?.Invoke(this, channel);
         }
     }
 }

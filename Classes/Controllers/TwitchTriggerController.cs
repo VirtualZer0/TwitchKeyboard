@@ -42,6 +42,7 @@ namespace TwitchKeyboard.Classes.RuleControllers
 
         public bool CheckMessage(string user, string message)
         {
+            if (trigger.type != Enums.TwitchEvent.MESSAGE) return false;
             if (!CheckText(message)) return false;
             if (!CheckRepeat(user)) return false;
 
@@ -50,6 +51,7 @@ namespace TwitchKeyboard.Classes.RuleControllers
 
         public bool CheckReward(string user, string message, string rewardId)
         {
+            if (trigger.type != Enums.TwitchEvent.REWARD) return false;
             if (trigger.rewardId != rewardId) return false;
             if (!CheckText(message)) return false;
             if (!CheckRepeat(user)) return false;
@@ -59,8 +61,43 @@ namespace TwitchKeyboard.Classes.RuleControllers
 
         public bool CheckBits(string user, string message, int amount)
         {
-            if (!(amount >= trigger.bitsFrom && amount <= trigger.bitsTo)) return false;
+            if (trigger.type != Enums.TwitchEvent.BITS) return false;
+            if (!(amount >= trigger.amountFrom && amount <= trigger.amountTo)) return false;
             if (!CheckText(message)) return false;
+            if (!CheckRepeat(user)) return false;
+
+            return true;
+        }
+
+        public bool CheckNewSub(string user)
+        {
+            if (trigger.type != Enums.TwitchEvent.NEWSUB) return false;
+            if (!CheckRepeat(user)) return false;
+
+            return true;
+        }
+
+        public bool CheckReSub(string user, string message)
+        {
+            if (trigger.type != Enums.TwitchEvent.RESUB) return false;
+            if (!CheckText(message)) return false;
+            if (!CheckRepeat(user)) return false;
+
+            return true;
+        }
+
+        public bool CheckGiftSub(string user)
+        {
+            if (trigger.type != Enums.TwitchEvent.GIFTSUB) return false;
+            if (!CheckRepeat(user)) return false;
+
+            return true;
+        }
+
+        public bool CheckRaid(string user, int amount)
+        {
+            if (trigger.type != Enums.TwitchEvent.RAID) return false;
+            if (!(amount >= trigger.amountFrom && amount <= trigger.amountTo)) return false;
             if (!CheckRepeat(user)) return false;
 
             return true;

@@ -15,11 +15,11 @@
             FontFamily="{DynamicResource MaterialDesignFont}">
     <StackPanel>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
-            <TextBox x:Name="channelName" VerticalAlignment="Center" materialDesign:HintAssist.Hint="Your channel name" MinWidth="160" Margin="0,0,16,0"></TextBox>
-            <Button x:Name="connectButton" VerticalAlignment="Center" Click="connectButton_Click" Cursor="Hand" materialDesign:ButtonProgressAssist.IsIndeterminate="True" >Connect</Button>
+            <TextBox x:Name="channelName" VerticalAlignment="Center" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_yourChannelName}" MinWidth="160" Margin="0,0,16,0" Cursor="IBeam"></TextBox>
+            <Button x:Name="connectButton" VerticalAlignment="Center" Click="connectButton_Click" Cursor="Hand" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static res:Resources.t_connect}"/>
         </StackPanel>
         <materialDesign:Chip x:Name="connectionStatus"
-                            Content="Disconnected"
+                            Content="{x:Static res:Resources.t_disconnected}"
                             IconBackground="#FF9E9E9E"
                             IconForeground="{DynamicResource MaterialDesignDarkForeground}" HorizontalAlignment="Center" Background="#3F9E9E9E">
             <materialDesign:Chip.Icon>

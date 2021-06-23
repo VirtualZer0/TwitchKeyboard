@@ -42,7 +42,7 @@ namespace TwitchKeyboard.Windows.Editors
 
             if (rule == null)
             {
-                this.rule = new KeyRule();
+                rule = this.rule = new KeyRule();
                 this.rule.events.Add(new TwitchTrigger());
             }
             else
@@ -52,7 +52,7 @@ namespace TwitchKeyboard.Windows.Editors
                     JsonConvert.SerializeObject(rule)
                 );
 
-                titleText.Text = "Edit key rule";
+                titleText.Text = Properties.Resources.t_editKeyRule;
             }
 
             for(int i = 0; i < this.rule.events.Count; i++)
@@ -65,9 +65,9 @@ namespace TwitchKeyboard.Windows.Editors
                 keysContainer.AddKey(KeyInterop.KeyFromVirtualKey((int)this.rule.keys[i]));
             }
 
-            delayValue.Text = Helper.timerIntToString(rule.delay);
-            durationValue.Text = Helper.timerIntToString(rule.duration);
-            cooldownValue.Text = Helper.timerIntToString(rule.cooldown);
+            delayValue.Text = Helper.TimerIntToString(rule.delay);
+            durationValue.Text = Helper.TimerIntToString(rule.duration);
+            cooldownValue.Text = Helper.TimerIntToString(rule.cooldown);
 
             switch (rule.mode)
             {
@@ -75,9 +75,11 @@ namespace TwitchKeyboard.Windows.Editors
                     keyModePressRadio.IsChecked = true; break;
 
                 case Enums.KeyPressMode.Spam:
+                    durationBlock.Visibility = Visibility.Visible;
                     keyModeSpamRadio.IsChecked = true; break;
 
                 default:
+                    durationBlock.Visibility = Visibility.Visible;
                     keyModeHoldRadio.IsChecked = true; break;
             }
         }
@@ -133,26 +135,27 @@ namespace TwitchKeyboard.Windows.Editors
         private void keyModePressRadio_Click(object sender, RoutedEventArgs e)
         {
             rule.mode = Enums.KeyPressMode.Press;
-            keyDuration.Visibility = Visibility.Collapsed;
+            durationBlock.Visibility = Visibility.Collapsed;
+            durationValue.Text = "0";
         }
 
         private void keyModeSpamRadio_Click(object sender, RoutedEventArgs e)
         {
             rule.mode = Enums.KeyPressMode.Spam;
-            keyDuration.Visibility = Visibility.Visible;
+            durationBlock.Visibility = Visibility.Visible;
         }
 
         private void keyModeHoldRadio_Click(object sender, RoutedEventArgs e)
         {
             rule.mode = Enums.KeyPressMode.Hold;
-            keyDuration.Visibility = Visibility.Visible;
+            durationBlock.Visibility = Visibility.Visible;
         }
 
         private void saveRuleButton_Click(object sender, RoutedEventArgs e)
         {
-            rule.delay = Helper.stringToTimerInt(delayValue.Text);
-            rule.duration = Helper.stringToTimerInt(durationValue.Text);
-            rule.cooldown = Helper.stringToTimerInt(cooldownValue.Text);
+            rule.delay = Helper.StringToTimerInt(delayValue.Text);
+            rule.duration = Helper.StringToTimerInt(durationValue.Text);
+            rule.cooldown = Helper.StringToTimerInt(cooldownValue.Text);
 
             for (int i = 0; i < eventsContainer.Children.Count; i++)
             {

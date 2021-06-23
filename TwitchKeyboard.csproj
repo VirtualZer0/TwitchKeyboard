@@ -7,9 +7,20 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <StartupObject>TwitchKeyboard.App</StartupObject>
     <Authors>VirtualZer0 (Evstafev Yury)</Authors>
-    <Version>0.0.1</Version>
+    <Version>1.0.0</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Configurations>Debug;Release</Configurations>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Product>Twitch Keyboard</Product>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryUrl>https://github.com/VirtualZer0/TwitchKeyboard</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageId>Twitch Keyboard</PackageId>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/VirtualZer0/TwitchKeyboard</PackageProjectUrl>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageTags>chat;keyboard;twitch;csharp;input;wpf;dotnet5;remote;cmd;http;sfx;mouse</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -39,6 +50,10 @@
 
   <ItemGroup>
     <None Remove="Resources\logo.png" />
+    <None Include="Resources\logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -47,7 +62,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="H.InputSimulator" Version="1.1.0" />
-    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.1.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="TwitchLib" Version="3.2.0" />
@@ -62,6 +76,11 @@
       <SubType>Code</SubType>
       <DependentUpon>KeyRuleList.xaml.cs</DependentUpon>
     </Compile>
+    <Compile Update="Properties\Resources - Копировать.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources - Копировать.resx</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -70,14 +89,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources - Копировать.resx">
+      <LastGenOutput>Resources - Копировать.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.ru-RU.resx">
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Docs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="notify.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

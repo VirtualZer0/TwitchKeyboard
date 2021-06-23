@@ -11,5 +11,10 @@ namespace TwitchKeyboard.Classes.Rules
         public List<TwitchTrigger> events = new();
         public int cooldown = 0;
         public int delay = 0;
+
+        public virtual string GetName ()
+        {
+            return "Base rule";
+        }
     }
 }

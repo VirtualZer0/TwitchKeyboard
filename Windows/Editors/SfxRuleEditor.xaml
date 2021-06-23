@@ -1,0 +1,78 @@
+﻿<Window x:Class="TwitchKeyboard.Windows.Editors.SfxRuleEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TwitchKeyboard.Windows.Editors"
+        mc:Ignorable="d"
+        xmlns:res="clr-namespace:TwitchKeyboard.Properties"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:tk="clr-namespace:TwitchKeyboard.Components"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="SFX rule editor" Height="650" Width="720" WindowStyle="ToolWindow" MinWidth="600">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="12,12,12,12">
+            <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" Text="{x:Static res:Resources.t_addNewSfxRule}"/>
+            <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold" Text="{x:Static res:Resources.t_events}"/>
+            <StackPanel x:Name="eventsContainer">
+
+            </StackPanel>
+            <Border BorderBrush="#FF673AB7" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
+            <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
+
+            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_sound}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{Binding Source={x:Static res:Resources.t_file}, StringFormat='{}{0}:'}"/>
+                <Button x:Name="selectSfxButton" Click="selectSfxButton_Click" Content="{x:Static res:Resources.t_selectFile}"/>
+            </StackPanel>
+            <Grid Margin="0,0,0,4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock VerticalAlignment="Center" Margin="0,0,16,8" Text="{Binding Source={x:Static res:Resources.t_volume}, StringFormat='{}{0}:'}"/>
+                <Slider x:Name="sfxVolume" Maximum="100" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Column="1" Width="300" HorizontalAlignment="Left" Value="100" PreviewMouseLeftButtonUp="sfxVolume_PreviewMouseLeftButtonUp"/>
+
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,8" Grid.Row="1" Text="{Binding Source={x:Static res:Resources.t_speed}, StringFormat='{}{0}:'}"/>
+                <Slider x:Name="sfxSpeed" Width="300" Maximum="200" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="25" Value="100" PreviewMouseLeftButtonUp="sfxSpeed_PreviewMouseLeftButtonUp"/>
+
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Grid.Row="2" Text="{Binding Source={x:Static res:Resources.t_balance}, StringFormat='{}{0}:'}"/>
+                <Slider x:Name="sfxBalance" Width="300" Maximum="100" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Minimum="-100" PreviewMouseLeftButtonUp="sfxBalance_PreviewMouseLeftButtonUp"/>
+
+            </Grid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,32">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_loops}, StringFormat='{}{0}:'}"/>
+                <TextBox x:Name="sfxLoop" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_cooldown}, StringFormat='{}{0}:'}"/>
+                <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_delay}, StringFormat='{}{0}:'}"/>
+                <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,24,0,0">
+                <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click" Content="{x:Static res:Resources.t_save}"/>
+                <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click" Content="{x:Static res:Resources.t_cancel}"/>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Window>

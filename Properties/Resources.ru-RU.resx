@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="t_add" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="t_addKey" xml:space="preserve">
+    <value>Добавить клавишу</value>
+  </data>
+  <data name="t_addNewCmdRule" xml:space="preserve">
+    <value>Новое правило консоли</value>
+  </data>
+  <data name="t_addNewHttpRule" xml:space="preserve">
+    <value>Новое правило HTTP</value>
+  </data>
+  <data name="t_addNewKeyRule" xml:space="preserve">
+    <value>Новое правило клавиатуры</value>
+  </data>
+  <data name="t_addNewMouseRule" xml:space="preserve">
+    <value>Новое правило мыши</value>
+  </data>
+  <data name="t_addNewSfxRule" xml:space="preserve">
+    <value>Новое правило SFX</value>
+  </data>
+  <data name="t_amountFrom" xml:space="preserve">
+    <value>количеством от</value>
+  </data>
+  <data name="t_balance" xml:space="preserve">
+    <value>Баланс</value>
+  </data>
+  <data name="t_bits" xml:space="preserve">
+    <value>Bits</value>
+  </data>
+  <data name="t_body" xml:space="preserve">
+    <value>Тело</value>
+  </data>
+  <data name="t_cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="t_caseSensitive" xml:space="preserve">
+    <value>Регистрозависимый</value>
+  </data>
+  <data name="t_channel" xml:space="preserve">
+    <value>Канал</value>
+  </data>
+  <data name="t_click" xml:space="preserve">
+    <value>Клик</value>
+  </data>
+  <data name="t_command" xml:space="preserve">
+    <value>Команда</value>
+  </data>
+  <data name="t_connect" xml:space="preserve">
+    <value>Подключиться</value>
+  </data>
+  <data name="t_connected" xml:space="preserve">
+    <value>Подключен</value>
+  </data>
+  <data name="t_connecting" xml:space="preserve">
+    <value>Подключение...</value>
+  </data>
+  <data name="t_console" xml:space="preserve">
+    <value>Консоль</value>
+  </data>
+  <data name="t_consoleRules" xml:space="preserve">
+    <value>Правила консоли</value>
+  </data>
+  <data name="t_contains" xml:space="preserve">
+    <value>Содержит</value>
+  </data>
+  <data name="t_controlPanel" xml:space="preserve">
+    <value>Панель управления</value>
+  </data>
+  <data name="t_cooldown" xml:space="preserve">
+    <value>Кулдаун</value>
+  </data>
+  <data name="t_createPreset" xml:space="preserve">
+    <value>Создать пресет</value>
+  </data>
+  <data name="t_currentPreset" xml:space="preserve">
+    <value>Текущий пресет</value>
+  </data>
+  <data name="t_darkMode" xml:space="preserve">
+    <value>Темная тема</value>
+  </data>
+  <data name="t_delay" xml:space="preserve">
+    <value>Задержка</value>
+  </data>
+  <data name="t_deletePreset" xml:space="preserve">
+    <value>Удалить пресет</value>
+  </data>
+  <data name="t_disconnect" xml:space="preserve">
+    <value>Отключиться</value>
+  </data>
+  <data name="t_disconnected" xml:space="preserve">
+    <value>Отключен</value>
+  </data>
+  <data name="t_doubleClick" xml:space="preserve">
+    <value>Двойной клик</value>
+  </data>
+  <data name="t_down" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
+  <data name="t_duplicateTrigger" xml:space="preserve">
+    <value>Дублировать триггер</value>
+  </data>
+  <data name="t_duration" xml:space="preserve">
+    <value>Длительность</value>
+  </data>
+  <data name="t_editCmdRule" xml:space="preserve">
+    <value>Редактировать правило консоли</value>
+  </data>
+  <data name="t_editHttpRule" xml:space="preserve">
+    <value>Редактировать правило HTTP</value>
+  </data>
+  <data name="t_editKeyRule" xml:space="preserve">
+    <value>Редактировать правило клавиатуры</value>
+  </data>
+  <data name="t_editMouseRule" xml:space="preserve">
+    <value>Редактировать правило мыши</value>
+  </data>
+  <data name="t_editRule" xml:space="preserve">
+    <value>Редактировать правило</value>
+  </data>
+  <data name="t_editSfxRule" xml:space="preserve">
+    <value>Редактировать правило SFX</value>
+  </data>
+  <data name="t_empty" xml:space="preserve">
+    <value>Пусто</value>
+  </data>
+  <data name="t_equals" xml:space="preserve">
+    <value>Равен</value>
+  </data>
+  <data name="t_error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="t_events" xml:space="preserve">
+    <value>событий</value>
+  </data>
+  <data name="t_file" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="t_giftedSub" xml:space="preserve">
+    <value>Подарочная подписка</value>
+  </data>
+  <data name="t_headerName" xml:space="preserve">
+    <value>Имя заголовка</value>
+  </data>
+  <data name="t_headers" xml:space="preserve">
+    <value>Хэдеры</value>
+  </data>
+  <data name="t_headerValue" xml:space="preserve">
+    <value>Значение заголовка</value>
+  </data>
+  <data name="t_hold" xml:space="preserve">
+    <value>Удерживать</value>
+  </data>
+  <data name="t_http" xml:space="preserve">
+    <value>HTTP</value>
+  </data>
+  <data name="t_httpRules" xml:space="preserve">
+    <value>Правила HTTP</value>
+  </data>
+  <data name="t_ifRepeated" xml:space="preserve">
+    <value>Если повторяется</value>
+  </data>
+  <data name="t_ifRepeatedToolTip" xml:space="preserve">
+    <value>Если активно, этот триггер сработает только если сразу несколько сообщений подошли под условия триггера за указанное время</value>
+  </data>
+  <data name="t_joining" xml:space="preserve">
+    <value>Вход...</value>
+  </data>
+  <data name="t_keyboard" xml:space="preserve">
+    <value>Клавиатура</value>
+  </data>
+  <data name="t_keyboardRules" xml:space="preserve">
+    <value>Правила клавиатуры</value>
+  </data>
+  <data name="t_keys" xml:space="preserve">
+    <value>Клавиши</value>
+  </data>
+  <data name="t_language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="t_launch" xml:space="preserve">
+    <value>запустил</value>
+  </data>
+  <data name="t_left" xml:space="preserve">
+    <value>Слева</value>
+  </data>
+  <data name="t_leftButton" xml:space="preserve">
+    <value>Левая кнопка</value>
+  </data>
+  <data name="t_logs" xml:space="preserve">
+    <value>Логи</value>
+  </data>
+  <data name="t_loops" xml:space="preserve">
+    <value>Повторы</value>
+  </data>
+  <data name="t_message" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="t_method" xml:space="preserve">
+    <value>Метод</value>
+  </data>
+  <data name="t_middleButton" xml:space="preserve">
+    <value>Средняя кнопка</value>
+  </data>
+  <data name="t_mode" xml:space="preserve">
+    <value>Режим</value>
+  </data>
+  <data name="t_mouse" xml:space="preserve">
+    <value>Мышь</value>
+  </data>
+  <data name="t_mouseRules" xml:space="preserve">
+    <value>Правила мыши</value>
+  </data>
+  <data name="t_moveCursor" xml:space="preserve">
+    <value>Сдвинуть курсор</value>
+  </data>
+  <data name="t_name" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="t_newSub" xml:space="preserve">
+    <value>Новая подписка</value>
+  </data>
+  <data name="t_noKeys" xml:space="preserve">
+    <value>Нет клавиш</value>
+  </data>
+  <data name="t_noName" xml:space="preserve">
+    <value>Нет имени</value>
+  </data>
+  <data name="t_noSfx" xml:space="preserve">
+    <value>Нет звука</value>
+  </data>
+  <data name="t_notificationSound" xml:space="preserve">
+    <value>Звук уведомления</value>
+  </data>
+  <data name="t_notificationsWindow" xml:space="preserve">
+    <value>Окно уведомлений</value>
+  </data>
+  <data name="t_pixelsPerSecond" xml:space="preserve">
+    <value>Пикселей в секунду</value>
+  </data>
+  <data name="t_playSound" xml:space="preserve">
+    <value>Звук</value>
+  </data>
+  <data name="t_plusAddNewEvent" xml:space="preserve">
+    <value>+ Добавить новый триггер</value>
+  </data>
+  <data name="t_plusAddRule" xml:space="preserve">
+    <value>+ Новое</value>
+  </data>
+  <data name="t_preset" xml:space="preserve">
+    <value>Пресет</value>
+  </data>
+  <data name="t_press" xml:space="preserve">
+    <value>Нажать</value>
+  </data>
+  <data name="t_pressKey" xml:space="preserve">
+    <value>Нажмите клавишу</value>
+  </data>
+  <data name="t_raid" xml:space="preserve">
+    <value>Рейд</value>
+  </data>
+  <data name="t_removeRule" xml:space="preserve">
+    <value>Удалить правило</value>
+  </data>
+  <data name="t_removeTrigger" xml:space="preserve">
+    <value>Удалить триггер</value>
+  </data>
+  <data name="t_renamePreset" xml:space="preserve">
+    <value>Переименовать пресет</value>
+  </data>
+  <data name="t_request" xml:space="preserve">
+    <value>Запрос</value>
+  </data>
+  <data name="t_resetTimerOnRepeat" xml:space="preserve">
+    <value>Сброс таймера</value>
+  </data>
+  <data name="t_resetTimerOnRepeatToolTip" xml:space="preserve">
+    <value>Если активно, каждое новое сообщение, подходящее под условие триггера, будет сбрасывать таймер на начало отсчета, что позволит увеличить время, доступное для активации триггера</value>
+  </data>
+  <data name="t_restartRequired" xml:space="preserve">
+    <value>Эта настройка требует перезапуска приложения</value>
+  </data>
+  <data name="t_reSub" xml:space="preserve">
+    <value>Переподписка</value>
+  </data>
+  <data name="t_reward" xml:space="preserve">
+    <value>Награда</value>
+  </data>
+  <data name="t_right" xml:space="preserve">
+    <value>Вправо</value>
+  </data>
+  <data name="t_rightButton" xml:space="preserve">
+    <value>Правая кнопка</value>
+  </data>
+  <data name="t_runCommand" xml:space="preserve">
+    <value>Запустить команду</value>
+  </data>
+  <data name="t_runFile" xml:space="preserve">
+    <value>Запустить файл</value>
+  </data>
+  <data name="t_running" xml:space="preserve">
+    <value>Выполняется...</value>
+  </data>
+  <data name="t_runTestCommand" xml:space="preserve">
+    <value>Протестировать команду</value>
+  </data>
+  <data name="t_runTestRequest" xml:space="preserve">
+    <value>Протестировать запрос</value>
+  </data>
+  <data name="t_s" xml:space="preserve">
+    <value>сек</value>
+  </data>
+  <data name="t_save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="t_scroll" xml:space="preserve">
+    <value>Скролл</value>
+  </data>
+  <data name="t_seconds" xml:space="preserve">
+    <value>секунд</value>
+  </data>
+  <data name="t_selectAction" xml:space="preserve">
+    <value>Выберите</value>
+  </data>
+  <data name="t_selectAudiofile" xml:space="preserve">
+    <value>Выберите аудиофайл</value>
+  </data>
+  <data name="t_selectFile" xml:space="preserve">
+    <value>Выберите файл</value>
+  </data>
+  <data name="t_selectReward" xml:space="preserve">
+    <value>Выберите награду</value>
+  </data>
+  <data name="t_setCursorPosition" xml:space="preserve">
+    <value>Установить позицию курсора</value>
+  </data>
+  <data name="t_settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="t_sfx" xml:space="preserve">
+    <value>SFX</value>
+  </data>
+  <data name="t_sfxRules" xml:space="preserve">
+    <value>Правила SFX</value>
+  </data>
+  <data name="t_showNotifications" xml:space="preserve">
+    <value>Уведомления</value>
+  </data>
+  <data name="t_sound" xml:space="preserve">
+    <value>Звук</value>
+  </data>
+  <data name="t_spam" xml:space="preserve">
+    <value>Спам</value>
+  </data>
+  <data name="t_speed" xml:space="preserve">
+    <value>Скорость</value>
+  </data>
+  <data name="t_text" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="t_theme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="t_timesInTheLast" xml:space="preserve">
+    <value>раз за последние</value>
+  </data>
+  <data name="t_to" xml:space="preserve">
+    <value>до</value>
+  </data>
+  <data name="t_triggerOn" xml:space="preserve">
+    <value>Срабатывать на</value>
+  </data>
+  <data name="t_type" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="t_uniqueUsers" xml:space="preserve">
+    <value>Уникальные</value>
+  </data>
+  <data name="t_uniqueUsersToolTip" xml:space="preserve">
+    <value>Если активно, будут учитываться только уникальные пользователи. Повторные сообщения от того же пользователя учитываться не будут</value>
+  </data>
+  <data name="t_up" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
+  <data name="t_upCommand" xml:space="preserve">
+    <value>Команда</value>
+  </data>
+  <data name="t_upEvents" xml:space="preserve">
+    <value>События</value>
+  </data>
+  <data name="t_volume" xml:space="preserve">
+    <value>Громкость</value>
+  </data>
+  <data name="t_wait" xml:space="preserve">
+    <value>Подождите...</value>
+  </data>
+  <data name="t_xSpeed" xml:space="preserve">
+    <value>Скорость по X</value>
+  </data>
+  <data name="t_yourChannelName" xml:space="preserve">
+    <value>Имя канала</value>
+  </data>
+  <data name="t_ySpeed" xml:space="preserve">
+    <value>Скорость по Y</value>
+  </data>
+</root>

@@ -12,8 +12,8 @@ namespace TwitchKeyboard.Classes.Managers
 {
     public class BaseRuleManager
     {
-        protected BaseRuleController[] rules;
-        protected bool enabled = false;
+        protected BaseRuleController[] rules = Array.Empty<BaseRuleController>();
+        public bool enabled { get; protected set; } = false;
 
         public delegate void OnRuleActivateHandler(object sender, BaseRuleController rule, string user);
         public event OnRuleActivateHandler OnRuleActivate;
@@ -32,8 +32,20 @@ namespace TwitchKeyboard.Classes.Managers
                 for (int i = 0; i < rules.Length; i++)
                 {
                     this.rules[i] = new TController() { model = rules[i] };
-                    this.rules[i].bind();
+                    this.rules[i].Bind();
+                    this.rules[i].Init();
                 }
+            }
+        }
+
+        /// <summary>
+        /// Unloads controller resources if needed
+        /// </summary>
+        public void DestroyControllers()
+        {
+            for (int i = 0; i < rules.Length; i++)
+            {
+                rules[i].Destroy();
             }
         }
 
@@ -95,6 +107,87 @@ namespace TwitchKeyboard.Classes.Managers
                 for (int j = 0; j < rules[i].triggers.Length; j++)
                 {
                     if (rules[i].triggers[j].CheckBits(user, message, amount))
+                    {
+                        this.LaunchRule(rules[i], user);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when a channel gets new subscriber
+        /// </summary>
+        /// <param name="user">Username</param>
+        public void NewSub(string user)
+        {
+            if (!enabled) return;
+            for (int i = 0; i < rules.Length; i++)
+            {
+                if (rules[i].curCooldown > 0) continue;
+                for (int j = 0; j < rules[i].triggers.Length; j++)
+                {
+                    if (rules[i].triggers[j].CheckNewSub(user))
+                    {
+                        this.LaunchRule(rules[i], user);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when a channel gets re-subscribe
+        /// </summary>
+        /// <param name="user">Username</param>
+        public void NewReSub(string user, string message)
+        {
+            if (!enabled) return;
+            for (int i = 0; i < rules.Length; i++)
+            {
+                if (rules[i].curCooldown > 0) continue;
+                for (int j = 0; j < rules[i].triggers.Length; j++)
+                {
+                    if (rules[i].triggers[j].CheckReSub(user, message))
+                    {
+                        this.LaunchRule(rules[i], user);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when a channel gets gifted subscribe
+        /// </summary>
+        /// <param name="user">Gifter username</param>
+        public void NewGiftSub(string user)
+        {
+            if (!enabled) return;
+            for (int i = 0; i < rules.Length; i++)
+            {
+                if (rules[i].curCooldown > 0) continue;
+                for (int j = 0; j < rules[i].triggers.Length; j++)
+                {
+                    if (rules[i].triggers[j].CheckGiftSub(user))
+                    {
+                        this.LaunchRule(rules[i], user);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called when a channel gets raid
+        /// </summary>
+        /// <param name="user">Username</param>
+        /// <param name="amount">Amount of users in raid</param>
+        public void NewRaid(string user, int amount)
+        {
+            if (!enabled) return;
+            for (int i = 0; i < rules.Length; i++)
+            {
+                if (rules[i].curCooldown > 0) continue;
+                for (int j = 0; j < rules[i].triggers.Length; j++)
+                {
+                    if (rules[i].triggers[j].CheckRaid(user, amount))
                     {
                         this.LaunchRule(rules[i], user);
                     }
