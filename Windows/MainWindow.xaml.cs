@@ -46,6 +46,11 @@ namespace TwitchKeyboard.Windows
         readonly TwitchService twitch = new();
 
         /// <summary>
+        /// Notifications server
+        /// </summary>
+        readonly NotificationService notifications = new();
+
+        /// <summary>
         /// All managers
         /// </summary>
         readonly BaseRuleManager[] managers = new BaseRuleManager[(int)ManagerType.MANAGERS_COUNT];
@@ -81,11 +86,6 @@ namespace TwitchKeyboard.Windows
         /// </summary>
         public Timer otherOperationsTimer;
 
-        /// <summary>
-        /// Contains window for notification alerts
-        /// </summary>
-        NotificationWindow notificationWindow = null;
-
         public MainWindow()
         {
             // Bind exception catching
@@ -93,6 +93,12 @@ namespace TwitchKeyboard.Windows
 
             // Load settings from file
             this.LoadSettings();
+
+            // Launch notifications server
+            this.notifications.Start();
+
+            // Set URL
+            notificationsUrlValue.Text = this.notifications.GetURL();
 
             // Set current theme
             SetTheme();
@@ -182,8 +188,6 @@ namespace TwitchKeyboard.Windows
             managers[(int)ManagerType.SFX].Update(100);
             managers[(int)ManagerType.WEB].Update(100);
             managers[(int)ManagerType.CMD].Update(100);
-
-            notificationWindow?.Update(100);
         }
 
         private void toggleManager(object sender, SelectionChangedEventArgs e)
@@ -218,23 +222,6 @@ namespace TwitchKeyboard.Windows
             settings.activeNotificationsSound[(ManagerType)Enum.Parse(typeof(ManagerType), tag)] = (bool)button.IsChecked;
         }
 
-        private void notificationWindowSwitcher_Click(object sender, RoutedEventArgs e)
-        {
-            if ((bool)notificationWindowSwitcher.IsChecked)
-            {
-                if (notificationWindow == null || PresentationSource.FromVisual(notificationWindow) == null)
-                {
-                    notificationWindow = new NotificationWindow();
-                }
-
-                notificationWindow.Show();
-            }
-            else
-            {
-                notificationWindow?.Hide();
-            }
-        }
-
         private void RuleMnager_OnRuleActivate(object sender, BaseRuleController rule, string user)
         {
             logList.Dispatcher.InvokeAsync(() =>
@@ -257,23 +244,23 @@ namespace TwitchKeyboard.Windows
                 });
             }
 
-            if (notificationWindow != null && notificationWindow.IsVisible && settings.activeNotificationsIndicators[rule.cType])
+            int duration = 0;
+
+            if (rule.model is KeyRule keyRule)
             {
-                int duration = 0;
-
-                if (rule.cType == ManagerType.KEYBOARD)
-                    duration = ((KeyRule)rule.model).duration;
-                else if (rule.cType == ManagerType.MOUSE)
-                    duration = ((MouseRule)rule.model).duration;
-
-                this.Dispatcher.InvokeAsync(() =>
-                {
-                    notificationWindow.AddNewRule(
-                        new LaunchedRuleIndicator(rule.cType, rule.model.GetName(), rule.model.delay, duration)
-                    );
-                });
-                
+                duration = keyRule.duration;
             }
+            else if (rule.model is MouseRule mouseRule)
+            {
+                duration = mouseRule.duration;
+            }
+
+            notifications.AddEvent(new() {
+                delay = rule.model.delay,
+                eventType = rule.cType.ToString(),
+                text = rule.model.GetName(),
+                duration = duration
+            });
         }
 
         private void notificationFileButton_Click(object sender, RoutedEventArgs e)
@@ -304,6 +291,11 @@ namespace TwitchKeyboard.Windows
             notificationPlayer.Stop();
             notificationPlayer.Play();
             SaveSettings();
+        }
+
+        private void copyNotificationUrl_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(notificationsUrlValue.Text);
         }
 
         // ------------------ Settings ------------------//
@@ -722,8 +714,8 @@ namespace TwitchKeyboard.Windows
 
         private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            notifications.Stop();
             SaveSettings();
-            notificationWindow?.Close();
         }
     }
 }

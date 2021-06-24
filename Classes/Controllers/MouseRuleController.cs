@@ -16,5 +16,6 @@ namespace TwitchKeyboard.Classes.Controllers
         public override ManagerType cType { get => ManagerType.MOUSE; }
 
         public int curTime = 0;
+        public int curSpamDelay = 0;
     }
 }

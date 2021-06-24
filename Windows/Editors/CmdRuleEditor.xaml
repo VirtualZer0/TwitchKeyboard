@@ -22,7 +22,7 @@
             <StackPanel x:Name="eventsContainer">
 
             </StackPanel>
-            <Border BorderBrush="#FF673AB7" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
+            <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
             <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
             <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_command}"/>
             <StackPanel Orientation="Horizontal" Margin="0,0,0,12">

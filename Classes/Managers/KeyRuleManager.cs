@@ -81,7 +81,16 @@ namespace TwitchKeyboard.Classes.Managers
                     }
                     else
                     {
-                        simulator.Keyboard.KeyPress(keyRule.keys[i]);
+                        if (rule.curSpamDelay <= 0)
+                        {
+                            simulator.Keyboard.KeyPress(keyRule.keys[i]);
+                            rule.curSpamDelay = 4;
+                        }
+                        else
+                        {
+                            rule.curSpamDelay--;
+                        }
+                        
                     }
                 }
             }

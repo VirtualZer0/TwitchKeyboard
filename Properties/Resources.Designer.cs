@@ -773,11 +773,11 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Notifications window.
+        ///   Ищет локализованную строку, похожую на Notifications URL.
         /// </summary>
-        public static string t_notificationsWindow {
+        public static string t_notificationsUrl {
             get {
-                return ResourceManager.GetString("t_notificationsWindow", resourceCulture);
+                return ResourceManager.GetString("t_notificationsUrl", resourceCulture);
             }
         }
         

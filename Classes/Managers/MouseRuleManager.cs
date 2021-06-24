@@ -86,8 +86,8 @@ namespace TwitchKeyboard.Classes.Managers
         {
             var model = (MouseRule)rule.model;
 
-            // Single click mode or spam mode
-            if (model.mode == KeyPressMode.Press || model.mode == KeyPressMode.Spam)
+            // Single click mode
+            if (model.mode == KeyPressMode.Press)
             {
                 switch (model.ruleType)
                 {
@@ -99,8 +99,31 @@ namespace TwitchKeyboard.Classes.Managers
                 return;
             }
 
+
+            // Spam mode
+            else if (model.mode == KeyPressMode.Spam)
+            {
+                if (rule.curSpamDelay <= 0)
+                {
+                    switch (model.ruleType)
+                    {
+                        case MouseRuleType.LeftButton: simulator.Mouse.LeftButtonClick(); break;
+                        case MouseRuleType.RightButton: simulator.Mouse.RightButtonClick(); break;
+                        case MouseRuleType.MiddleButton: simulator.Mouse.MiddleButtonClick(); break;
+                    }
+
+                    rule.curSpamDelay = 4;
+                }
+                else
+                {
+                    rule.curSpamDelay--;
+                }
+
+                return;
+            }
+
             // Double click mode
-            if (model.mode == KeyPressMode.Double)
+            else if (model.mode == KeyPressMode.Double)
             {
                 switch (model.ruleType)
                 {
@@ -113,7 +136,7 @@ namespace TwitchKeyboard.Classes.Managers
             }
 
             // Hold button mode
-            if (model.mode == KeyPressMode.Hold)
+            else if (model.mode == KeyPressMode.Hold)
             {
                 switch (model.ruleType)
                 {
