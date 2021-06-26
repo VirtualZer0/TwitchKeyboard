@@ -103,7 +103,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Docs\" />
+    <Folder Include="Docs\RU\" />
     <Folder Include="Notifications\static\" />
   </ItemGroup>
 

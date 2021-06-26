@@ -38,8 +38,11 @@
                 <Button x:Name="keyRulesDeletePresetButton" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static res:Resources.t_deletePreset}" Width="28" Height="28" VerticalAlignment="Center" Margin="0,0,8,0" Click="keyRulesDeletePresetButton_Click">
                     <materialDesign:PackIcon Kind="Delete"/>
                 </Button>
-                <Button x:Name="keyRulesAddPresetButton" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static res:Resources.t_createPreset}" Width="28" Height="28" VerticalAlignment="Center" Click="keyRulesAddPresetButton_Click">
+                <Button x:Name="keyRulesAddPresetButton" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static res:Resources.t_createPreset}" Width="28" Height="28" VerticalAlignment="Center" Click="keyRulesAddPresetButton_Click" Cursor="Hand" Margin="0,0,8,0">
                     <materialDesign:PackIcon Kind="Plus"/>
+                </Button>
+                <Button x:Name="keyRulesDuplicatePresetButton" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="{x:Static res:Resources.t_duplicatePreset}" Width="28" Height="28" VerticalAlignment="Center" Cursor="Hand" Click="keyRulesDuplicatePresetButton_Click">
+                    <materialDesign:PackIcon Kind="ContentCopy"/>
                 </Button>
             </StackPanel>
             <WrapPanel x:Name="ruleList">

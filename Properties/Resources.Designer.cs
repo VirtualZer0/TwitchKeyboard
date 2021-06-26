@@ -368,6 +368,24 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Duplicate preset.
+        /// </summary>
+        public static string t_duplicatePreset {
+            get {
+                return ResourceManager.GetString("t_duplicatePreset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Duplicate rule.
+        /// </summary>
+        public static string t_duplicateRule {
+            get {
+                return ResourceManager.GetString("t_duplicateRule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Duplicate trigger.
         /// </summary>
         public static string t_duplicateTrigger {

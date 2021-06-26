@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
             <Button x:Name="duplicateTrigger"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
-              ToolTip="{x:Static res:Resources.t_duplicateTrigger}" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,38,0" Width="28" Height="28" Panel.ZIndex="10" Click="duplicateTrigger_Click">
+              ToolTip="{x:Static res:Resources.t_duplicateTrigger}" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,38,0" Width="28" Height="28" Panel.ZIndex="10" Click="duplicateTrigger_Click" Cursor="Hand">
                 <materialDesign:PackIcon Kind="ContentCopy" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
             </Button>
             <Button x:Name="removeTrigger"

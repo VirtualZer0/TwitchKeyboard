@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,6 +74,7 @@ namespace TwitchKeyboard.Components.RuleLists
                 WebRulePreview webRule = new(this.rules[i]);
                 webRule.OnRuleChangeClick += WebRule_OnRuleChangeClick;
                 webRule.OnRuleRemoveClick += WebRule_OnRuleRemoveClick;
+                webRule.OnRuleDuplicateClick += WebRule_OnRuleDuplicateClick;
 
                 ruleList.Children.Add(webRule);
             }
@@ -93,11 +95,12 @@ namespace TwitchKeyboard.Components.RuleLists
             var addButton = ruleList.Children[^1];
             ruleList.Children.Remove(addButton);
 
-            WebRulePreview keyRule = new(rule);
-            keyRule.OnRuleChangeClick += WebRule_OnRuleChangeClick;
-            keyRule.OnRuleRemoveClick += WebRule_OnRuleRemoveClick;
+            WebRulePreview webRule = new(rule);
+            webRule.OnRuleChangeClick += WebRule_OnRuleChangeClick;
+            webRule.OnRuleRemoveClick += WebRule_OnRuleRemoveClick;
+            webRule.OnRuleDuplicateClick += WebRule_OnRuleDuplicateClick;
 
-            ruleList.Children.Add(keyRule);
+            ruleList.Children.Add(webRule);
             ruleList.Children.Add(addButton);
 
             rules.Add(rule);
@@ -136,6 +139,15 @@ namespace TwitchKeyboard.Components.RuleLists
             RemoveRule(rule);
         }
 
+        private void WebRule_OnRuleDuplicateClick(object sender, WebRule rule)
+        {
+            AddRule(
+                JsonConvert.DeserializeObject<WebRule>(
+                    JsonConvert.SerializeObject(rule)
+                )
+            );
+        }
+
         private void addNewRule_Click(object sender, RoutedEventArgs e)
         {
             WebRuleEditor ruleEditor = new();
@@ -169,6 +181,14 @@ namespace TwitchKeyboard.Components.RuleLists
             mainWindow.RemovePreset<WebRule, WebRuleController>(
                     Helper.settings.activePresets[ManagerType.WEB], ManagerType.WEB, Helper.settings.webRulesPreset
                 );
+            this.ReloadPresets();
+        }
+
+        private void webRulesDuplicatePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DuplicatePreset<WebRule, WebRuleController>(
+                ManagerType.WEB, Helper.settings.webRulesPreset
+            );
             this.ReloadPresets();
         }
 

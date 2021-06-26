@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,9 @@ namespace TwitchKeyboard.Components.RulePreviews
         public delegate void OnRuleChangeClickHandler(object sender, WebRule rule);
         public event OnRuleChangeClickHandler OnRuleChangeClick;
 
+        public delegate void OnRuleDuplicateClickHandler(object sender, WebRule rule);
+        public event OnRuleDuplicateClickHandler OnRuleDuplicateClick;
+
         public WebRulePreview(WebRule rule)
         {
             InitializeComponent();
@@ -57,6 +61,11 @@ namespace TwitchKeyboard.Components.RulePreviews
         private void editRuleButton_Click(object sender, RoutedEventArgs e)
         {
             OnRuleChangeClick?.Invoke(this, rule);
+        }
+
+        private void duplicateRuleButton_Click(object sender, RoutedEventArgs e)
+        {
+            OnRuleDuplicateClick?.Invoke(this, rule);
         }
     }
 }

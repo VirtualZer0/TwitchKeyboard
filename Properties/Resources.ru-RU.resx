@@ -220,6 +220,12 @@
   <data name="t_down" xml:space="preserve">
     <value>Вниз</value>
   </data>
+  <data name="t_duplicatePreset" xml:space="preserve">
+    <value>Дублировать пресет</value>
+  </data>
+  <data name="t_duplicateRule" xml:space="preserve">
+    <value>Дублировать правило</value>
+  </data>
   <data name="t_duplicateTrigger" xml:space="preserve">
     <value>Дублировать триггер</value>
   </data>

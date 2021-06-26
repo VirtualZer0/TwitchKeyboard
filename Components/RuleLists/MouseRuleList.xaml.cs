@@ -19,6 +19,7 @@ using TwitchKeyboard.Components.RulePreviews;
 using TwitchKeyboard.Enums;
 using TwitchKeyboard.Windows;
 using TwitchKeyboard.Windows.Editors;
+using Newtonsoft.Json;
 
 namespace TwitchKeyboard.Components.RuleLists
 {
@@ -73,6 +74,7 @@ namespace TwitchKeyboard.Components.RuleLists
                 MouseRulePreview mouseRule = new(this.rules[i]);
                 mouseRule.OnRuleChangeClick += MouseRule_OnRuleChangeClick;
                 mouseRule.OnRuleRemoveClick += MouseRule_OnRuleRemoveClick;
+                mouseRule.OnRuleDuplicateClick += MouseRule_OnRuleDuplicateClick;
 
                 ruleList.Children.Add(mouseRule);
             }
@@ -96,6 +98,7 @@ namespace TwitchKeyboard.Components.RuleLists
             MouseRulePreview mouseRule = new(rule);
             mouseRule.OnRuleChangeClick += MouseRule_OnRuleChangeClick;
             mouseRule.OnRuleRemoveClick += MouseRule_OnRuleRemoveClick;
+            mouseRule.OnRuleDuplicateClick += MouseRule_OnRuleDuplicateClick;
 
             ruleList.Children.Add(mouseRule);
             ruleList.Children.Add(addButton);
@@ -136,6 +139,15 @@ namespace TwitchKeyboard.Components.RuleLists
             RemoveRule(rule);
         }
 
+        private void MouseRule_OnRuleDuplicateClick(object sender, MouseRule rule)
+        {
+            AddRule(
+                JsonConvert.DeserializeObject<MouseRule>(
+                    JsonConvert.SerializeObject(rule)
+                )
+            );
+        }
+
         private void addNewRule_Click(object sender, RoutedEventArgs e)
         {
             MouseRuleEditor ruleEditor = new();
@@ -169,6 +181,14 @@ namespace TwitchKeyboard.Components.RuleLists
             mainWindow.RemovePreset<MouseRule, MouseRuleController>(
                     Helper.settings.activePresets[ManagerType.KEYBOARD], ManagerType.KEYBOARD, Helper.settings.mouseRulesPreset
                 );
+            this.ReloadPresets();
+        }
+
+        private void mouseRulesDuplicatePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DuplicatePreset<MouseRule, MouseRuleController>(
+                ManagerType.MOUSE, Helper.settings.mouseRulesPreset
+            );
             this.ReloadPresets();
         }
 

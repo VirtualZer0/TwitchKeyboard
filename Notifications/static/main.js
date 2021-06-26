@@ -85,7 +85,7 @@ function applyDisappear(notificationEl, progressEl) {
 
 function checkNewEvents() {
 
-  fetch("http://127.0.0.1:51473/data/")
+  fetch("./data/")
   .then(res => res.json())
   .then(res => {
     for (let i = 0; i < res.length; i++) {
@@ -93,6 +93,9 @@ function checkNewEvents() {
     }
 
     setTimeout(checkNewEvents, 750);
+  })
+  .catch(err => {
+    setTimeout(checkNewEvents, 1500);
   })
 
 }

@@ -30,8 +30,11 @@
                     <Button x:Name="removeRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_removeRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Margin="0,0,6,0" Click="removeRuleButton_Click">
                         <materialDesign:PackIcon Kind="Close" Width="16" Height="16" Foreground="#FFF44336" />
                     </Button>
-                    <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_editRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Click="editRuleButton_Click">
+                    <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_editRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Margin="0,0,6,0" Click="editRuleButton_Click" Cursor="Hand">
                         <materialDesign:PackIcon Kind="Edit" Width="16" Height="16"/>
+                    </Button>
+                    <Button x:Name="duplicateRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_duplicateRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Click="duplicateRuleButton_Click">
+                        <materialDesign:PackIcon Kind="ContentCopy" Width="16" Height="16"/>
                     </Button>
                 </StackPanel>
             </StackPanel>

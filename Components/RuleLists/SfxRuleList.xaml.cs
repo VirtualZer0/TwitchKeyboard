@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,11 +71,12 @@ namespace TwitchKeyboard.Components.RuleLists
 
             for (int i = 0; i < rules.Count; i++)
             {
-                SfxRulePreview keyRule = new(this.rules[i]);
-                keyRule.OnRuleChangeClick += SfxRule_OnRuleChangeClick;
-                keyRule.OnRuleRemoveClick += SfxRule_OnRuleRemoveClick;
+                SfxRulePreview sfxRule = new(this.rules[i]);
+                sfxRule.OnRuleChangeClick += SfxRule_OnRuleChangeClick;
+                sfxRule.OnRuleRemoveClick += SfxRule_OnRuleRemoveClick;
+                sfxRule.OnRuleDuplicateClick += SfxRule_OnRuleDuplicateClick;
 
-                ruleList.Children.Add(keyRule);
+                ruleList.Children.Add(sfxRule);
             }
 
             ruleList.Children.Add(addButton);
@@ -93,11 +95,12 @@ namespace TwitchKeyboard.Components.RuleLists
             var addButton = ruleList.Children[^1];
             ruleList.Children.Remove(addButton);
 
-            SfxRulePreview keyRule = new(rule);
-            keyRule.OnRuleChangeClick += SfxRule_OnRuleChangeClick;
-            keyRule.OnRuleRemoveClick += SfxRule_OnRuleRemoveClick;
+            SfxRulePreview sfxRule = new(rule);
+            sfxRule.OnRuleChangeClick += SfxRule_OnRuleChangeClick;
+            sfxRule.OnRuleRemoveClick += SfxRule_OnRuleRemoveClick;
+            sfxRule.OnRuleDuplicateClick += SfxRule_OnRuleDuplicateClick;
 
-            ruleList.Children.Add(keyRule);
+            ruleList.Children.Add(sfxRule);
             ruleList.Children.Add(addButton);
 
             rules.Add(rule);
@@ -136,6 +139,15 @@ namespace TwitchKeyboard.Components.RuleLists
             RemoveRule(rule);
         }
 
+        private void SfxRule_OnRuleDuplicateClick(object sender, SfxRule rule)
+        {
+            AddRule(
+                JsonConvert.DeserializeObject<SfxRule>(
+                    JsonConvert.SerializeObject(rule)
+                )
+            );
+        }
+
         private void addNewRule_Click(object sender, RoutedEventArgs e)
         {
             SfxRuleEditor ruleEditor = new();
@@ -169,6 +181,14 @@ namespace TwitchKeyboard.Components.RuleLists
             mainWindow.RemovePreset<SfxRule, SfxRuleController>(
                     Helper.settings.activePresets[ManagerType.SFX], ManagerType.SFX, Helper.settings.sfxRulesPreset
                 );
+            this.ReloadPresets();
+        }
+
+        private void sfxRulesDuplicatePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DuplicatePreset<SfxRule, SfxRuleController>(
+                ManagerType.SFX, Helper.settings.sfxRulesPreset
+            );
             this.ReloadPresets();
         }
 

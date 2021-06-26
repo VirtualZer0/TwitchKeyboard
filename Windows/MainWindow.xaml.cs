@@ -453,6 +453,34 @@ namespace TwitchKeyboard.Windows
         }
 
         /// <summary>
+        /// Duplicates current active preset
+        /// </summary>
+        /// <typeparam name="TRule">Rule type</typeparam>
+        /// <typeparam name="TController">Controller type</typeparam>
+        /// <param name="name">Preset name</param>
+        /// <param name="mType">Manager type</param>
+        /// <param name="storage">Selected preset storage</param>
+        public void DuplicatePreset<TRule, TController>(ManagerType mType, Dictionary<string, List<TRule>> storage)
+            where TRule : BaseRule
+            where TController : BaseRuleController, new()
+        {
+            string name = settings.activePresets[mType];
+
+            int copyNum = 1;
+            while (storage.ContainsKey($"{name}-{copyNum}")) { copyNum++; }
+
+            storage.Add($"{name}-{copyNum}", 
+                JsonConvert.DeserializeObject<List<TRule>>(
+                    JsonConvert.SerializeObject(
+                        storage[settings.activePresets[mType]]
+                    )
+                )    
+            );
+
+            SwitchPreset<TRule, TController>($"{name}-{copyNum}", mType, storage);
+        }
+
+        /// <summary>
         /// Renames current active preset
         /// </summary>
         /// <typeparam name="TRule">Rule type</typeparam>

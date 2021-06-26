@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -70,11 +71,12 @@ namespace TwitchKeyboard.Components.RuleLists
 
             for (int i = 0; i < rules.Count; i++)
             {
-                CmdRulePreview webRule = new(this.rules[i]);
-                webRule.OnRuleChangeClick += CmdRule_OnRuleChangeClick;
-                webRule.OnRuleRemoveClick += CmdRule_OnRuleRemoveClick;
+                CmdRulePreview cmdRule = new(this.rules[i]);
+                cmdRule.OnRuleChangeClick += CmdRule_OnRuleChangeClick;
+                cmdRule.OnRuleRemoveClick += CmdRule_OnRuleRemoveClick;
+                cmdRule.OnRuleDuplicateClick += CmdRule_OnRuleDuplicateClick;
 
-                ruleList.Children.Add(webRule);
+                ruleList.Children.Add(cmdRule);
             }
 
             ruleList.Children.Add(addButton);
@@ -93,11 +95,12 @@ namespace TwitchKeyboard.Components.RuleLists
             var addButton = ruleList.Children[^1];
             ruleList.Children.Remove(addButton);
 
-            CmdRulePreview keyRule = new(rule);
-            keyRule.OnRuleChangeClick += CmdRule_OnRuleChangeClick;
-            keyRule.OnRuleRemoveClick += CmdRule_OnRuleRemoveClick;
+            CmdRulePreview cmdRule = new(rule);
+            cmdRule.OnRuleChangeClick += CmdRule_OnRuleChangeClick;
+            cmdRule.OnRuleRemoveClick += CmdRule_OnRuleRemoveClick;
+            cmdRule.OnRuleDuplicateClick += CmdRule_OnRuleDuplicateClick;
 
-            ruleList.Children.Add(keyRule);
+            ruleList.Children.Add(cmdRule);
             ruleList.Children.Add(addButton);
 
             rules.Add(rule);
@@ -136,6 +139,15 @@ namespace TwitchKeyboard.Components.RuleLists
             RemoveRule(rule);
         }
 
+        private void CmdRule_OnRuleDuplicateClick(object sender, CmdRule rule)
+        {
+            AddRule(
+                JsonConvert.DeserializeObject<CmdRule>(
+                    JsonConvert.SerializeObject(rule)
+                )
+            );
+        }
+
         private void addNewRule_Click(object sender, RoutedEventArgs e)
         {
             CmdRuleEditor ruleEditor = new();
@@ -167,8 +179,16 @@ namespace TwitchKeyboard.Components.RuleLists
         private void cmdRulesDeletePresetButton_Click(object sender, RoutedEventArgs e)
         {
             mainWindow.RemovePreset<CmdRule, CmdRuleController>(
-                    Helper.settings.activePresets[ManagerType.CMD], ManagerType.CMD, Helper.settings.cmdRulesPreset
-                );
+                Helper.settings.activePresets[ManagerType.CMD], ManagerType.CMD, Helper.settings.cmdRulesPreset
+            );
+            this.ReloadPresets();
+        }
+
+        private void cmdRulesDuplicatePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DuplicatePreset<CmdRule, CmdRuleController>(
+                ManagerType.CMD, Helper.settings.cmdRulesPreset
+            );
             this.ReloadPresets();
         }
 

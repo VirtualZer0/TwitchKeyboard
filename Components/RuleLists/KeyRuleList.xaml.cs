@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,6 +74,7 @@ namespace TwitchKeyboard.Components.RuleLists
                 KeyRulePreview keyRule = new(this.rules[i]);
                 keyRule.OnRuleChangeClick += KeyRule_OnRuleChangeClick;
                 keyRule.OnRuleRemoveClick += KeyRule_OnRuleRemoveClick;
+                keyRule.OnRuleDuplicateClick += KeyRule_OnRuleDuplicateClick;
 
                 ruleList.Children.Add(keyRule);
             }
@@ -96,6 +98,7 @@ namespace TwitchKeyboard.Components.RuleLists
             KeyRulePreview keyRule = new(rule);
             keyRule.OnRuleChangeClick += KeyRule_OnRuleChangeClick;
             keyRule.OnRuleRemoveClick += KeyRule_OnRuleRemoveClick;
+            keyRule.OnRuleDuplicateClick += KeyRule_OnRuleDuplicateClick;
 
             ruleList.Children.Add(keyRule);
             ruleList.Children.Add(addButton);
@@ -136,6 +139,15 @@ namespace TwitchKeyboard.Components.RuleLists
             RemoveRule(rule);
         }
 
+        private void KeyRule_OnRuleDuplicateClick(object sender, KeyRule rule)
+        {
+            AddRule(
+                JsonConvert.DeserializeObject<KeyRule>(
+                    JsonConvert.SerializeObject(rule)
+                )
+            );
+        }
+
         private void addNewRule_Click(object sender, RoutedEventArgs e)
         {
             KeyRuleEditor ruleEditor = new();
@@ -169,6 +181,14 @@ namespace TwitchKeyboard.Components.RuleLists
             mainWindow.RemovePreset<KeyRule, KeyRuleController>(
                     Helper.settings.activePresets[ManagerType.KEYBOARD], ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
                 );
+            this.ReloadPresets();
+        }
+
+        private void keyRulesDuplicatePresetButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DuplicatePreset<KeyRule, KeyRuleController>(
+                ManagerType.KEYBOARD, Helper.settings.keyRulesPreset
+            );
             this.ReloadPresets();
         }
 
