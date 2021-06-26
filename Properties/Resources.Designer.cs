@@ -368,6 +368,15 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Download.
+        /// </summary>
+        public static string t_download {
+            get {
+                return ResourceManager.GetString("t_download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Duplicate preset.
         /// </summary>
         public static string t_duplicatePreset {
@@ -751,6 +760,15 @@ namespace TwitchKeyboard.Properties {
         public static string t_newSub {
             get {
                 return ResourceManager.GetString("t_newSub", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на New update available.
+        /// </summary>
+        public static string t_newUpdateAvailable {
+            get {
+                return ResourceManager.GetString("t_newUpdateAvailable", resourceCulture);
             }
         }
         
@@ -1282,6 +1300,15 @@ namespace TwitchKeyboard.Properties {
         public static string t_xSpeed {
             get {
                 return ResourceManager.GetString("t_xSpeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на You need to connect for getting your rewards.
+        /// </summary>
+        public static string t_youNeedToConnect {
+            get {
+                return ResourceManager.GetString("t_youNeedToConnect", resourceCulture);
             }
         }
         

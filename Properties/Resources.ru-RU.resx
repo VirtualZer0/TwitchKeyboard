@@ -220,6 +220,9 @@
   <data name="t_down" xml:space="preserve">
     <value>Вниз</value>
   </data>
+  <data name="t_download" xml:space="preserve">
+    <value>Скачать</value>
+  </data>
   <data name="t_duplicatePreset" xml:space="preserve">
     <value>Дублировать пресет</value>
   </data>
@@ -348,6 +351,9 @@
   </data>
   <data name="t_newSub" xml:space="preserve">
     <value>Новая подписка</value>
+  </data>
+  <data name="t_newUpdateAvailable" xml:space="preserve">
+    <value>Доступно новое обновление</value>
   </data>
   <data name="t_noKeys" xml:space="preserve">
     <value>Нет клавиш</value>
@@ -525,6 +531,9 @@
   </data>
   <data name="t_xSpeed" xml:space="preserve">
     <value>Скорость по X</value>
+  </data>
+  <data name="t_youNeedToConnect" xml:space="preserve">
+    <value>Сначала подключитесь к своему каналу</value>
   </data>
   <data name="t_yourChannelName" xml:space="preserve">
     <value>Имя канала</value>

@@ -164,7 +164,22 @@ namespace TwitchKeyboard.Windows
             themeDarkMode.IsChecked = settings.isDarkTheme;
             volumeSfxRuleSlider.Value = settings.mainSfxVolume;
 
+            Task.Run(checkUpdate);
+
             GC.Collect();
+        }
+
+        private void checkUpdate ()
+        {
+            if (UpdateService.checkUpdate())
+            {
+                this.Dispatcher.Invoke(() =>
+                {
+                    UpdateAvailableWindow notification = new UpdateAvailableWindow();
+                    notification.Topmost = true;
+                    notification.Show();
+                });
+            }
         }
 
         private void DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
