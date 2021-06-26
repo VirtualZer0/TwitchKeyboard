@@ -2,7 +2,7 @@
 
 ### ![Header Logo](./Docs/img/header-logo.png)
 
-| ![en-lang](./Docs/img/en-lang.png) English version | ![ru-lang](./Docs/img/ru-lang.png) Русская версия |
+| ![en-lang](./Docs/img/en-lang.png) English version | ![ru-lang](./Docs/img/ru-lang.png) [Русская версия](https://github.com/VirtualZer0/TwitchKeyboard/blob/master/Docs/README.ru.md) |
 | -------------------------------------------------: | ------------------------------------------------- |
 
 
@@ -52,11 +52,11 @@
 
 4. Enter the channel name and click the "Connect" button. This is the first thing you need to do if you want to get a list of your channel point rewards:
 
-   <img src="./Docs/img/en/channelName.png" alt="channel-name" style="zoom: 67%;" align="left"/>
+   <img src="./Docs/img/en/channelName.png" alt="channel-name" style="zoom: 67%;"/>
 
 5. [Optional] Add a BrowserSource with app notifications to your scene in OBS. The URL for the notifications is on the main program window:
 
-    <img src="./Docs/img/notifications-url.png" alt="notifications-url" style="zoom:75%;" align="left"/>
+    <img src="./Docs/img/notifications-url.png" alt="notifications-url" style="zoom:75%;"/>
 
 
 
@@ -129,10 +129,13 @@ The settings screen contains the basic settings of the program, such as the desi
 ## ❔ FAQ
 
 - **Keyboard or mouse button presses don't work in a particular game/program, but they work in other places, what can it be about?**
+
   Most likely, this game or program is running as an administrator. For keyboard and mouse controls to work under these conditions, Twitch Keyobard also needs to be run as an administrator.
 - **Is it possible to change the style and annotation of the notifications for BrowserSource?**
+
   Yes, you can do this by editing the HTML/CSS/JS files in the Notifcations folder next to the program.
 - **Is there a MacOS/Linux/etc version planned?**
+
   It depends on whether the WPF technology on which this application is written will be available for other operating systems. At this point, the likelihood of this happening is slim.
 
 ## 💥 Errors and suggestions
