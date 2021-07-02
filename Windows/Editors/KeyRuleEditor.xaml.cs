@@ -109,7 +109,17 @@ namespace TwitchKeyboard.Windows.Editors
         {
             if (!enableKeyCatch) return;
             keysContainer.AddKey(e.Key);
-            rule.keys.Add((VirtualKeyCode)KeyInterop.VirtualKeyFromKey(e.Key));
+            switch (e.Key)
+            {
+                case Key.System:
+                    rule.keys.Add(VirtualKeyCode.MENU);
+                    break;
+
+                default:
+                    rule.keys.Add((VirtualKeyCode)KeyInterop.VirtualKeyFromKey(e.Key));
+                    break;
+            }
+            
             enableKeyCatch = false;
             e.Handled = true;
         }

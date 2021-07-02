@@ -9,12 +9,12 @@ namespace TwitchKeyboard.Classes.Services
 {
     public static class UpdateService
     {
-        const int curVersion = 1;
+        const int curVersion = 2;
         const string updateUrl = "https://raw.githubusercontent.com/VirtualZer0/TwitchKeyboard/master/lastVersion.txt";
 
         public static bool checkUpdate ()
         {
-            using WebClient webClient = new WebClient();
+            using WebClient webClient = new();
             try
             {
                 string newVer = webClient.DownloadString(updateUrl);

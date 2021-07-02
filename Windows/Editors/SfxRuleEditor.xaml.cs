@@ -25,7 +25,7 @@ namespace TwitchKeyboard.Windows.Editors
     public partial class SfxRuleEditor : Window
     {
         readonly SfxRule rule = null;
-        readonly MediaPlayer player = new();
+        readonly MediaPlayerExt player = new();
 
         public delegate void OnSaveRuleHandler(object sender, SfxRule rule);
         public event OnSaveRuleHandler OnSaveRule;

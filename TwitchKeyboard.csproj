@@ -7,7 +7,7 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <StartupObject>TwitchKeyboard.App</StartupObject>
     <Authors>VirtualZer0 (Evstafev Yury)</Authors>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Configurations>Debug;Release</Configurations>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -47,6 +47,13 @@
     <ErrorReport>none</ErrorReport>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Docs\RU\**" />
+    <EmbeddedResource Remove="Docs\RU\**" />
+    <None Remove="Docs\RU\**" />
+    <Page Remove="Docs\RU\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\logo.png" />
@@ -103,7 +110,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Docs\RU\" />
     <Folder Include="Notifications\static\" />
   </ItemGroup>
 

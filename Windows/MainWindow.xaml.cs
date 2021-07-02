@@ -58,7 +58,7 @@ namespace TwitchKeyboard.Windows
         /// <summary>
         /// Sound for notifications
         /// </summary>
-        readonly MediaPlayer notificationPlayer = new();
+        readonly MediaPlayerExt notificationPlayer = new();
 
         /// <summary>
         /// Palette helper for chaange themes
@@ -105,7 +105,6 @@ namespace TwitchKeyboard.Windows
 
             // Load notification sound
             notificationPlayer.Open(new Uri(settings.notificationFile, UriKind.Relative));
-            notificationPlayer.Stop();
             notificationPlayer.Volume = settings.notificationVolume/100.0;
             notificationFileButton.Content = notificationPlayer.Source == null ?
                 "Select file" : System.IO.Path.GetFileName(notificationPlayer.Source.ToString());
@@ -175,7 +174,7 @@ namespace TwitchKeyboard.Windows
             {
                 this.Dispatcher.Invoke(() =>
                 {
-                    UpdateAvailableWindow notification = new UpdateAvailableWindow();
+                    UpdateAvailableWindow notification = new();
                     notification.Topmost = true;
                     notification.Show();
                 });
@@ -258,6 +257,8 @@ namespace TwitchKeyboard.Windows
                     notificationPlayer.Play();
                 });
             }
+
+            if (!settings.activeNotificationsIndicators[rule.cType]) return;
 
             int duration = 0;
 

@@ -16,7 +16,7 @@ namespace TwitchKeyboard.Classes.Controllers
     {
         public override ManagerType cType { get => ManagerType.SFX; }
 
-        public readonly MediaPlayer player = new();
+        public readonly MediaPlayerExt player = new();
         public int curLoop = 0;
 
         public override void Init()
@@ -24,11 +24,11 @@ namespace TwitchKeyboard.Classes.Controllers
             SfxRule rule = (SfxRule)model;
             player.Dispatcher.Invoke(() =>
             {
+                player.Volume = (rule.volume / 100.0) * (Helper.settings.mainSfxVolume / 100.0);
                 player.Open(rule.file);
                 player.Stop();
                 player.Balance = rule.balance / 100.0;
                 player.SpeedRatio = rule.speed / 100.0;
-                player.Volume = (rule.volume / 100.0) * (Helper.settings.mainSfxVolume / 100.0);
                 player.MediaEnded += Player_MediaEnded;
             });            
         }

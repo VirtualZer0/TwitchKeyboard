@@ -18,7 +18,7 @@ namespace TwitchKeyboard.Classes.Services
         Thread listenThread;
         bool dontStop = true;
 
-        const string addr = "http://127.0.0.1:51473/";
+        const string addr = "http://localhost:51473/";
 
         public void Start()
         {
