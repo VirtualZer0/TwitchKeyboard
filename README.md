@@ -1,5 +1,7 @@
 # Twitch Keyobard
 
+<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/virtualzer0/twitchkeyboard"/> <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/virtualzer0/twitchkeyboard/total"/> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/virtualzer0/twitchkeyboard">
+
 ### ![Header Logo](./Docs/img/header-logo.png)
 
 | ![en-lang](./Docs/img/en-lang.png) English version | ![ru-lang](./Docs/img/ru-lang.png) [Русская версия](https://github.com/VirtualZer0/TwitchKeyboard/blob/master/Docs/README.ru.md) |
