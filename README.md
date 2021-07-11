@@ -46,7 +46,7 @@
 
 ## 🕐 Quick Start
 
-1. Download and install .NET 5 Framework from [**this link**](https://dotnet.microsoft.com/download/dotnet/5.0/runtime). On recent versions of Windows the framework may be installed by default. You can skip this item, and if .NET 5 is missing, the application itself will notify you of this and offer to install it.
+1. Download and install .NET 5 **Desktop Runtime** from [**this link**](https://dotnet.microsoft.com/download/dotnet/5.0). On recent versions of Windows the framework may be installed by default.
 
 2. [**Download the latest version of the app**](https://github.com/VirtualZer0/TwitchKeyboard/releases)
 
