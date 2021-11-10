@@ -53,6 +53,7 @@
 ## 🕐 Быстрый старт
 
 1. Скачайте и установите .NET 5 **Desktop Runtime** по [**этой ссылке**](https://dotnet.microsoft.com/download/dotnet/5.0). На последних версиях Windows фреймворк может быть установлен по умолчанию.
+<img src="./img/runtime_download.png" alt="editor-screen" style="zoom:70%;" />
 
 2. [**Скачайте последнюю версию приложения**](https://github.com/VirtualZer0/TwitchKeyboard/releases)
 
