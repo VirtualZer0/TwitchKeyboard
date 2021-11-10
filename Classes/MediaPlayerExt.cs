@@ -14,27 +14,11 @@ namespace TwitchKeyboard.Classes
         public new void Open(Uri source)
         {
             this.IsMuted = true;
-            _ = new Timer((obj) => DelayedOpen(source), null, 20, Timeout.Infinite);
+            base.Open(source);
+            this.Pause();
+            this.Stop();
+            this.IsMuted = false;
             
-        }
-
-        private void DelayedOpen(Uri source)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                base.Open(source);
-                this.Pause();
-                this.Stop();
-                _ = new Timer(PostDelayedOpen, null, 20, Timeout.Infinite);
-            });
-        }
-
-        private void PostDelayedOpen(object state)
-        {
-            Dispatcher.Invoke(() =>
-            {
-                this.IsMuted = false;
-            });
         }
     }
 }

@@ -28,7 +28,6 @@ namespace TwitchKeyboard.Classes.Controllers
                 player.Open(rule.file);
                 player.Stop();
                 player.Balance = rule.balance / 100.0;
-                player.SpeedRatio = rule.speed / 100.0;
                 player.MediaEnded += Player_MediaEnded;
             });            
         }

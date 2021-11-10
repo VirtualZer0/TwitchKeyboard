@@ -60,7 +60,6 @@ namespace TwitchKeyboard.Windows.Editors
             delayValue.Text = Helper.TimerIntToString(rule.delay);
             cooldownValue.Text = Helper.TimerIntToString(rule.cooldown);
             sfxVolume.Value = rule.volume;
-            sfxSpeed.Value = rule.speed;
             sfxBalance.Value = rule.balance;
             sfxLoop.Text = rule.loopCount.ToString();
             selectSfxButton.Content = rule.file == null ? Properties.Resources.t_selectFile : System.IO.Path.GetFileName(rule.file.LocalPath);
@@ -100,7 +99,6 @@ namespace TwitchKeyboard.Windows.Editors
             rule.cooldown = Helper.StringToTimerInt(cooldownValue.Text);
 
             rule.volume = (int)Math.Round(sfxVolume.Value);
-            rule.speed = (int)Math.Round(sfxSpeed.Value);
             rule.balance = (int)Math.Round(sfxBalance.Value);
             rule.loopCount = int.Parse(sfxLoop.Text);
 
@@ -153,8 +151,6 @@ namespace TwitchKeyboard.Windows.Editors
         private void sfxSpeed_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             player.Stop();
-            rule.speed = (int)Math.Round(sfxSpeed.Value);
-            player.SpeedRatio = rule.speed/100.0;
             player.Play();
         }
 

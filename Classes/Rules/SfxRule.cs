@@ -13,7 +13,6 @@ namespace TwitchKeyboard.Classes.Rules
         public Uri file = null;
         public int volume = 100;
         public int balance = 0;
-        public int speed = 100;
         public int loopCount = 0;
 
         public override string GetName()

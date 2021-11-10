@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TwitchKeyboard.Windows"
         xmlns:res="clr-namespace:TwitchKeyboard.Properties"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:components="clr-namespace:TwitchKeyboard.Components" xmlns:rulelists="clr-namespace:TwitchKeyboard.Components.RuleLists"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -15,6 +16,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Twitch Keyboard" Height="680" Width="900" StateChanged="mainWindow_StateChanged" Closing="mainWindow_Closing">
+
 
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="34" />
@@ -28,6 +30,7 @@
     </Window.CommandBindings>
 
     <Border x:Name="MainWindowBorder" BorderThickness="0" >
+
         <Grid x:Name="parentContainer" Background="{DynamicResource MaterialDesignPaper}">
 
             <Grid.RowDefinitions>
@@ -61,6 +64,12 @@
             </Grid>
 
             <Grid Margin="12,12,12,12"  Grid.Row="1" x:Name="AppArea">
+                <tb:TaskbarIcon x:Name="trayIcon"
+                    Visibility="Visible"
+                    ToolTipText="Twitch Keyboard"
+                    IconSource="pack://application:,,,/Resources/tray.ico"
+                    PopupActivation="DoubleClick" TrayLeftMouseUp="trayIcon_TrayLeftMouseUp"
+                    />
 
                 <TabControl x:Name="tabControl" Style="{StaticResource MaterialDesignNavigatilRailTabControl}" Padding="8,0,0,0">
                     <TabItem x:Name="mainTab"

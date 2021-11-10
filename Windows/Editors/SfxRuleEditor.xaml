@@ -44,9 +44,6 @@
                 <TextBlock VerticalAlignment="Center" Margin="0,0,16,8" Text="{Binding Source={x:Static res:Resources.t_volume}, StringFormat='{}{0}:'}"/>
                 <Slider x:Name="sfxVolume" Maximum="100" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Column="1" Width="300" HorizontalAlignment="Left" Value="100" PreviewMouseLeftButtonUp="sfxVolume_PreviewMouseLeftButtonUp"/>
 
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,8" Grid.Row="1" Text="{Binding Source={x:Static res:Resources.t_speed}, StringFormat='{}{0}:'}"/>
-                <Slider x:Name="sfxSpeed" Width="300" Maximum="200" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Minimum="25" Value="100" PreviewMouseLeftButtonUp="sfxSpeed_PreviewMouseLeftButtonUp"/>
-
                 <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Grid.Row="2" Text="{Binding Source={x:Static res:Resources.t_balance}, StringFormat='{}{0}:'}"/>
                 <Slider x:Name="sfxBalance" Width="300" Maximum="100" SmallChange="1" AutoToolTipPlacement="TopLeft" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Minimum="-100" PreviewMouseLeftButtonUp="sfxBalance_PreviewMouseLeftButtonUp"/>
 

@@ -720,18 +720,21 @@ namespace TwitchKeyboard.Windows
         private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
         {
             SystemCommands.MinimizeWindow(this);
+            this.ShowInTaskbar = false;
         }
 
         // Maximize
         private void CommandBinding_Executed_Maximize(object sender, ExecutedRoutedEventArgs e)
         {
             SystemCommands.MaximizeWindow(this);
+            this.ShowInTaskbar = true;
         }
 
         // Restore
         private void CommandBinding_Executed_Restore(object sender, ExecutedRoutedEventArgs e)
         {
             SystemCommands.RestoreWindow(this);
+            this.ShowInTaskbar = true;
         }
 
         // Close
@@ -760,6 +763,22 @@ namespace TwitchKeyboard.Windows
         {
             notifications.Stop();
             SaveSettings();
+        }
+
+        private void trayIcon_TrayLeftMouseUp(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Minimized)
+            {
+                SystemCommands.RestoreWindow(this);
+                this.ShowInTaskbar = true;
+                this.Activate();
+            }
+            else
+            {
+                SystemCommands.MinimizeWindow(this);
+                this.ShowInTaskbar = false;
+            }
+            
         }
     }
 }
