@@ -7,7 +7,7 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <StartupObject>TwitchKeyboard.App</StartupObject>
     <Authors>VirtualZer0 (Evstafev Yury)</Authors>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Platforms>AnyCPU;x64;x86</Platforms>
     <Configurations>Debug;Release</Configurations>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -21,6 +21,8 @@
     <PackageProjectUrl>https://github.com/VirtualZer0/TwitchKeyboard</PackageProjectUrl>
     <PackageReleaseNotes></PackageReleaseNotes>
     <PackageTags>chat;keyboard;twitch;csharp;input;wpf;dotnet5;remote;cmd;http;sfx;mouse</PackageTags>
+    <AssemblyVersion>1.0.3</AssemblyVersion>
+    <FileVersion>1.0.3</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
