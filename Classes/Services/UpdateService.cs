@@ -7,25 +7,26 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Classes.Services
 {
-    public static class UpdateService
+  public static class UpdateService
+  {
+    const int curVersion = 4;
+    const string updateUrl = "https://raw.githubusercontent.com/VirtualZer0/TwitchKeyboard/master/lastVersion.txt";
+
+    public static bool checkUpdate()
     {
-        const int curVersion = 3;
-        const string updateUrl = "https://raw.githubusercontent.com/VirtualZer0/TwitchKeyboard/master/lastVersion.txt";
-
-        public static bool checkUpdate ()
+      using WebClient webClient = new();
+      try
+      {
+        string newVer = webClient.DownloadString(updateUrl);
+        if (int.Parse(newVer) > curVersion)
         {
-            using WebClient webClient = new();
-            try
-            {
-                string newVer = webClient.DownloadString(updateUrl);
-                if (int.Parse(newVer) > curVersion)
-                {
-                    return true;
-                }
-            } catch { }
-
-            return false;
-
+          return true;
         }
+      }
+      catch { }
+
+      return false;
+
     }
+  }
 }

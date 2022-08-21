@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    public enum RuleState
-    {
-        Inactive = 0,
-        Delay,
-        Active
-    }
+  public enum RuleState
+  {
+    Inactive = 0,
+    Delay,
+    Active
+  }
 }

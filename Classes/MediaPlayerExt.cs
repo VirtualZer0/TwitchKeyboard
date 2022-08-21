@@ -8,17 +8,17 @@ using System.Windows.Media;
 
 namespace TwitchKeyboard.Classes
 {
-    public class MediaPlayerExt : MediaPlayer
-    {
+  public class MediaPlayerExt : MediaPlayer
+  {
 
-        public new void Open(Uri source)
-        {
-            this.IsMuted = true;
-            base.Open(source);
-            this.Pause();
-            this.Stop();
-            this.IsMuted = false;
-            
-        }
+    public new void Open(Uri source)
+    {
+      this.IsMuted = true;
+      base.Open(source);
+      this.Pause();
+      this.Stop();
+      this.IsMuted = false;
+
     }
+  }
 }

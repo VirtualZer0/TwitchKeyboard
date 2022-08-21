@@ -15,41 +15,41 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="HTTP rule editor" Height="650" Width="720" WindowStyle="ToolWindow" MinWidth="600">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="12,12,12,12">
-            <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" Text="{x:Static res:Resources.t_addNewHttpRule}"/>
-            <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold" Text="{x:Static res:Resources.t_upEvents}"/>
-            <StackPanel x:Name="eventsContainer">
+  <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="12,12,12,12">
+      <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" Text="{x:Static res:Resources.t_addNewHttpRule}"/>
+      <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold" Text="{x:Static res:Resources.t_upEvents}"/>
+      <StackPanel x:Name="eventsContainer">
 
-            </StackPanel>
-            <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
-            <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
-            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_headers}"/>
-            <WrapPanel x:Name="headersList" Margin="0,0,0,8"/>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,32">
-                <TextBox x:Name="headerNameValue" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_headerName}" Width="250"/>
-                <TextBlock VerticalAlignment="Center" Margin="4,0,4,0">:</TextBlock>
-                <TextBox x:Name="headerValue" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_headerValue}" Width="250" Margin="0,0,8,0"/>
-                <Button x:Name="addHeaderButton" Click="addHeaderButton_Click" Content="{x:Static res:Resources.t_add}"/>
-            </StackPanel>
-            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_request}"/>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">URL:</TextBlock>
-                <TextBox x:Name="urlValue" MinWidth="350" Text="https://"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_method}, StringFormat='{}{0}:'}"/>
-                <ComboBox x:Name="methodValue" SelectedIndex="0" Width="120">
-                    <ComboBoxItem Content="GET"/>
-                    <ComboBoxItem Content="POST"/>
-                    <ComboBoxItem Content="PUT"/>
-                    <ComboBoxItem Content="PATCH"/>
-                    <ComboBoxItem Content="DELETE"/>
-                    <ComboBoxItem Content="HEAD"/>
-                    <ComboBoxItem Content="OPTIONS"/>
-                </ComboBox>
-            </StackPanel>
-            <TextBox x:Name="bodyValue"
+      </StackPanel>
+      <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
+      <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
+      <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_headers}"/>
+      <WrapPanel x:Name="headersList" Margin="0,0,0,8"/>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,32">
+        <TextBox x:Name="headerNameValue" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_headerName}" Width="250"/>
+        <TextBlock VerticalAlignment="Center" Margin="4,0,4,0">:</TextBlock>
+        <TextBox x:Name="headerValue" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_headerValue}" Width="250" Margin="0,0,8,0"/>
+        <Button x:Name="addHeaderButton" Click="addHeaderButton_Click" Content="{x:Static res:Resources.t_add}"/>
+      </StackPanel>
+      <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_request}"/>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">URL:</TextBlock>
+        <TextBox x:Name="urlValue" MinWidth="350" Text="https://"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_method}, StringFormat='{}{0}:'}"/>
+        <ComboBox x:Name="methodValue" SelectedIndex="0" Width="120">
+          <ComboBoxItem Content="GET"/>
+          <ComboBoxItem Content="POST"/>
+          <ComboBoxItem Content="PUT"/>
+          <ComboBoxItem Content="PATCH"/>
+          <ComboBoxItem Content="DELETE"/>
+          <ComboBoxItem Content="HEAD"/>
+          <ComboBoxItem Content="OPTIONS"/>
+        </ComboBox>
+      </StackPanel>
+      <TextBox x:Name="bodyValue"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
                 Height="100"
@@ -58,15 +58,15 @@
                 VerticalScrollBarVisibility="Auto"
                 materialDesign:HintAssist.Hint="{x:Static res:Resources.t_body}" Margin="0,0,0,8" />
 
-            <StackPanel Margin="0,0,0,24">
-                <Button x:Name="runRuleButton" Click="runRuleButton_Click" HorizontalAlignment="Center" Margin="0,0,0,12">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Play" Margin="0,0,8,0"/>
-                        <TextBlock Text="{x:Static res:Resources.t_runTestRequest}"/>
-                    </StackPanel>
-                </Button>
+      <StackPanel Margin="0,0,0,24">
+        <Button x:Name="runRuleButton" Click="runRuleButton_Click" HorizontalAlignment="Center" Margin="0,0,0,12">
+          <StackPanel Orientation="Horizontal">
+            <materialDesign:PackIcon Kind="Play" Margin="0,0,8,0"/>
+            <TextBlock Text="{x:Static res:Resources.t_runTestRequest}"/>
+          </StackPanel>
+        </Button>
 
-                <TextBox x:Name="responseValue"
+        <TextBox x:Name="responseValue"
                 Visibility="Collapsed"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
                 VerticalAlignment="Top"
@@ -75,29 +75,29 @@
                 TextWrapping="Wrap"
                 VerticalScrollBarVisibility="Auto"
                 IsReadOnly="True" Margin="0,0,0,8" Text="{x:Static res:Resources.t_running}" Cursor="IBeam" />
-            </StackPanel>
+      </StackPanel>
 
 
-            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_name}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="ruleNameValue" MinWidth="250" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_cooldown}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
-                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_delay}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
-                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
-            </StackPanel>
+      <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_name}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="ruleNameValue" MinWidth="250" />
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_cooldown}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+        <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+      </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_delay}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+        <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+      </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click" Content="{x:Static res:Resources.t_save}"/>
-                <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click" Margin="0,0,16,0" Content="{x:Static res:Resources.t_cancel}"/>
-            </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click" Content="{x:Static res:Resources.t_save}"/>
+        <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click" Margin="0,0,16,0" Content="{x:Static res:Resources.t_cancel}"/>
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
 </Window>

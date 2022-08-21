@@ -11,11 +11,11 @@ using TwitchKeyboard.Enums;
 
 namespace TwitchKeyboard.Classes.Controllers
 {
-    /// <summary>
-    /// Controls the operation of a specific sfx rule, based on its model
-    /// </summary>
-    public class WebRuleController : BaseRuleController
-    {
-        public override ManagerType cType { get => ManagerType.WEB; }
-    }
+  /// <summary>
+  /// Controls the operation of a specific sfx rule, based on its model
+  /// </summary>
+  public class WebRuleController : BaseRuleController
+  {
+    public override ManagerType cType { get => ManagerType.WEB; }
+  }
 }

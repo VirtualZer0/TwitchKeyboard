@@ -15,14 +15,14 @@
         xmlns:res="clr-namespace:TwitchKeyboard.Properties"
         mc:Ignorable="d"
         Title="Select reward" Height="450" Width="720" WindowStyle="ToolWindow">
-    <Grid Margin="12,12,12,12">
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_selectReward}"/>
-                <WrapPanel x:Name="rewardsContainer" HorizontalAlignment="Center">
-                    <TextBlock x:Name="noRewardsMsg" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Text="{x:Static res:Resources.t_youNeedToConnect}"/>
-                </WrapPanel>
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>
+  <Grid Margin="12,12,12,12">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+      <StackPanel>
+        <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Padding="0,0,0,12" Text="{x:Static res:Resources.t_selectReward}"/>
+        <WrapPanel x:Name="rewardsContainer" HorizontalAlignment="Center">
+          <TextBlock x:Name="noRewardsMsg" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Text="{x:Static res:Resources.t_youNeedToConnect}"/>
+        </WrapPanel>
+      </StackPanel>
+    </ScrollViewer>
+  </Grid>
 </Window>

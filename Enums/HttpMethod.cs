@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    public enum HttpMethod
-    {
-        GET = 0,
-        POST,
-        PUT,
-        PATCH,
-        DELETE,
-        HEAD,
-        OPTIONS
-    }
+  public enum HttpMethod
+  {
+    GET = 0,
+    POST,
+    PUT,
+    PATCH,
+    DELETE,
+    HEAD,
+    OPTIONS
+  }
 }

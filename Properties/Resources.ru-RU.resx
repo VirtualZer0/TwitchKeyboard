@@ -523,6 +523,9 @@
   <data name="t_upEvents" xml:space="preserve">
     <value>События</value>
   </data>
+  <data name="t_viewChangelog" xml:space="preserve">
+    <value>Посмотреть изменения</value>
+  </data>
   <data name="t_volume" xml:space="preserve">
     <value>Громкость</value>
   </data>

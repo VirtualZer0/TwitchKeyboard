@@ -46,7 +46,7 @@
 
 ## 🕐 Quick Start
 
-1. Download and install .NET 5 **Desktop Runtime** from [**this link**](https://dotnet.microsoft.com/download/dotnet/5.0). On recent versions of Windows the framework may be installed by default.
+1. Download and install .NET 6 **Desktop Runtime** from [**this link**](https://dotnet.microsoft.com/download/dotnet/6.0). On recent versions of Windows the framework may be installed by default.
 <img src="./Docs/img/runtime_download.png" alt="editor-screen" style="zoom:70%;" />
 
 2. [**Download the latest version of the app**](https://github.com/VirtualZer0/TwitchKeyboard/releases)

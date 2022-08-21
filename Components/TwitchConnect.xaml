@@ -13,18 +13,18 @@
             TextOptions.TextFormattingMode="Ideal" 
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
-            <TextBox x:Name="channelName" VerticalAlignment="Center" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_yourChannelName}" MinWidth="160" Margin="0,0,16,0" Cursor="IBeam"></TextBox>
-            <Button x:Name="connectButton" VerticalAlignment="Center" Click="connectButton_Click" Cursor="Hand" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static res:Resources.t_connect}"/>
-        </StackPanel>
-        <materialDesign:Chip x:Name="connectionStatus"
+  <StackPanel>
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,6">
+      <TextBox x:Name="channelName" VerticalAlignment="Center" materialDesign:HintAssist.Hint="{x:Static res:Resources.t_yourChannelName}" MinWidth="160" Margin="0,0,16,0" Cursor="IBeam"></TextBox>
+      <Button x:Name="connectButton" VerticalAlignment="Center" Click="connectButton_Click" Cursor="Hand" materialDesign:ButtonProgressAssist.IsIndeterminate="True" Content="{x:Static res:Resources.t_connect}"/>
+    </StackPanel>
+    <materialDesign:Chip x:Name="connectionStatus"
                             Content="{x:Static res:Resources.t_disconnected}"
                             IconBackground="#FF9E9E9E"
-                            IconForeground="{DynamicResource MaterialDesignDarkForeground}" HorizontalAlignment="Center" Background="#3F9E9E9E">
-            <materialDesign:Chip.Icon>
-                <materialDesign:PackIcon Kind="MessageBulletedOff"/>
-            </materialDesign:Chip.Icon>
-        </materialDesign:Chip>
-    </StackPanel>
+                            IconForeground="{DynamicResource MaterialDesignDarkForeground}" HorizontalAlignment="Center" Background="#3F9E9E9E" Cursor="Hand">
+      <materialDesign:Chip.Icon>
+        <materialDesign:PackIcon Kind="MessageBulletedOff"/>
+      </materialDesign:Chip.Icon>
+    </materialDesign:Chip>
+  </StackPanel>
 </UserControl>

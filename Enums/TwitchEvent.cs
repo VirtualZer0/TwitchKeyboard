@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    /// <summary>
-    /// Available Twitch events
-    /// </summary>
-    public enum TwitchEvent
-    {
-        MESSAGE = 0,
-        REWARD,
-        BITS,
-        RESUB,
-        NEWSUB,
-        GIFTSUB,
-        RAID
-    }
+  /// <summary>
+  /// Available Twitch events
+  /// </summary>
+  public enum TwitchEvent
+  {
+    MESSAGE = 0,
+    REWARD,
+    BITS,
+    RESUB,
+    NEWSUB,
+    GIFTSUB,
+    RAID
+  }
 }

@@ -1,10 +1,10 @@
 namespace Classes.APIModels.TwitchGQL
-{ 
+{
 
-    public class Modifier
-    {
-        public string id { get; set; }
-        public string __typename { get; set; }
-    }
+  public class Modifier
+  {
+    public string id { get; set; }
+    public string __typename { get; set; }
+  }
 
 }

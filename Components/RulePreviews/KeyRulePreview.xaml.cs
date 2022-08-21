@@ -18,58 +18,58 @@ using TwitchKeyboard.Classes.Rules;
 
 namespace TwitchKeyboard.Components.RulePreviews
 {
-    /// <summary>
-    /// Логика взаимодействия для KeyRulePreview.xaml
-    /// </summary>
-    public partial class KeyRulePreview : UserControl
+  /// <summary>
+  /// Логика взаимодействия для KeyRulePreview.xaml
+  /// </summary>
+  public partial class KeyRulePreview : UserControl
+  {
+    KeyRule rule;
+
+    public delegate void OnRuleRemoveClickHandler(object sender, KeyRule rule);
+    public event OnRuleRemoveClickHandler OnRuleRemoveClick;
+
+    public delegate void OnRuleChangeClickHandler(object sender, KeyRule rule);
+    public event OnRuleChangeClickHandler OnRuleChangeClick;
+
+    public delegate void OnRuleDuplicateClickHandler(object sender, KeyRule rule);
+    public event OnRuleDuplicateClickHandler OnRuleDuplicateClick;
+
+    public KeyRulePreview(KeyRule rule)
     {
-        KeyRule rule;
-
-        public delegate void OnRuleRemoveClickHandler(object sender, KeyRule rule);
-        public event OnRuleRemoveClickHandler OnRuleRemoveClick;
-
-        public delegate void OnRuleChangeClickHandler(object sender, KeyRule rule);
-        public event OnRuleChangeClickHandler OnRuleChangeClick;
-
-        public delegate void OnRuleDuplicateClickHandler(object sender, KeyRule rule);
-        public event OnRuleDuplicateClickHandler OnRuleDuplicateClick;
-
-        public KeyRulePreview(KeyRule rule)
-        {
-            InitializeComponent();
-            UpdateRule(rule);
-        }
-
-        public void UpdateRule(KeyRule rule)
-        {
-            this.rule = rule;
-            SetKeyRuleValues();
-        }
-
-        public void SetKeyRuleValues ()
-        {
-            if (rule.keys.Count > 0)
-            {
-                keysText.Text = rule.GetName();
-            }
-
-            modeText.Text = $"{rule.mode}";
-            eventsText.Text = $"{rule.events.Count} {Properties.Resources.t_events}";
-        }
-
-        private void removeRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleRemoveClick?.Invoke(this, rule);
-        }
-
-        private void editRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleChangeClick?.Invoke(this, rule);
-        }
-
-        private void duplicateRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleDuplicateClick?.Invoke(this, rule);
-        }
+      InitializeComponent();
+      UpdateRule(rule);
     }
+
+    public void UpdateRule(KeyRule rule)
+    {
+      this.rule = rule;
+      SetKeyRuleValues();
+    }
+
+    public void SetKeyRuleValues()
+    {
+      if (rule.keys.Count > 0)
+      {
+        keysText.Text = rule.GetName();
+      }
+
+      modeText.Text = $"{rule.mode}";
+      eventsText.Text = $"{rule.events.Count} {Properties.Resources.t_events}";
+    }
+
+    private void removeRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleRemoveClick?.Invoke(this, rule);
+    }
+
+    private void editRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleChangeClick?.Invoke(this, rule);
+    }
+
+    private void duplicateRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleDuplicateClick?.Invoke(this, rule);
+    }
+  }
 }
