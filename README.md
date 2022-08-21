@@ -133,7 +133,7 @@ The settings screen contains the basic settings of the program, such as the desi
 
 - **Keyboard or mouse button presses don't work in a particular game/program, but they work in other places, what can it be about?**
 
-  Most likely, this game or program is running as an administrator. For keyboard and mouse controls to work under these conditions, Twitch Keyobard also needs to be run as an administrator.
+  Most games do not respond to a "Click" or "Push" event. Instead, use the "Hold" event with a small delay. In addition, this game or program may have been run as an administrator. For keyboard and mouse controls to work under these conditions, Twitch Keyobard also needs to be run as an administrator. 
 - **Is it possible to change the style and annotation of the notifications for BrowserSource?**
 
   Yes, you can do this by editing the HTML/CSS/JS files in the Notifcations folder next to the program.
