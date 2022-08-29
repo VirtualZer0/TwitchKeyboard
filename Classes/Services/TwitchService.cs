@@ -156,11 +156,16 @@ namespace TwitchKeyboard.Classes.Services
     {
       if (e.Data.Contains("room-id="))
       {
+        File.WriteAllText("test2.txt", e.Data);
         int pFrom = e.Data.IndexOf("room-id=") + "room-id=".Length;
         int pTo = e.Data.LastIndexOf(";slow=0;subs-only=0");
 
-        channelId = e.Data[pFrom..pTo];
-        this.ConnectToPubSub();
+        if (pTo != -1)
+        {
+          channelId = e.Data[pFrom..pTo];
+          this.ConnectToPubSub();
+        }
+
       }
     }
 
