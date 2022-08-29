@@ -71,6 +71,26 @@ namespace TwitchKeyboard.Components
           connectButton.IsEnabled = false;
           break;
 
+        case TwitchConnectionState.PUBSUB_ERROR:
+          connectionStatus.Content = Properties.Resources.t_pubSubError;
+          connectionStatus.Background = Helper.Brushes.bOrangeO;
+          connectionStatus.IconBackground = Helper.Brushes.bOrange;
+          ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.AccessPointOff;
+          connectButton.Content = Properties.Resources.t_disconnect;
+          connectButton.IsEnabled = true;
+          ButtonProgressAssist.SetIsIndicatorVisible(connectButton, false);
+          break;
+
+        case TwitchConnectionState.PUBSUB_IN_PROGRESS:
+          connectionStatus.Content = Properties.Resources.t_pubSubInProgress;
+          connectionStatus.Background = Helper.Brushes.bYellowO;
+          connectionStatus.IconBackground = Helper.Brushes.bYellow;
+          ((PackIcon)connectionStatus.Icon).Kind = PackIconKind.AccessPoint;
+          connectButton.Content = Properties.Resources.t_wait;
+          connectButton.IsEnabled = false;
+          ButtonProgressAssist.SetIsIndicatorVisible(connectButton, false);
+          break;
+
         case TwitchConnectionState.JOINED:
           connectionStatus.Content = Properties.Resources.t_connected;
           connectionStatus.Background = Helper.Brushes.bGreenO;

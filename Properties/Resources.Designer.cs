@@ -881,6 +881,24 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на PubSub error.
+        /// </summary>
+        public static string t_pubSubError {
+            get {
+                return ResourceManager.GetString("t_pubSubError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect to PubSub.
+        /// </summary>
+        public static string t_pubSubInProgress {
+            get {
+                return ResourceManager.GetString("t_pubSubInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Raid.
         /// </summary>
         public static string t_raid {

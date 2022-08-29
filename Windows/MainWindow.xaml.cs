@@ -734,8 +734,8 @@ namespace TwitchKeyboard.Windows
     private void CommandBinding_Executed_Minimize(object sender, ExecutedRoutedEventArgs e)
     {
       SystemCommands.MinimizeWindow(this);
-      this.Hide();
       this.ShowInTaskbar = false;
+      this.Hide();
     }
 
     // Maximize
@@ -760,18 +760,7 @@ namespace TwitchKeyboard.Windows
 
     private void mainWindow_StateChanged(object sender, EventArgs e)
     {
-      if (WindowState == WindowState.Maximized)
-      {
-        MainWindowBorder.BorderThickness = new Thickness(8);
-        RestoreButton.Visibility = Visibility.Visible;
-        MaximizeButton.Visibility = Visibility.Collapsed;
-      }
-      else
-      {
-        MainWindowBorder.BorderThickness = new Thickness(0);
-        RestoreButton.Visibility = Visibility.Collapsed;
-        MaximizeButton.Visibility = Visibility.Visible;
-      }
+
     }
 
     private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -792,8 +781,8 @@ namespace TwitchKeyboard.Windows
       else
       {
         SystemCommands.MinimizeWindow(this);
-        this.Hide();
         this.ShowInTaskbar = false;
+        this.Hide();
       }
 
     }

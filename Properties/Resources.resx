@@ -394,6 +394,12 @@
   <data name="t_pressKey" xml:space="preserve">
     <value>Press key</value>
   </data>
+  <data name="t_pubSubError" xml:space="preserve">
+    <value>PubSub error</value>
+  </data>
+  <data name="t_pubSubInProgress" xml:space="preserve">
+    <value>Connect to PubSub</value>
+  </data>
   <data name="t_raid" xml:space="preserve">
     <value>Raid</value>
   </data>

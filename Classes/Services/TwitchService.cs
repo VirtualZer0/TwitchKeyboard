@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -10,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TwitchLib.Client;
 using TwitchLib.Client.Models;
+using TwitchLib.PubSub;
 
 namespace TwitchKeyboard.Classes.Services
 {
@@ -54,9 +56,19 @@ namespace TwitchKeyboard.Classes.Services
     private readonly TwitchClient client = new();
 
     /// <summary>
+    /// TwitchLib PubSub service
+    /// </summary>
+    private readonly TwitchPubSub clientPubSub = new();
+
+    /// <summary>
     /// Channel name
     /// </summary>
     public string channel { get; private set; } = null;
+
+    /// <summary>
+    /// Channel id
+    /// </summary>
+    public string channelId { get; private set; } = null;
 
     /// <summary>
     /// Twitch connection state
@@ -98,6 +110,10 @@ namespace TwitchKeyboard.Classes.Services
 
       client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
 
+      clientPubSub.OnPubSubServiceConnected += ClientPubSub_OnPubSubServiceConnected;
+      clientPubSub.OnPubSubServiceError += ClientPubSub_OnPubSubServiceError;
+      clientPubSub.OnRewardRedeemed += ClientPubSub_OnRewardRedeemed;
+
       client.OnConnected += Client_OnConnected;
       client.OnJoinedChannel += Client_OnJoinedChannel;
       client.OnConnectionError += Client_OnConnectionError;
@@ -108,6 +124,44 @@ namespace TwitchKeyboard.Classes.Services
       client.OnReSubscriber += Client_OnReSubscriber;
       client.OnGiftedSubscription += Client_OnGiftedSubscription;
       client.OnRaidNotification += Client_OnRaidNotification;
+      client.OnLog += Client_OnLog;
+    }
+
+    private void ClientPubSub_OnPubSubServiceError(object sender, TwitchLib.PubSub.Events.OnPubSubServiceErrorArgs e)
+    {
+      connectionState = TwitchConnectionState.PUBSUB_ERROR;
+      OnConnectionStateChanged(this, connectionState);
+    }
+
+    private void ClientPubSub_OnRewardRedeemed(object sender, TwitchLib.PubSub.Events.OnRewardRedeemedArgs e)
+    {
+      ChatMessage msg = new("", "", e.DisplayName, e.DisplayName, "", System.Drawing.Color.Aqua, null, "", TwitchLib.Client.Enums.UserType.Viewer, "", "", false, 0, channelId, false, false, false, false, false, false, false, TwitchLib.Client.Enums.Noisy.NotSet, "", "", null, null, 0, 0);
+      OnReward?.Invoke(this, e.RewardId.ToString(), msg);
+    }
+
+    private void ClientPubSub_OnPubSubServiceConnected(object sender, EventArgs e)
+    {
+      connectionState = TwitchConnectionState.JOINED;
+      OnConnectionStateChanged(this, connectionState);
+
+      clientPubSub.SendTopics();
+    }
+
+    private void ClientPubSub_OnLog(object sender, TwitchLib.PubSub.Events.OnLogArgs e)
+    {
+      //File.AppendAllText("test.txt", "\n\n" + e.Data);
+    }
+
+    private void Client_OnLog(object sender, TwitchLib.Client.Events.OnLogArgs e)
+    {
+      if (e.Data.Contains("room-id="))
+      {
+        int pFrom = e.Data.IndexOf("room-id=") + "room-id=".Length;
+        int pTo = e.Data.LastIndexOf(";slow=0;subs-only=0");
+
+        channelId = e.Data[pFrom..pTo];
+        this.ConnectToPubSub();
+      }
     }
 
     private void Client_OnRaidNotification(object sender, TwitchLib.Client.Events.OnRaidNotificationArgs e)
@@ -157,22 +211,21 @@ namespace TwitchKeyboard.Classes.Services
       connectionState = TwitchConnectionState.DISCONNECTED;
       OnConnectionStateChanged(this, connectionState);
 
+      clientPubSub.Disconnect();
+
       if (manualDisconnect)
       {
         manualDisconnect = false;
         return;
       }
 
-      Task.Run(() =>
-      {
-        connectionState = TwitchConnectionState.ERROR;
-        OnConnectionStateChanged(this, connectionState);
+      connectionState = TwitchConnectionState.ERROR;
+      OnConnectionStateChanged(this, connectionState);
 
-        Thread.Sleep(2500);
+      Thread.Sleep(2500);
 
-        client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
-        client.Reconnect();
-      });
+      client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
+      client.Reconnect();
     }
 
     private void Client_OnConnectionError(object sender, TwitchLib.Client.Events.OnConnectionErrorArgs e)
@@ -201,6 +254,15 @@ namespace TwitchKeyboard.Classes.Services
         connectionState = TwitchConnectionState.ERROR;
         OnConnectionStateChanged(this, connectionState);
       }
+    }
+
+    public void ConnectToPubSub()
+    {
+      connectionState = TwitchConnectionState.PUBSUB_IN_PROGRESS;
+      OnConnectionStateChanged(this, connectionState);
+
+      clientPubSub.ListenToRewards(channelId);
+      clientPubSub.Connect();
     }
 
     /// <summary>
@@ -245,6 +307,8 @@ namespace TwitchKeyboard.Classes.Services
     IN_PROGRESS,
     CONNECTED,
     JOINED,
+    PUBSUB_IN_PROGRESS,
+    PUBSUB_ERROR,
     ERROR
   }
 }

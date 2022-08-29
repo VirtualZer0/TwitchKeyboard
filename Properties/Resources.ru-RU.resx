@@ -391,6 +391,12 @@
   <data name="t_pressKey" xml:space="preserve">
     <value>Нажмите клавишу</value>
   </data>
+  <data name="t_pubSubError" xml:space="preserve">
+    <value>Ошибка PubSub</value>
+  </data>
+  <data name="t_pubSubInProgress" xml:space="preserve">
+    <value>Подключение к PubSub</value>
+  </data>
   <data name="t_raid" xml:space="preserve">
     <value>Рейд</value>
   </data>

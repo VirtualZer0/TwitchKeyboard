@@ -37,6 +37,9 @@ namespace TwitchKeyboard.Classes
 
       public static readonly SolidColorBrush bPurple = new(Color.FromRgb(103, 58, 183));
       public static readonly SolidColorBrush bPurpleO = new(Color.FromArgb(63, 103, 58, 183));
+
+      public static readonly SolidColorBrush bOrange = new(Color.FromRgb(239, 108, 0));
+      public static readonly SolidColorBrush bOrangeO = new(Color.FromArgb(63, 239, 108, 0));
     }
 
     public static string TimerIntToString(int i)
