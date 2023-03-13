@@ -7,7 +7,7 @@
 | ![en-lang](./Docs/img/en-lang.png) English version | ![ru-lang](./Docs/img/ru-lang.png) [Русская версия](https://github.com/VirtualZer0/TwitchKeyboard/blob/master/Docs/README.ru.md) |
 | -------------------------------------------------: | ------------------------------------------------- |
 
-
+ 
 
 ## 👁‍🗨 About
 
