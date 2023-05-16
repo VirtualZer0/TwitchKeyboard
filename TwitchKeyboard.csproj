@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
     <ApplicationIcon>logo.ico</ApplicationIcon>
     <StartupObject>TwitchKeyboard.App</StartupObject>
     <Authors>VirtualZer0 (Evstafev Yury)</Authors>
