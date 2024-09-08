@@ -9,7 +9,6 @@ namespace TwitchKeyboard.Classes.Rules
 {
   public class WebRule : BaseRule
   {
-    public new string name = "";
     public string url = "https://";
     public string content = "";
     public HttpMethod method = HttpMethod.GET;
@@ -17,10 +16,5 @@ namespace TwitchKeyboard.Classes.Rules
       { "Content-Type", "application/json;charset=UTF-8" },
       { "Accept", "application/json" },
     };
-
-    public override string GetName()
-    {
-      return name;
-    }
   }
 }

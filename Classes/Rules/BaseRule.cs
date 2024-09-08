@@ -19,7 +19,7 @@ namespace TwitchKeyboard.Classes.Rules
 
     public virtual string GetName()
     {
-      return "Base rule";
+      return this.name;
     }
   }
 }

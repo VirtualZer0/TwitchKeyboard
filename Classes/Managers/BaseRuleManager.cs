@@ -266,7 +266,7 @@ namespace TwitchKeyboard.Classes.Managers
       if (trigger.repeatTime <= 0) trigger.Reset();
     }
 
-    public void Disable()
+    public virtual void Disable()
     {
       enabled = false;
 
@@ -280,7 +280,7 @@ namespace TwitchKeyboard.Classes.Managers
       }
     }
 
-    public void Enable()
+    public virtual void Enable()
     {
       enabled = true;
     }

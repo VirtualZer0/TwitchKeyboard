@@ -899,6 +899,15 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Cannot find Python on your PC. Go to the TTS tab and install it or specify the folder path manually..
+        /// </summary>
+        public static string t_pythonNotFound {
+            get {
+                return ResourceManager.GetString("t_pythonNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Raid.
         /// </summary>
         public static string t_raid {

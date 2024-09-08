@@ -129,8 +129,12 @@ namespace TwitchKeyboard.Classes.Services
 
     private void ClientPubSub_OnPubSubServiceError(object sender, TwitchLib.PubSub.Events.OnPubSubServiceErrorArgs e)
     {
+      if (manualDisconnect)
+      {
+        return;
+      }
       connectionState = TwitchConnectionState.PUBSUB_ERROR;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
     }
 
     private void ClientPubSub_OnRewardRedeemed(object sender, TwitchLib.PubSub.Events.OnRewardRedeemedArgs e)
@@ -142,7 +146,7 @@ namespace TwitchKeyboard.Classes.Services
     private void ClientPubSub_OnPubSubServiceConnected(object sender, EventArgs e)
     {
       connectionState = TwitchConnectionState.JOINED;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
 
       clientPubSub.SendTopics();
     }
@@ -214,57 +218,44 @@ namespace TwitchKeyboard.Classes.Services
     private void Client_OnDisconnected(object sender, TwitchLib.Communication.Events.OnDisconnectedEventArgs e)
     {
       connectionState = TwitchConnectionState.DISCONNECTED;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
 
       clientPubSub.Disconnect();
-
-      if (manualDisconnect)
-      {
-        manualDisconnect = false;
-        return;
-      }
-
-      connectionState = TwitchConnectionState.ERROR;
-      OnConnectionStateChanged(this, connectionState);
-
-      Thread.Sleep(2500);
-
-      client.Initialize(new ConnectionCredentials($"justinfan{rnd.Next(200, 9999)}", ""));
-      client.Reconnect();
     }
 
     private void Client_OnConnectionError(object sender, TwitchLib.Client.Events.OnConnectionErrorArgs e)
     {
       connectionState = TwitchConnectionState.ERROR;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
     }
 
     private void Client_OnJoinedChannel(object sender, TwitchLib.Client.Events.OnJoinedChannelArgs e)
     {
       connectionState = TwitchConnectionState.JOINED;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
     }
 
     private void Client_OnConnected(object sender, TwitchLib.Client.Events.OnConnectedArgs e)
     {
       connectionState = TwitchConnectionState.CONNECTED;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
 
       try
       {
         client.JoinChannel(channel);
+        manualDisconnect = false;
       }
       catch
       {
         connectionState = TwitchConnectionState.ERROR;
-        OnConnectionStateChanged(this, connectionState);
+        OnConnectionStateChanged?.Invoke(this, connectionState);
       }
     }
 
     public void ConnectToPubSub()
     {
       connectionState = TwitchConnectionState.PUBSUB_IN_PROGRESS;
-      OnConnectionStateChanged(this, connectionState);
+      OnConnectionStateChanged?.Invoke(this, connectionState);
 
       clientPubSub.ListenToRewards(channelId);
       clientPubSub.Connect();
@@ -277,9 +268,10 @@ namespace TwitchKeyboard.Classes.Services
     /// <returns></returns>
     public async Task JoinChannel(string channel)
     {
+      HttpClient http = new();
+      
       try
       {
-        HttpClient http = new();
         string request = gqlRewards.Replace("CHANNEL", channel).Replace("\r\n", "").Replace(" ", "");
         var content = new StringContent(request, Encoding.UTF8, "application/json");
         http.Timeout = new TimeSpan(0, 0, 5);
@@ -295,7 +287,11 @@ namespace TwitchKeyboard.Classes.Services
       catch
       {
         connectionState = TwitchConnectionState.ERROR;
-        OnConnectionStateChanged(this, connectionState);
+        OnConnectionStateChanged?.Invoke(this, connectionState);
+      }
+      finally
+      {
+        http.Dispose();
       }
     }
 

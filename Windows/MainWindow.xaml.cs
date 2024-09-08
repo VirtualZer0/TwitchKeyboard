@@ -39,6 +39,8 @@ namespace TwitchKeyboard.Windows
   /// </summary>
   public partial class MainWindow : Window
   {
+    readonly MemleakCheckService memleakCheckService = new();
+
     /// <summary>
     /// Twitch controller, controls chat connection and Twitch API requests
     /// </summary>
@@ -87,6 +89,9 @@ namespace TwitchKeyboard.Windows
 
     public MainWindow()
     {
+      // Run memleak checker
+      memleakCheckService.Start();
+
       // Bind exception catching
       Application.Current.DispatcherUnhandledException += DispatcherUnhandledException;
 
@@ -173,8 +178,10 @@ namespace TwitchKeyboard.Windows
       {
         this.Dispatcher.Invoke(() =>
         {
-          UpdateAvailableWindow notification = new();
-          notification.Topmost = true;
+          UpdateAvailableWindow notification = new()
+          {
+            Topmost = true
+          };
           notification.Show();
         });
       }
@@ -387,7 +394,7 @@ namespace TwitchKeyboard.Windows
       var theme = paletteHelper.GetTheme();
       theme.SetBaseTheme(baseTheme);
       theme.SetPrimaryColor(
-          swatchesProvider.Swatches.FirstOrDefault(sw => sw.Name == settings.primaryColor).PrimaryHues[5].Color
+          swatchesProvider.Swatches.FirstOrDefault(sw => sw.Name == settings.primaryColor)?.PrimaryHues[5].Color ?? theme.PrimaryMid.Color
       );
       paletteHelper.SetTheme(theme);
     }
@@ -561,9 +568,10 @@ namespace TwitchKeyboard.Windows
       bool reenable = managers[(int)managerType].enabled;
       managers[(int)managerType].Disable();
       managers[(int)managerType].DestroyControllers();
-      if (storage.ContainsKey(settings.activePresets[managerType]))
+      var selectedPreset = storage.TryGetValue(settings.activePresets[managerType], out var rules) ? rules : null;
+      if (selectedPreset != null)
       {
-        managers[(int)managerType].CreateControllers<TController>(storage[settings.activePresets[managerType]].ToArray());
+        managers[(int)managerType].CreateControllers<TController>(selectedPreset.ToArray());
 
         if (reenable)
           managers[(int)managerType].Enable();
@@ -765,6 +773,7 @@ namespace TwitchKeyboard.Windows
 
     private void mainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
     {
+      memleakCheckService.Stop();
       SaveSettings();
       notifications.Stop();
     }

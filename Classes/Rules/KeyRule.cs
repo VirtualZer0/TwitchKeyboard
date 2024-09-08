@@ -17,6 +17,11 @@ namespace TwitchKeyboard.Classes.Rules
 
     public override string GetName()
     {
+      if (this.name != "")
+      {
+        return this.name; 
+      }
+      
       string keysDesc = "";
       for (int i = 0; i < keys.Count; i++)
       {

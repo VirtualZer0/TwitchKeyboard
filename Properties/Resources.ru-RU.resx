@@ -397,6 +397,9 @@
   <data name="t_pubSubInProgress" xml:space="preserve">
     <value>Подключение к PubSub</value>
   </data>
+  <data name="t_pythonNotFound" xml:space="preserve">
+    <value>Не удалось найти Python на вашем компьютере. Перейдите на вкладку ТТС и установите его или укажите путь вручную</value>
+  </data>
   <data name="t_raid" xml:space="preserve">
     <value>Рейд</value>
   </data>

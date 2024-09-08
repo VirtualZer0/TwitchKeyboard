@@ -15,7 +15,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="Twitch Keyboard" Height="680" Width="900" StateChanged="mainWindow_StateChanged" Closing="mainWindow_Closing">
+        Title="Twitch Keyboard" Height="740" Width="900" StateChanged="mainWindow_StateChanged" Closing="mainWindow_Closing">
 
 
   <WindowChrome.WindowChrome>

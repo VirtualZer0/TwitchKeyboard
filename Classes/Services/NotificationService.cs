@@ -22,6 +22,10 @@ namespace TwitchKeyboard.Classes.Services
 
     public void Start()
     {
+      if (listener.Prefixes.Count == 0)
+      {
+        listener.Prefixes.Add(addr);
+      }
       listener.Prefixes.Add(addr);
       listener.Start();
       listenThread = new Thread(this.Listen);
@@ -33,6 +37,7 @@ namespace TwitchKeyboard.Classes.Services
       try
       {
         dontStop = false;
+        listener.Stop();
         listener.Close();
       }
       catch { }

@@ -19,6 +19,11 @@ namespace TwitchKeyboard.Classes.Rules
 
     public override string GetName()
     {
+      if (this.name != "")
+      {
+        return this.name;
+      }
+      
       return ruleType.ToString();
     }
   }
