@@ -17,55 +17,55 @@ using TwitchKeyboard.Classes.Rules;
 
 namespace TwitchKeyboard.Components.RulePreviews
 {
-    /// <summary>
-    /// Логика взаимодействия для WebRulePreview.xaml
-    /// </summary>
-    public partial class WebRulePreview : UserControl
+  /// <summary>
+  /// Логика взаимодействия для WebRulePreview.xaml
+  /// </summary>
+  public partial class WebRulePreview : UserControl
+  {
+    WebRule rule;
+
+    public delegate void OnRuleRemoveClickHandler(object sender, WebRule rule);
+    public event OnRuleRemoveClickHandler OnRuleRemoveClick;
+
+    public delegate void OnRuleChangeClickHandler(object sender, WebRule rule);
+    public event OnRuleChangeClickHandler OnRuleChangeClick;
+
+    public delegate void OnRuleDuplicateClickHandler(object sender, WebRule rule);
+    public event OnRuleDuplicateClickHandler OnRuleDuplicateClick;
+
+    public WebRulePreview(WebRule rule)
     {
-        WebRule rule;
-
-        public delegate void OnRuleRemoveClickHandler(object sender, WebRule rule);
-        public event OnRuleRemoveClickHandler OnRuleRemoveClick;
-
-        public delegate void OnRuleChangeClickHandler(object sender, WebRule rule);
-        public event OnRuleChangeClickHandler OnRuleChangeClick;
-
-        public delegate void OnRuleDuplicateClickHandler(object sender, WebRule rule);
-        public event OnRuleDuplicateClickHandler OnRuleDuplicateClick;
-
-        public WebRulePreview(WebRule rule)
-        {
-            InitializeComponent();
-            UpdateRule(rule);
-        }
-
-        public void UpdateRule(WebRule rule)
-        {
-            this.rule = rule;
-            SetWebRuleValues();
-        }
-
-        public void SetWebRuleValues()
-        {
-            sfxText.Text = rule.GetName();
-
-            modeText.Text = $"{rule.method}";
-            eventsText.Text = $"{rule.events.Count} {Properties.Resources.t_events}";
-        }
-
-        private void removeRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleRemoveClick?.Invoke(this, rule);
-        }
-
-        private void editRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleChangeClick?.Invoke(this, rule);
-        }
-
-        private void duplicateRuleButton_Click(object sender, RoutedEventArgs e)
-        {
-            OnRuleDuplicateClick?.Invoke(this, rule);
-        }
+      InitializeComponent();
+      UpdateRule(rule);
     }
+
+    public void UpdateRule(WebRule rule)
+    {
+      this.rule = rule;
+      SetWebRuleValues();
+    }
+
+    public void SetWebRuleValues()
+    {
+      sfxText.Text = rule.GetName();
+
+      modeText.Text = $"{rule.method}";
+      eventsText.Text = $"{rule.events.Count} {Properties.Resources.t_events}";
+    }
+
+    private void removeRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleRemoveClick?.Invoke(this, rule);
+    }
+
+    private void editRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleChangeClick?.Invoke(this, rule);
+    }
+
+    private void duplicateRuleButton_Click(object sender, RoutedEventArgs e)
+    {
+      OnRuleDuplicateClick?.Invoke(this, rule);
+    }
+  }
 }

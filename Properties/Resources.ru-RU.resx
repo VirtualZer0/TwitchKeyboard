@@ -391,6 +391,15 @@
   <data name="t_pressKey" xml:space="preserve">
     <value>Нажмите клавишу</value>
   </data>
+  <data name="t_pubSubError" xml:space="preserve">
+    <value>Ошибка PubSub</value>
+  </data>
+  <data name="t_pubSubInProgress" xml:space="preserve">
+    <value>Подключение к PubSub</value>
+  </data>
+  <data name="t_pythonNotFound" xml:space="preserve">
+    <value>Не удалось найти Python на вашем компьютере. Перейдите на вкладку ТТС и установите его или укажите путь вручную</value>
+  </data>
   <data name="t_raid" xml:space="preserve">
     <value>Рейд</value>
   </data>
@@ -522,6 +531,9 @@
   </data>
   <data name="t_upEvents" xml:space="preserve">
     <value>События</value>
+  </data>
+  <data name="t_viewChangelog" xml:space="preserve">
+    <value>Посмотреть изменения</value>
   </data>
   <data name="t_volume" xml:space="preserve">
     <value>Громкость</value>

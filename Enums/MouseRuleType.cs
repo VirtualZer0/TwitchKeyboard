@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    public enum MouseRuleType
-    {
-        LeftButton = 0,
-        RightButton,
-        MiddleButton,
-        Scroll,
-        MoveTo,
-        MoveBy
-    }
+  public enum MouseRuleType
+  {
+    LeftButton = 0,
+    RightButton,
+    MiddleButton,
+    Scroll,
+    MoveTo,
+    MoveBy
+  }
 }

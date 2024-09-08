@@ -112,12 +112,12 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -394,6 +394,15 @@
   <data name="t_pressKey" xml:space="preserve">
     <value>Press key</value>
   </data>
+  <data name="t_pubSubError" xml:space="preserve">
+    <value>PubSub error</value>
+  </data>
+  <data name="t_pubSubInProgress" xml:space="preserve">
+    <value>Connect to PubSub</value>
+  </data>
+  <data name="t_pythonNotFound" xml:space="preserve">
+    <value>Cannot find Python on your PC. Go to the TTS tab and install it or specify the folder path manually.</value>
+  </data>
   <data name="t_raid" xml:space="preserve">
     <value>Raid</value>
   </data>
@@ -525,6 +534,9 @@
   </data>
   <data name="t_upEvents" xml:space="preserve">
     <value>Events</value>
+  </data>
+  <data name="t_viewChangelog" xml:space="preserve">
+    <value>View changelog</value>
   </data>
   <data name="t_volume" xml:space="preserve">
     <value>Volume</value>

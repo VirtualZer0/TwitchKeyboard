@@ -15,10 +15,12 @@
         xmlns:res="clr-namespace:TwitchKeyboard.Properties"
         mc:Ignorable="d"
         Title="Update available" Height="150" Width="400" WindowStyle="ToolWindow">
-    <Grid>
-        <StackPanel Margin="12,12,12,12" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBlock HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,0,0,16" Text="{x:Static res:Resources.t_newUpdateAvailable}"/>
-            <Button HorizontalAlignment="Center" Content="{x:Static res:Resources.t_download}" Click="Button_Click"/>
-        </StackPanel>
-    </Grid>
+  <Grid>
+    <StackPanel Margin="12,12,12,12" VerticalAlignment="Center" HorizontalAlignment="Center">
+      <TextBlock HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Margin="0,0,0,16" Text="{x:Static res:Resources.t_newUpdateAvailable}"/>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Button HorizontalAlignment="Center" Content="{x:Static res:Resources.t_download}" Click="Button_Click"/>
+      </StackPanel>
+    </StackPanel>
+  </Grid>
 </Window>

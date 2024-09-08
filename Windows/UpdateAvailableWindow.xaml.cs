@@ -15,21 +15,34 @@ using System.Windows.Shapes;
 
 namespace TwitchKeyboard.Windows
 {
-    /// <summary>
-    /// Логика взаимодействия для UpdateAvailable.xaml
-    /// </summary>
-    public partial class UpdateAvailableWindow : Window
+  /// <summary>
+  /// Логика взаимодействия для UpdateAvailable.xaml
+  /// </summary>
+  public partial class UpdateAvailableWindow : Window
+  {
+    public UpdateAvailableWindow()
     {
-        public UpdateAvailableWindow()
-        {
-            InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            new Process { StartInfo =
-                new ProcessStartInfo("https://github.com/VirtualZer0/TwitchKeyboard/releases")
-                { UseShellExecute = true } }.Start();
-        }
+      InitializeComponent();
     }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+      new Process
+      {
+        StartInfo =
+          new ProcessStartInfo("https://github.com/VirtualZer0/TwitchKeyboard/releases")
+          { UseShellExecute = true }
+      }.Start();
+    }
+
+    private void Changelog_Click(object sender, RoutedEventArgs e)
+    {
+      new Process
+      {
+        StartInfo =
+          new ProcessStartInfo("https://github.com/VirtualZer0/TwitchKeyboard/releases")
+          { UseShellExecute = true }
+      }.Start();
+    }
+  }
 }

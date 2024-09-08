@@ -14,30 +14,30 @@
             TextOptions.TextRenderingMode="Auto"
             FontFamily="{DynamicResource MaterialDesignFont}"
             d:DesignHeight="140" d:DesignWidth="140" Margin="0,0,8,8" MinWidth="140" MinHeight="140" MaxWidth="140" MaxHeight="140">
-    <Grid>
-        <materialDesign:Card>
-            <StackPanel x:Name="stackPanel" Margin="0,10,0,0">
-                <TextBlock x:Name="sfxText" Text="{x:Static res:Resources.t_noSfx}" HorizontalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,12" MinHeight="35"/>
-                <StackPanel Orientation="Horizontal" Margin="6,0,0,4">
-                    <materialDesign:PackIcon Margin="0,0,6,0" Kind="VolumeHigh"/>
-                    <TextBlock x:Name="modeText" Text="100%" FontSize="12" HorizontalAlignment="Left"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="6,0,0,16">
-                    <materialDesign:PackIcon Margin="0,0,6,0" Kind="Flash"/>
-                    <TextBlock x:Name="eventsText" Text="{Binding Source={x:Static res:Resources.t_events}, StringFormat='{}0 {0}'}" FontSize="12" HorizontalAlignment="Left"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button x:Name="removeRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_removeRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Margin="0,0,6,0" Click="removeRuleButton_Click">
-                        <materialDesign:PackIcon Kind="Close" Width="16" Height="16" Foreground="#FFF44336" />
-                    </Button>
-                    <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_editRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Margin="0,0,6,0" Click="editRuleButton_Click">
-                        <materialDesign:PackIcon Kind="Edit" Width="16" Height="16"/>
-                    </Button>
-                    <Button x:Name="duplicateRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_duplicateRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Click="duplicateRuleButton_Click" Cursor="Hand">
-                        <materialDesign:PackIcon Kind="ContentCopy" Width="16" Height="16"/>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </materialDesign:Card>
-    </Grid>
+  <Grid>
+    <materialDesign:Card>
+      <StackPanel x:Name="stackPanel" Margin="0,10,0,0">
+        <TextBlock x:Name="sfxText" Text="{x:Static res:Resources.t_noSfx}" HorizontalAlignment="Center" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,12" MinHeight="35"/>
+        <StackPanel Orientation="Horizontal" Margin="6,0,0,4">
+          <materialDesign:PackIcon Margin="0,0,6,0" Kind="VolumeHigh"/>
+          <TextBlock x:Name="modeText" Text="100%" FontSize="12" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="6,0,0,16">
+          <materialDesign:PackIcon Margin="0,0,6,0" Kind="Flash"/>
+          <TextBlock x:Name="eventsText" Text="{Binding Source={x:Static res:Resources.t_events}, StringFormat='{}0 {0}'}" FontSize="12" HorizontalAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          <Button x:Name="removeRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_removeRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Width="24" Height="24" Margin="0,0,6,0" Click="removeRuleButton_Click">
+            <materialDesign:PackIcon Kind="Close" Width="16" Height="16" Foreground="#FFF44336" />
+          </Button>
+          <Button x:Name="editRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_editRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Margin="0,0,6,0" Click="editRuleButton_Click">
+            <materialDesign:PackIcon Kind="Edit" Width="16" Height="16"/>
+          </Button>
+          <Button x:Name="duplicateRuleButton" Style="{StaticResource MaterialDesignIconButton}" ToolTip="{x:Static res:Resources.t_duplicateRule}" Background="{DynamicResource MaterialDesignTextFieldBoxBackground}" Foreground="{StaticResource PrimaryHueLightBrush}" Width="24" Height="24" Click="duplicateRuleButton_Click" Cursor="Hand">
+            <materialDesign:PackIcon Kind="ContentCopy" Width="16" Height="16"/>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </materialDesign:Card>
+  </Grid>
 </UserControl>

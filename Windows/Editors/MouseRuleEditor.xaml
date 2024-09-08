@@ -15,86 +15,86 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Mouse rule editor" Height="650" Width="720" WindowStyle="ToolWindow" MinWidth="600">
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
-        <StackPanel Margin="12,12,12,12">
-            <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" Text="{x:Static res:Resources.t_addNewMouseRule}"/>
-            <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold" Text="{x:Static res:Resources.t_upEvents}"/>
-            <StackPanel x:Name="eventsContainer">
+  <ScrollViewer HorizontalScrollBarVisibility="Disabled" MaxWidth="{Binding ActualWidth, ElementName=stackPanel, Mode=OneWay}" MaxHeight="{Binding ActualHeight, ElementName=keyRuleEditorWindow, Mode=OneWay}" VerticalScrollBarVisibility="Auto">
+    <StackPanel Margin="12,12,12,12">
+      <TextBlock x:Name="titleText" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,0,0,12" Text="{x:Static res:Resources.t_addNewMouseRule}"/>
+      <TextBlock FontSize="16" Margin="0,0,0,12" FontWeight="Bold" Text="{x:Static res:Resources.t_upEvents}"/>
+      <StackPanel x:Name="eventsContainer">
 
-            </StackPanel>
-            <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
-            <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
-            <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
+      </StackPanel>
+      <Border BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="0,3,0,0" Margin="0,0,0,0" HorizontalAlignment="Center" Width="450" CornerRadius="1,1,1,1"/>
+      <Button x:Name="addEventButton" HorizontalAlignment="Center" Margin="0,-1,0,32" Width="250" Height="25" materialDesign:ButtonAssist.CornerRadius="0 0 15 15" Style="{StaticResource MaterialDesignFlatMidBgButton}" Cursor="Hand" Click="addEventButton_Click" Content="{x:Static res:Resources.t_plusAddNewEvent}"/>
+      <TextBlock FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,0,12" Text="{x:Static res:Resources.t_settings}"/>
 
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_cooldown}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
-                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_delay}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
-                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
-            </StackPanel>
-            
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,2" Text="{Binding Source={x:Static res:Resources.t_type}, StringFormat='{}{0}:'}"/>
-                <ComboBox x:Name="mouseType" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="150" SelectionChanged="mouseType_SelectionChanged">
-                    <ComboBoxItem Content="{x:Static res:Resources.t_leftButton}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_rightButton}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_middleButton}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_scroll}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_setCursorPosition}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_moveCursor}"/>
-                </ComboBox>
-            </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_cooldown}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="cooldownValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+        <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+      </StackPanel>
 
-            <StackPanel x:Name="coordinatesBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">X:</TextBlock>
-                <TextBox x:Name="xValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center" Margin="0,0,16,0"/>
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Y:</TextBlock>
-                <TextBox x:Name="yValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center" Margin="0,0,16,0"/>
-            </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_delay}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="delayValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center"/>
+        <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+      </StackPanel>
 
-            <StackPanel x:Name="xSpeedBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_xSpeed}, StringFormat='{}{0}:'}"/>
-                <ComboBox x:Name="xMoveDirection" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,18,0" MinWidth="75">
-                    <ComboBoxItem Content="{x:Static res:Resources.t_left}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_right}"/>
-                </ComboBox>
-                <TextBlock VerticalAlignment="Center" Margin="0,0,12,0" Text="{Binding Source={x:Static res:Resources.t_pixelsPerSecond}, StringFormat='{}{0}:'}"/>
-                <Slider x:Name="xMoveSpeed" MinWidth="350" VerticalAlignment="Center" Minimum="0" Maximum="2000" SmallChange="1" LargeChange="10" Value="30" AutoToolTipPlacement="TopLeft" />
-            </StackPanel>
+      <StackPanel Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,2" Text="{Binding Source={x:Static res:Resources.t_type}, StringFormat='{}{0}:'}"/>
+        <ComboBox x:Name="mouseType" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="150" SelectionChanged="mouseType_SelectionChanged">
+          <ComboBoxItem Content="{x:Static res:Resources.t_leftButton}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_rightButton}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_middleButton}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_scroll}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_setCursorPosition}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_moveCursor}"/>
+        </ComboBox>
+      </StackPanel>
 
-            <StackPanel x:Name="ySpeedBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_ySpeed}, StringFormat='{}{0}:'}"/>
-                <ComboBox x:Name="yMoveDirection" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,18,0" MinWidth="75">
-                    <ComboBoxItem Content="{x:Static res:Resources.t_up}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_down}"/>
-                </ComboBox>
-                <TextBlock VerticalAlignment="Center" Margin="0,0,12,0" Text="{Binding Source={x:Static res:Resources.t_pixelsPerSecond}, StringFormat='{}{0}:'}"/>
-                <Slider x:Name="yMoveSpeed" MinWidth="350" VerticalAlignment="Center" Minimum="0" Maximum="2000" SmallChange="1" LargeChange="10" Value="30" AutoToolTipPlacement="BottomRight" />
-            </StackPanel>
+      <StackPanel x:Name="coordinatesBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">X:</TextBlock>
+        <TextBox x:Name="xValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center" Margin="0,0,16,0"/>
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0">Y:</TextBlock>
+        <TextBox x:Name="yValue" MinWidth="40" Text="0" HorizontalContentAlignment="Center" Margin="0,0,16,0"/>
+      </StackPanel>
 
-            <StackPanel x:Name="mouseButtonModeBlock" Orientation="Horizontal" Margin="0,0,0,12">
-                <TextBlock VerticalAlignment="Center" Margin="0,1,6,0" Text="{Binding Source={x:Static res:Resources.t_mode}, StringFormat='{}{0}:'}"/>
-                <RadioButton x:Name="mouseModeClickRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_click}" Margin="0,0,12,0" IsChecked="True" Checked="mouseModeClickRadio_Checked"/>
-                <RadioButton x:Name="mouseModeDoubleClickRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_doubleClick}" Margin="0,0,12,0" Checked="mouseModeDoubleClickRadio_Checked"/>
-                <RadioButton x:Name="mouseModeSpamRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_spam}" Margin="0,0,12,0" Checked="mouseModeSpamRadio_Checked"/>
-                <RadioButton x:Name="mouseModeHoldRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_hold}" Margin="0,0,24,0" Checked="mouseModeHoldRadio_Checked"/>
-            </StackPanel>
+      <StackPanel x:Name="xSpeedBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_xSpeed}, StringFormat='{}{0}:'}"/>
+        <ComboBox x:Name="xMoveDirection" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,18,0" MinWidth="75">
+          <ComboBoxItem Content="{x:Static res:Resources.t_left}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_right}"/>
+        </ComboBox>
+        <TextBlock VerticalAlignment="Center" Margin="0,0,12,0" Text="{Binding Source={x:Static res:Resources.t_pixelsPerSecond}, StringFormat='{}{0}:'}"/>
+        <Slider x:Name="xMoveSpeed" MinWidth="350" VerticalAlignment="Center" Minimum="0" Maximum="2000" SmallChange="1" LargeChange="10" Value="30" AutoToolTipPlacement="TopLeft" />
+      </StackPanel>
 
-            <StackPanel x:Name="durationBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_duration}, StringFormat='{}{0}:'}"/>
-                <TextBox x:Name="durationValue" MinWidth="40" Text="3" HorizontalContentAlignment="Center"/>
-                <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
-            </StackPanel>
+      <StackPanel x:Name="ySpeedBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_ySpeed}, StringFormat='{}{0}:'}"/>
+        <ComboBox x:Name="yMoveDirection" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,18,0" MinWidth="75">
+          <ComboBoxItem Content="{x:Static res:Resources.t_up}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_down}"/>
+        </ComboBox>
+        <TextBlock VerticalAlignment="Center" Margin="0,0,12,0" Text="{Binding Source={x:Static res:Resources.t_pixelsPerSecond}, StringFormat='{}{0}:'}"/>
+        <Slider x:Name="yMoveSpeed" MinWidth="350" VerticalAlignment="Center" Minimum="0" Maximum="2000" SmallChange="1" LargeChange="10" Value="30" AutoToolTipPlacement="BottomRight" />
+      </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,24,0,0">
-                <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click" Content="{x:Static res:Resources.t_save}"/>
-                <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click" Content="{x:Static res:Resources.t_cancel}"/>
-            </StackPanel>
-        </StackPanel>
-    </ScrollViewer>
+      <StackPanel x:Name="mouseButtonModeBlock" Orientation="Horizontal" Margin="0,0,0,12">
+        <TextBlock VerticalAlignment="Center" Margin="0,1,6,0" Text="{Binding Source={x:Static res:Resources.t_mode}, StringFormat='{}{0}:'}"/>
+        <RadioButton x:Name="mouseModeClickRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_click}" Margin="0,0,12,0" IsChecked="True" Checked="mouseModeClickRadio_Checked"/>
+        <RadioButton x:Name="mouseModeDoubleClickRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_doubleClick}" Margin="0,0,12,0" Checked="mouseModeDoubleClickRadio_Checked"/>
+        <RadioButton x:Name="mouseModeSpamRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_spam}" Margin="0,0,12,0" Checked="mouseModeSpamRadio_Checked"/>
+        <RadioButton x:Name="mouseModeHoldRadio" GroupName="mouseMode" Content="{x:Static res:Resources.t_hold}" Margin="0,0,24,0" Checked="mouseModeHoldRadio_Checked"/>
+      </StackPanel>
+
+      <StackPanel x:Name="durationBlock" Orientation="Horizontal" Margin="0,0,0,12" Visibility="Collapsed">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,6,0" Text="{Binding Source={x:Static res:Resources.t_duration}, StringFormat='{}{0}:'}"/>
+        <TextBox x:Name="durationValue" MinWidth="40" Text="3" HorizontalContentAlignment="Center"/>
+        <TextBlock FontSize="14" VerticalAlignment="Bottom" Margin="4,0,0,0" Text="{x:Static res:Resources.t_s}"/>
+      </StackPanel>
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,24,0,0">
+        <Button x:Name="saveRuleButton" Margin="0,0,16,0" Click="saveRuleButton_Click" Content="{x:Static res:Resources.t_save}"/>
+        <Button x:Name="cancelRuleButton" Click="cancelRuleButton_Click" Content="{x:Static res:Resources.t_cancel}"/>
+      </StackPanel>
+    </StackPanel>
+  </ScrollViewer>
 </Window>

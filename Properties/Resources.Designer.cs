@@ -19,7 +19,7 @@ namespace TwitchKeyboard.Properties {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -881,6 +881,33 @@ namespace TwitchKeyboard.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на PubSub error.
+        /// </summary>
+        public static string t_pubSubError {
+            get {
+                return ResourceManager.GetString("t_pubSubError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect to PubSub.
+        /// </summary>
+        public static string t_pubSubInProgress {
+            get {
+                return ResourceManager.GetString("t_pubSubInProgress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cannot find Python on your PC. Go to the TTS tab and install it or specify the folder path manually..
+        /// </summary>
+        public static string t_pythonNotFound {
+            get {
+                return ResourceManager.GetString("t_pythonNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Raid.
         /// </summary>
         public static string t_raid {
@@ -1273,6 +1300,15 @@ namespace TwitchKeyboard.Properties {
         public static string t_upEvents {
             get {
                 return ResourceManager.GetString("t_upEvents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на View changelog.
+        /// </summary>
+        public static string t_viewChangelog {
+            get {
+                return ResourceManager.GetString("t_viewChangelog", resourceCulture);
             }
         }
         

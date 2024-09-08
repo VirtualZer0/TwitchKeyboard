@@ -8,14 +8,14 @@ using TwitchKeyboard.Enums;
 
 namespace TwitchKeyboard.Classes.Controllers
 {
-    /// <summary>
-    /// Controls the operation of a specific key rule, based on its model
-    /// </summary>
-    public class KeyRuleController : BaseRuleController
-    {
-        public override ManagerType cType { get => ManagerType.KEYBOARD; }
+  /// <summary>
+  /// Controls the operation of a specific key rule, based on its model
+  /// </summary>
+  public class KeyRuleController : BaseRuleController
+  {
+    public override ManagerType cType { get => ManagerType.KEYBOARD; }
 
-        public int curTime = 0;
-        public int curSpamDelay = 0;
-    }
+    public int curTime = 0;
+    public int curSpamDelay = 0;
+  }
 }

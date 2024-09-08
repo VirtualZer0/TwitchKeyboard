@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    public enum ManagerType
-    {
-        KEYBOARD = 0,
-        MOUSE,
-        SFX,
-        WEB,
-        CMD,
-        MANAGERS_COUNT
-    }
+  public enum ManagerType
+  {
+    KEYBOARD = 0,
+    MOUSE,
+    SFX,
+    WEB,
+    CMD,
+    MANAGERS_COUNT
+  }
 }

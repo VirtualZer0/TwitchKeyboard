@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    /// <summary>
-    /// Available text comparison modes
-    /// </summary>
-    public enum TextCompareMode
-    {
-        EQUALS = 0,
-        CONTAINS = 1
-    }
+  /// <summary>
+  /// Available text comparison modes
+  /// </summary>
+  public enum TextCompareMode
+  {
+    EQUALS = 0,
+    CONTAINS = 1
+  }
 }

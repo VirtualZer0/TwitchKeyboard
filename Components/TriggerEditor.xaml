@@ -15,62 +15,62 @@
             Background="{DynamicResource MaterialDesignPaper}"
             FontFamily="{DynamicResource MaterialDesignFont}"
              d:DesignHeight="150" MinWidth="650">
-    <materialDesign:Card>
-        <Grid Height="150">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button x:Name="duplicateTrigger"
+  <materialDesign:Card>
+    <Grid Height="150">
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Button x:Name="duplicateTrigger"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
               ToolTip="{x:Static res:Resources.t_duplicateTrigger}" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,38,0" Width="28" Height="28" Panel.ZIndex="10" Click="duplicateTrigger_Click" Cursor="Hand">
-                <materialDesign:PackIcon Kind="ContentCopy" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
-            </Button>
-            <Button x:Name="removeTrigger"
+        <materialDesign:PackIcon Kind="ContentCopy" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
+      </Button>
+      <Button x:Name="removeTrigger"
               Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}"
               ToolTip="{x:Static res:Resources.t_removeTrigger}" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,6,0" Width="28" Height="28" Background="#FFF44336" BorderBrush="#FFF44336" Panel.ZIndex="10" Click="removeTrigger_Click">
-                <materialDesign:PackIcon Kind="Delete" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
-            </Button>
-            <StackPanel Margin="8,0,8,0" Orientation="Horizontal" VerticalAlignment="Stretch">
-                <TextBlock Margin="0,0,12,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_triggerOn}"></TextBlock>
-                <ComboBox x:Name="triggerType" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75" SelectionChanged="triggerType_SelectionChanged">
-                    <ComboBoxItem Content="{x:Static res:Resources.t_message}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_reward}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_bits}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_reSub}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_newSub}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_giftedSub}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_raid}"/>
-                </ComboBox>
-                <Button x:Name="triggerSelectReward" Margin="0,0,8,0" Content="{x:Static res:Resources.t_selectAction}" Visibility="Collapsed" Click="triggerSelectReward_Click" Cursor="Hand"></Button>
-                <StackPanel x:Name="triggerAmount" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
-                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_amountFrom}"></TextBlock>
-                    <TextBox x:Name="triggerMinAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
-                    <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_to}"></TextBlock>
-                    <TextBox x:Name="triggerMaxAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Margin="8,0,8,0" Orientation="Horizontal" VerticalAlignment="Stretch" Grid.Row="1">
-                <CheckBox x:Name="triggerRepeated" VerticalAlignment="Center" Margin="0,0,8,0" ToolTip="{x:Static res:Resources.t_ifRepeatedToolTip}" Content="{x:Static res:Resources.t_ifRepeated}" Click="triggerRepeated_Click"/>
-                <StackPanel x:Name="triggerRepeatedBlock" Orientation="Horizontal">
-                    <TextBox x:Name="triggerRepeatedTimes" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">3</TextBox>
-                    <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_timesInTheLast}"/>
-                    <TextBox x:Name="triggerRepeatedDuration" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">5</TextBox>
-                    <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_seconds}"/>
-                    <CheckBox x:Name="triggerRepeatedUnqiue" Margin="0,0,8,0" ToolTip="{x:Static res:Resources.t_uniqueUsersToolTip}" Content="{x:Static res:Resources.t_uniqueUsers}" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="triggerRepeatedReset" ToolTip="{x:Static res:Resources.t_resetTimerOnRepeatToolTip}" Content="{x:Static res:Resources.t_resetTimerOnRepeat}" VerticalAlignment="Center"/>
-                </StackPanel>
-            </StackPanel>
-            <WrapPanel x:Name="triggerTextPanel" Grid.Row="2" VerticalAlignment="Center" Margin="8,0,8,0" Orientation="Horizontal">
-                <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_text}"/>
-                <ComboBox x:Name="triggerTextCompMode" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75">
-                    <ComboBoxItem Content="{x:Static res:Resources.t_equals}"/>
-                    <ComboBoxItem Content="{x:Static res:Resources.t_contains}"/>
-                </ComboBox>
-                <TextBox x:Name="triggerText" MinWidth="350" Margin="0,0,8,0"></TextBox>
-                <CheckBox x:Name="triggerCaseSensitive" Content="{x:Static res:Resources.t_caseSensitive}"/>
-            </WrapPanel>
-        </Grid>
-    </materialDesign:Card>
+        <materialDesign:PackIcon Kind="Delete" Foreground="{DynamicResource MaterialDesignDarkForeground}"/>
+      </Button>
+      <StackPanel Margin="8,0,8,0" Orientation="Horizontal" VerticalAlignment="Stretch">
+        <TextBlock Margin="0,0,12,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_triggerOn}"></TextBlock>
+        <ComboBox x:Name="triggerType" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75" SelectionChanged="triggerType_SelectionChanged">
+          <ComboBoxItem Content="{x:Static res:Resources.t_message}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_reward}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_bits}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_reSub}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_newSub}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_giftedSub}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_raid}"/>
+        </ComboBox>
+        <Button x:Name="triggerSelectReward" Margin="0,0,8,0" Content="{x:Static res:Resources.t_selectAction}" Visibility="Collapsed" Click="triggerSelectReward_Click" Cursor="Hand"></Button>
+        <StackPanel x:Name="triggerAmount" VerticalAlignment="Center" Orientation="Horizontal" Visibility="Collapsed">
+          <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_amountFrom}"></TextBlock>
+          <TextBox x:Name="triggerMinAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
+          <TextBlock Margin="0,0,8,0" VerticalAlignment="Center" Text="{x:Static res:Resources.t_to}"></TextBlock>
+          <TextBox x:Name="triggerMaxAmount" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">10</TextBox>
+        </StackPanel>
+      </StackPanel>
+      <StackPanel Margin="8,0,8,0" Orientation="Horizontal" VerticalAlignment="Stretch" Grid.Row="1">
+        <CheckBox x:Name="triggerRepeated" VerticalAlignment="Center" Margin="0,0,8,0" ToolTip="{x:Static res:Resources.t_ifRepeatedToolTip}" Content="{x:Static res:Resources.t_ifRepeated}" Click="triggerRepeated_Click"/>
+        <StackPanel x:Name="triggerRepeatedBlock" Orientation="Horizontal">
+          <TextBox x:Name="triggerRepeatedTimes" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">3</TextBox>
+          <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_timesInTheLast}"/>
+          <TextBox x:Name="triggerRepeatedDuration" VerticalAlignment="Center" MinWidth="25" HorizontalContentAlignment="Center" Margin="0,0,8,0">5</TextBox>
+          <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_seconds}"/>
+          <CheckBox x:Name="triggerRepeatedUnqiue" Margin="0,0,8,0" ToolTip="{x:Static res:Resources.t_uniqueUsersToolTip}" Content="{x:Static res:Resources.t_uniqueUsers}" VerticalAlignment="Center"/>
+          <CheckBox x:Name="triggerRepeatedReset" ToolTip="{x:Static res:Resources.t_resetTimerOnRepeatToolTip}" Content="{x:Static res:Resources.t_resetTimerOnRepeat}" VerticalAlignment="Center"/>
+        </StackPanel>
+      </StackPanel>
+      <WrapPanel x:Name="triggerTextPanel" Grid.Row="2" VerticalAlignment="Center" Margin="8,0,8,0" Orientation="Horizontal">
+        <TextBlock VerticalAlignment="Center" Margin="0,0,8,0" Text="{x:Static res:Resources.t_text}"/>
+        <ComboBox x:Name="triggerTextCompMode" VerticalAlignment="Center" SelectedIndex="0" Margin="0,0,8,0" MinWidth="75">
+          <ComboBoxItem Content="{x:Static res:Resources.t_equals}"/>
+          <ComboBoxItem Content="{x:Static res:Resources.t_contains}"/>
+        </ComboBox>
+        <TextBox x:Name="triggerText" MinWidth="350" Margin="0,0,8,0"></TextBox>
+        <CheckBox x:Name="triggerCaseSensitive" Content="{x:Static res:Resources.t_caseSensitive}"/>
+      </WrapPanel>
+    </Grid>
+  </materialDesign:Card>
 </UserControl>

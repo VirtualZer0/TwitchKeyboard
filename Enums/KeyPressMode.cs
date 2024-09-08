@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TwitchKeyboard.Enums
 {
-    public enum KeyPressMode
-    {
-        Press = 0,
-        Spam,
-        Hold,
-        Double // For mouse only
-    }
+  public enum KeyPressMode
+  {
+    Press = 0,
+    Spam,
+    Hold,
+    Double // For mouse only
+  }
 }

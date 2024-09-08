@@ -10,11 +10,11 @@ using TwitchKeyboard.Enums;
 
 namespace TwitchKeyboard.Classes
 {
-    public class LaunchedRuleIndicator
-    {
-        public int delay { get; set; } = 0;
-        public int duration { get; set; } = 0;
-        public string eventType { get; set; } = "";
-        public string text { get; set; } = "";
-    }
+  public class LaunchedRuleIndicator
+  {
+    public int delay { get; set; } = 0;
+    public int duration { get; set; } = 0;
+    public string eventType { get; set; } = "";
+    public string text { get; set; } = "";
+  }
 }
